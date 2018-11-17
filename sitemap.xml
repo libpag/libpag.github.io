@@ -3,10 +3,8 @@
 <url> <loc>https://libpag.org/faq.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/en/faq.html" /> </url>
 <url> <loc>https://libpag.org/index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/en/index.html" /> </url>
 <url> <loc>https://libpag.org/users.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/en/users.html" /> </url>
-<url> <loc>https://libpag.org/docs/doc1.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc1.html" /> </url>
-<url> <loc>https://libpag.org/docs/doc2.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc2.html" /> </url>
-<url> <loc>https://libpag.org/docs/doc3.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc3.html" /> </url>
 <url> <loc>https://libpag.org/docs/doc4.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc4.html" /> </url>
 <url> <loc>https://libpag.org/docs/doc5.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc5.html" /> </url>
 <url> <loc>https://libpag.org/docs/install.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/install.html" /> </url>
+<url> <loc>https://libpag.org/docs/sdk.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/sdk.html" /> </url>
 </urlset>

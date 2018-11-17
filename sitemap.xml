@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://libpag.org/faq.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/en/faq.html" /> </url>
 <url> <loc>https://libpag.org/index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/en/index.html" /> </url>
 <url> <loc>https://libpag.org/users.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/en/users.html" /> </url>
-<url> <loc>https://libpag.org/docs/doc4.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc4.html" /> </url>
-<url> <loc>https://libpag.org/docs/doc5.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/doc5.html" /> </url>
+<url> <loc>https://libpag.org/docs/api.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/api.html" /> </url>
+<url> <loc>https://libpag.org/docs/faq.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/faq.html" /> </url>
+<url> <loc>https://libpag.org/docs/guide.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/guide.html" /> </url>
 <url> <loc>https://libpag.org/docs/install.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/install.html" /> </url>
 <url> <loc>https://libpag.org/docs/sdk.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/sdk.html" /> </url>
+<url> <loc>https://libpag.org/docs/update.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://libpag.org/docs/update.html" /> </url>
 </urlset>

@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>AE功能支持列表 · PAG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;序列帧方式导出可以支持所有的AE特性，但是文件体积较大，矢量方式导出文件极小，但仅支持部分AE特性，矢量导出方式通常用于UI动画等对于文件大小和性能敏感，以及需要贴纸内容可编辑的场合。序列帧导出方式也可以被矢量导出方式嵌套，作为它的一个图层来实现AE特效和可编辑的结合。部分未继续列举子属性的功能点，说明下一级子属性列表已全部支持。&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="AE功能支持列表 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.im/index.html"/><meta property="og:description" content="&lt;p&gt;序列帧方式导出可以支持所有的AE特性，但是文件体积较大，矢量方式导出文件极小，但仅支持部分AE特性，矢量导出方式通常用于UI动画等对于文件大小和性能敏感，以及需要贴纸内容可编辑的场合。序列帧导出方式也可以被矢量导出方式嵌套，作为它的一个图层来实现AE特效和可编辑的结合。部分未继续列举子属性的功能点，说明下一级子属性列表已全部支持。&lt;/p&gt;
+"/><meta property="og:image" content="https://pag.im/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.im/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/pag-256x256.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/pag-export.html" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/docs/api.html" target="_self">API参考</a></li><li class="siteNavGroupActive"><a href="/docs/faq.html" target="_self">常见问题</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>使用指南</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul><li class="navListItem"><a class="navItem" href="/docs/install.html">安装</a></li><li class="navListItem"><a class="navItem" href="/docs/update.html">检查更新</a></li><li class="navListItem"><a class="navItem" href="/docs/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">使用指南</h3><ul><li class="navListItem"><a class="navItem" href="/docs/pag-export.html">导出PAG文件</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ae-support.html">AE功能支持列表</a></li><li class="navListItem"><a class="navItem" href="/docs/editable-text.html">可编辑文本制作规则</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-config.html">插件选项配置面板</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler.html">使用性能监测面板</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API参考</h3><ul><li class="navListItem"><a class="navItem" href="/docs/api.html">API参考</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">更多</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">常见问题</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">AE功能支持列表</h1></header><article><div><span><p>序列帧方式导出可以支持所有的AE特性，但是文件体积较大，矢量方式导出文件极小，但仅支持部分AE特性，矢量导出方式通常用于UI动画等对于文件大小和性能敏感，以及需要贴纸内容可编辑的场合。序列帧导出方式也可以被矢量导出方式嵌套，作为它的一个图层来实现AE特效和可编辑的结合。部分未继续列举子属性的功能点，说明下一级子属性列表已全部支持。</p>
+<h1><a class="anchor" aria-hidden="true" id="序列帧导出"></a><a href="#序列帧导出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>序列帧导出</h1>
+<h3><a class="anchor" aria-hidden="true" id="位图序列帧"></a><a href="#位图序列帧" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>位图序列帧</h3>
+<h1><a class="anchor" aria-hidden="true" id="矢量导出"></a><a href="#矢量导出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>矢量导出</h1>
+<h3><a class="anchor" aria-hidden="true" id="所有关键帧动画属性都支持"></a><a href="#所有关键帧动画属性都支持" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>所有关键帧动画属性都支持</h3>
+<h3><a class="anchor" aria-hidden="true" id="图层类型-layer-types"></a><a href="#图层类型-layer-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图层类型 (Layer Types)</h3>
+<pre><code class="hljs">虚拟对象 (Null Object)
+实色图层 (Solid Layer)
+文字图层 (Text Layer)
+形状图层 (Shape Layer)
+预合成图层 (PreCompose Layer)
+图片图层 (Image Layer)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="变换-transforms"></a><a href="#变换-transforms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>变换 (Transforms)</h3>
+<pre><code class="hljs">定位点 (Anchor Point)
+位置 (Position)
+位置分离XY轴 (Position Separated X/Y )
+缩放 (Scale)
+旋转 (Rotation)
+透明度 (Opactiy)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="混合模式-blend-modes"></a><a href="#混合模式-blend-modes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>混合模式 (Blend Modes)</h3>
+<pre><code class="hljs">正常 (Normal)
+变暗 (Darken)
+相乘 (Multiply)
+颜色加深 (ColorBurn)
+变亮 (Lighten)
+屏幕 (Screen)
+颜色减淡 (ColorDodge)
+叠加 (Overlay)
+柔光 (SoftLight)
+强光 (HardLight)
+差值 (Difference)
+排除 (Exclusion)
+色相 (Hue)
+饱和度 (Saturation)
+颜色 (Color)
+发光度 (Luminosity)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="轨道蒙板-track-mattes"></a><a href="#轨道蒙板-track-mattes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>轨道蒙板 (Track Mattes)</h3>
+<pre><code class="hljs">无 (None)
+Alpha 蒙板 (Alpha)
+反向 Alpha 蒙板 (Alpha Inverted)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="遮罩-masks"></a><a href="#遮罩-masks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>遮罩 (Masks)</h3>
+<pre><code class="hljs">遮罩形状 (Mask Path)
+遮罩扩展 (Mask Expansion)
+遮罩模式 (Mask Modes)
+    无 (None)
+    相加 (Add)
+    相减 (Subtract)
+    交集 (Intersect)
+    差值 (Difference)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="图层样式-layer-styles"></a><a href="#图层样式-layer-styles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图层样式 (Layer Styles)</h3>
+<pre><code class="hljs">投影 (Drop Shadow)
+    混合模式 (Blend Mode)
+    颜色 (Color)
+    不透明度 (Opacity)
+    角度 (Angle)
+    距离 (Distance)
+    大小 (Size)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="其他图层属性-others-layer-properties"></a><a href="#其他图层属性-others-layer-properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>其他图层属性 (Others Layer Properties)</h3>
+<pre><code class="hljs">图层父级 (Layer Parenting)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="形状图层-shapes"></a><a href="#形状图层-shapes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>形状图层 (Shapes)</h3>
+<pre><code class="hljs">组 (Group)
+矩形 (Rectangle)
+椭圆 (Ellipse)
+多边星形 (Polystar)
+路径 (Path)
+填充 (Fill)
+描边 (Stroke)
+合并路径 (Merge Paths)
+修剪路径 (Trim Paths)
+圆角 (Round Corners)
+渐变填充 (Gradient Fill)
+渐变描边 (Gradient Stroke)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="文本图层-texts"></a><a href="#文本图层-texts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>文本图层 (Texts)</h3>
+<pre><code class="hljs">源文本 (SourceText)
+    基线偏移 (Baseline Shift)
+    点文本 (Point Text)
+    带框文本 (Box Text)
+    仿粗体 (Faux Bold)
+    仿斜体 (Faux Italic)
+    文本颜色 (Fill Color)
+    字体名称 (Font Family)
+    字体样式 (Font Style)
+    字号 (Font Size)
+    描边颜色 (Stroke Color)
+    描边宽度 (Stroke Width)
+    交换图层和描边 (Stroke Over Fill)
+    行距 (Leading)
+    字间距 (Tracking)
+    文本对齐 (Paragraph Justification)
+        左对齐 (Left)
+        居中对齐 (Center)
+        右对齐 (Right)
+        最后一行左对齐 (Full Justify Last Line Left)
+        最后一行居中对齐 (Full Justify Last Line Center)
+        最后一行右对齐 (Full Justify Last Line Right)
+        两端对齐 (Full Justify Last Line Full)
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="计划中将要支持的特性"></a><a href="#计划中将要支持的特性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>计划中将要支持的特性</h1>
+<h3><a class="anchor" aria-hidden="true" id="变换-transforms-1"></a><a href="#变换-transforms-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>变换 (Transforms)</h3>
+<pre><code class="hljs">3D 属性 (3D Properties)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="形状图层-shapes-1"></a><a href="#形状图层-shapes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>形状图层 (Shapes)</h3>
+<pre><code class="hljs">中继器 (Repeater)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="文本图层-texts-1"></a><a href="#文本图层-texts-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>文本图层 (Texts)</h3>
+<pre><code class="hljs">路径选项 (Path Options)
+更多选项 (More Options)
+动画制作工具 (Animator)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="图层效果-layer-effects"></a><a href="#图层效果-layer-effects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图层效果 (Layer Effects)</h3>
+<pre><code class="hljs">浅色调 (Tint)
+填充 (Fill)
+描边 (Stroke)
+三色调 (Tritone)
+投影 (Drop Shadow)
+径向擦除 (Radial Wipe)
+置换 (Displacement Map)
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/pag-export.html"><span class="arrow-prev">← </span><span>导出PAG文件</span></a><a class="docs-next button" href="/docs/editable-text.html"><span>可编辑文本制作规则</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2018 pag.im</section></footer></div></body></html>

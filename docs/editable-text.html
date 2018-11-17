@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>可编辑文本制作规则 · PAG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;可编辑文本相关的制作规则：&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="可编辑文本制作规则 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.im/index.html"/><meta property="og:description" content="&lt;p&gt;可编辑文本相关的制作规则：&lt;/p&gt;
+"/><meta property="og:image" content="https://pag.im/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.im/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/pag-256x256.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/pag-export.html" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/docs/api.html" target="_self">API参考</a></li><li class="siteNavGroupActive"><a href="/docs/faq.html" target="_self">常见问题</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>使用指南</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul><li class="navListItem"><a class="navItem" href="/docs/install.html">安装</a></li><li class="navListItem"><a class="navItem" href="/docs/update.html">检查更新</a></li><li class="navListItem"><a class="navItem" href="/docs/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">使用指南</h3><ul><li class="navListItem"><a class="navItem" href="/docs/pag-export.html">导出PAG文件</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-support.html">AE功能支持列表</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/editable-text.html">可编辑文本制作规则</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-config.html">插件选项配置面板</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler.html">使用性能监测面板</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API参考</h3><ul><li class="navListItem"><a class="navItem" href="/docs/api.html">API参考</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">更多</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq.html">常见问题</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">可编辑文本制作规则</h1></header><article><div><span><p>可编辑文本相关的制作规则：</p>
+<ol>
+<li>可编辑文本（即文本内容有被替换的需求）用文本图层制作</li>
+<li>不可编辑文本要转换为形状图层做（右键从文字创建形状）</li>
+<li>可编辑的文本请不要放进预合成图层里，会无法读取替换内容。</li>
+<li>预合成内的文本本身就无法读取，所以可以不转换为形状图层，但是如果使用了非指定的特殊字体，需要转换成形状图层来保留字体效果。</li>
+<li>可编辑文本必须用画文本框方式来制作，而不是直接输入的点文本（需要文本框来约束换行以及字号自动缩小规则）</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ae-support.html"><span class="arrow-prev">← </span><span>AE功能支持列表</span></a><a class="docs-next button" href="/docs/plugin-config.html"><span>插件选项配置面板</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2018 pag.im</section></footer></div></body></html>

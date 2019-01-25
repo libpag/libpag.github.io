@@ -13,5 +13,6 @@
 <url> <loc>https://pag.im/docs/plugin-config.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://pag.im/docs/plugin-config.html" /> </url>
 <url> <loc>https://pag.im/docs/profiler.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://pag.im/docs/profiler.html" /> </url>
 <url> <loc>https://pag.im/docs/sdk.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://pag.im/docs/sdk.html" /> </url>
+<url> <loc>https://pag.im/docs/test.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://pag.im/docs/test.html" /> </url>
 <url> <loc>https://pag.im/docs/update.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://pag.im/docs/update.html" /> </url>
 </urlset>

@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>pag 文件加载与渲染优化 · PAG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Pag 在文件加载和渲染流程上进行了优化，把 File、Render 和 Surface 层分离。Render 层控制渲染流程，File 负责加载和缓存资源，Surface 层用于管理显存和显示内容。&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="pag 文件加载与渲染优化 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.im/index.html"/><meta property="og:description" content="&lt;p&gt;Pag 在文件加载和渲染流程上进行了优化，把 File、Render 和 Surface 层分离。Render 层控制渲染流程，File 负责加载和缓存资源，Surface 层用于管理显存和显示内容。&lt;/p&gt;
+"/><meta property="og:image" content="https://pag.im/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.im/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/pag-256x256.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/pag-export.html" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/docs/api.html" target="_self">API参考</a></li><li class="siteNavGroupActive"><a href="/docs/faq.html" target="_self">常见问题</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>架构设计</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/install.html">安装</a></li><li class="navListItem"><a class="navItem" href="/docs/update.html">检查更新</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">使用指南</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/pag-export.html">导出PAG文件</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-support.html">AE功能支持列表</a></li><li class="navListItem"><a class="navItem" href="/docs/editable-text.html">可编辑文本制作规则</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-config.html">插件选项配置面板</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler.html">使用性能监测面板</a></li><li class="navListItem"><a class="navItem" href="/docs/cms-verify.html">PAG性能校验使用指南</a></li><li class="navListItem"><a class="navItem" href="/docs/export-png.html">如何从PAG导出PNG文件</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API参考</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/api.html">API参考</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">架构设计</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/pag-file-render-optimize.html">pag 文件加载与渲染优化</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">更多</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/faq.html">常见问题</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">pag 文件加载与渲染优化</h1></header><article><div><span><p>Pag 在文件加载和渲染流程上进行了优化，把 File、Render 和 Surface 层分离。Render 层控制渲染流程，File 负责加载和缓存资源，Surface 层用于管理显存和显示内容。</p>
+<p>通过分离这三层，可以对 File 进行资源复用，重复的文件无需重复创建，减少解码开销和内存占用。多个 Render 层可以复用同一个 Surface 的显存，以减少贴纸重叠在一起时的显存开销。</p>
+<p><img src="https://i.postimg.cc/MpGjs744/1550129206286.jpg" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="方案对比"></a><a href="#方案对比" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>方案对比</h2>
+<p>原来的方案，首先会加载贴纸的素材文件，这其中有配置描述、图片等资源数据。然后在渲染的时候，使用配置描述和图片拼成最终的贴纸样式。每个贴纸都是独立的一套系统。如果有 n 个贴纸，则会重复执行这 n 次流程。每次都会加载资源到内存中。</p>
+<p><img src="https://i.postimg.cc/YqWSCTsg/1.png" alt=""></p>
+<p>在渲染层，原来的技术方案是独立使用各自的渲染画布，在所有贴纸内容都绘制完后，再把这些内容合并到一个画布上。</p>
+<p><img src="https://i.postimg.cc/rs79T7Yg/2.png" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="优化方案"></a><a href="#优化方案" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优化方案</h2>
+<p><strong>资源优化</strong></p>
+<p>现有的方案是针对每个独立的资源进行完整的解析和渲染，这么做会产生一个问题，如果同时加载大量相同资源的贴纸，应用会重复创建相同的资源并保留在内存中，这其实是没有必要的，完全可以让它们共用同一个资源。</p>
+<p>本方案在资源侧的优化点：</p>
+<ol>
+<li>有多次加载同一个资源时，无需重复解码，因为解码文件需要比较多的耗时。直接使用缓存的资源，消除重复解码文件的耗时。</li>
+<li>有多次加载同一个资源时，在内存中复用同一块内存，减少应用中的内存大小。</li>
+</ol>
+<p><strong>渲染优化</strong></p>
+<p>在渲染的时候，每个贴纸都会创建独立的画布分别占用显存。如果数量不多还好，当贴纸数量增加，显存的大小也会线性增长，有几个贴纸就会有多少显存。而一个贴纸往往都会占用不小的显存大小，添加十几个贴纸就可能达到应用显存上限，造成闪退。特别是如果这些贴纸有存在重叠部分或者超出显示区域的部分，这部分显存是不必要的。而实际上这些绘制的内容可以共享画布，这样不管有多少个贴纸显存都不会有变化。</p>
+<p>本方案在渲染上的主要优化点：</p>
+<ol>
+<li>使用一个画布作为所有贴纸的渲染目标，减少大量贴纸重叠或超出显示区时的显存大小。</li>
+<li>Lottie 没有提供共享画布的接口，每个贴纸都会有一个 OpenGL 上下文，每个贴纸保留 OpenGL 上下文都需要不小的性能开销。另外每个贴纸都需要先绘制到自己的画布，最后再合并绘制到主画布上，总共需要 n + 1 次绘制。而新的方案所有的贴纸同时绘制到共享画布上，最终只需绘制 1 次。</li>
+<li>另外贴纸效果一般是一个动画过程，每一帧的效果都不一样。本方案还通过缓存绘制后的数据，如果有多个贴纸使用同一资源可以减少绘制次数。以及在贴纸绘制一遍之后，从第二遍开始可以直接用缓存的绘制好的内容。</li>
+</ol>
+<p>本技术方案主要就是为了解决同一种资源重复加载使内存变多的问题，以及解决当贴纸数量增多时显存大小不断变大的问题。</p>
+<h2><a class="anchor" aria-hidden="true" id="实现原理"></a><a href="#实现原理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现原理</h2>
+<p>在资源加载的优化上，目标是让同一种资源复用同一块内存，只会加载一次到应用中。如图所示</p>
+<p><img src="https://i.postimg.cc/52W2Yphr/3.png" alt=""></p>
+<p>资源加载的具体实现步骤是：</p>
+<ol>
+<li>应用接收资源文件地址，从内存缓存中根据文件路径查找是否已经存在资源。</li>
+<li>有，则直接从内存中获取数据。无，则开始解析并加载资源。</li>
+<li>将加载的资源和文件路径关联，文件路径作为 key 值，并缓存在内存中</li>
+<li>有新的资源加载时，重复步奏1-3</li>
+</ol>
+<p>通过这种将已经加载的资源进行标记，让之后的相同资源直接使用的方式，降低应用中不必要的内存占用。</p>
+<p>在渲染的显存优化上，目标在于优化大量贴纸的情况下显存大小会不断增加的问题。特别是如果这些贴纸有重叠在一起或者超出显示范围。</p>
+<p>本技术方案通过让所有贴纸共享一个画布，所有的贴纸都绘制到同一个画布上，而只有这一个画布存储在显存中，这种方式可以做到永远只有共享画布大小的显存，无论有多少个贴纸。</p>
+<p><img src="https://i.postimg.cc/L8KVbKP8/4.png" alt=""></p>
+<p>该方案的主要实现步骤：</p>
+<ol>
+<li>在渲染阶段，根据视频画面大小创建一块显存空间。</li>
+<li>贴纸在绘制的时候绘制目标设置为上一步创建的显存空间</li>
+<li>贴纸进行绘制并覆盖掉显存空间内的像素</li>
+<li>有新的贴纸需要绘制重复 2-3</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="总结"></a><a href="#总结" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>总结</h2>
+<p>通过这些优化，大大降低了应用的内存占用量和显存占用量，提升了贴纸的渲染性能，可以让应用支持大量贴纸效果同时显示。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api.html"><span class="arrow-prev">← </span><span>API参考</span></a><a class="docs-next button" href="/docs/faq.html"><span>常见问题</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#方案对比">方案对比</a></li><li><a href="#优化方案">优化方案</a></li><li><a href="#实现原理">实现原理</a></li><li><a href="#总结">总结</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2019 pag.im</section></footer></div></body></html>

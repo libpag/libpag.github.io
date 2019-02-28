@@ -55,66 +55,62 @@
 <h3><a class="anchor" aria-hidden="true" id="如何接入"></a><a href="#如何接入" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何接入</h3>
 <h4><a class="anchor" aria-hidden="true" id="1-派生实现如下2个父类"></a><a href="#1-派生实现如下2个父类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1、派生实现如下2个父类：</h4>
 <pre><code class="hljs">    <span class="hljs-comment">/**
-     * the factory of software decoder, need implement the createSoftwareDecoder function
+     * The factory of software decoder.
      */</span>
     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoftwareDecoderFactory</span> {</span>
     <span class="hljs-keyword">public</span>:
-        <span class="hljs-keyword">virtual</span> ~SoftwareDecoderFactory() {};
+        <span class="hljs-keyword">virtual</span> ~SoftwareDecoderFactory() = <span class="hljs-keyword">default</span>;
+
         <span class="hljs-comment">/**
-         * Create software decoder
-         * @return: the unique pointer of software decoder
+         * Create a software decoder
          */</span>
-        <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;SoftwareDecoder&gt; createSoftwareDecoder() { <span class="hljs-keyword">return</span> <span class="hljs-literal">nullptr</span>; }
+        <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;SoftwareDecoder&gt; createSoftwareDecoder() = <span class="hljs-number">0</span>;
     };
 
     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoftwareDecoder</span> {</span>
     <span class="hljs-keyword">public</span>:
-        SoftwareDecoder() {};
-
-        <span class="hljs-keyword">virtual</span> ~SoftwareDecoder() {};
+        <span class="hljs-keyword">virtual</span> ~SoftwareDecoder()  = <span class="hljs-keyword">default</span>;
 
         <span class="hljs-comment">/**
-         * configure the software decoder
-         * @param headers: contain the configure data. for example: csd-0、csd-1.
-         * @param mime: mime type. for example: video/avc
-         * @param width: video width
-         * @param height: video height
-         * @return: true:success， false:fail
+         * Configure the software decoder.
+         * @param headers Codec specific data. for example: csd-0、csd-1.
+         * @param mime MIME type. for example: "video/avc"
+         * @param width video width
+         * @param height video height
+         * @return Return true if configure successfully.
          */</span>
-        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">onConfigure</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;ByteData*&gt;&amp; headers, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> mime, <span class="hljs-keyword">int</span> width, <span class="hljs-keyword">int</span> height)</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; };
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">onConfigure</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;ByteData*&gt;&amp; headers, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> mime,
+                                 <span class="hljs-keyword">int</span> width, <span class="hljs-keyword">int</span> height)</span> </span>= <span class="hljs-number">0</span>;
 
         <span class="hljs-comment">/**
-         * send the video sample data to the software decoder
-         * @param bytes: video sample data
-         * @param length: the size of data
-         * @param frame: sample timestamp
-         * @return
+         * Send a frame of bytes for decoding. The same bytes will be sent next time if it returns
+         * SoftwareDecodeResult::TryAgainLater
+         * @param bytes: The sample data for decoding.
+         * @param length: The size of sample data
+         * @param frame: The timestamp of this sample data.
          */</span>
-        <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodeResult <span class="hljs-title">onSendBytes</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* bytes, <span class="hljs-keyword">size_t</span> length, <span class="hljs-keyword">int64_t</span> frame)</span> </span>{ <span class="hljs-keyword">return</span> SoftwareDecodeResult::Success; };
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodeResult <span class="hljs-title">onSendBytes</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* bytes, <span class="hljs-keyword">size_t</span> length, <span class="hljs-keyword">int64_t</span> frame)</span> </span>= <span class="hljs-number">0</span>;
 
         <span class="hljs-comment">/**
-         * decode the video sample data that you have sent(onSendBytes) to the decoder
-         * @return
+         * Try to decode a new frame from the pending frames sent by onSendBytes(). More pending
+         * frames will be sent by onSendBytes() if it returns SoftwareDecodeResult::TryAgainLater.
          */</span>
-        <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodeResult <span class="hljs-title">onDecodeFrame</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> SoftwareDecodeResult::Success; };
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodeResult <span class="hljs-title">onDecodeFrame</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
 
         <span class="hljs-comment">/**
-         * flush the software decoder
+         * Called when seeking happens to clear all pending frames.
          */</span>
-        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFlush</span><span class="hljs-params">()</span> </span>{};
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFlush</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
 
         <span class="hljs-comment">/**
-         * return decoded data to render.
-         * @Note: the format of decoded data must be YUV format
-         * @return:
+         * Return decoded data to render, the format of decoded data must be in YUV420p format.
          */</span>
-        <span class="hljs-function"><span class="hljs-keyword">virtual</span> VFrame* <span class="hljs-title">onRenderFrame</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">nullptr</span>; };
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> OutputFrame* <span class="hljs-title">onRenderFrame</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
 
         <span class="hljs-comment">/**
-         * notify end of stream, express complete the playback of pag file
-         * @return
+         * Called to notify there is no more sample bytes available.
          */</span>
-        <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodeResult <span class="hljs-title">onEndOfStream</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> SoftwareDecodeResult::Success; };
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodeResult <span class="hljs-title">onEndOfStream</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
     };
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="2-实例化派生softwaredecoderfactory的子类-将该实例的指针动态注册给pag模块"></a><a href="#2-实例化派生softwaredecoderfactory的子类-将该实例的指针动态注册给pag模块" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2、实例化派生SoftwareDecoderFactory的子类，将该实例的指针动态注册给pag模块。</h4>

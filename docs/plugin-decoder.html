@@ -53,8 +53,39 @@
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">注入视频解码器</h1></header><article><div><span><h3><a class="anchor" aria-hidden="true" id="概述"></a><a href="#概述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>概述</h3>
 <p>PAG贴纸现在支持三类导出方式，序列帧导出、矢量导出、视频帧导出。针对视频帧导出的pag文件中的视频解码，默认会选择硬解码器解码。目前在android上，能够支持动态接入用户自研的解码器。</p>
 <h3><a class="anchor" aria-hidden="true" id="如何接入"></a><a href="#如何接入" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何接入</h3>
-<h4><a class="anchor" aria-hidden="true" id="1-include-softwaredecoderh-派生实现如下2个父类"></a><a href="#1-include-softwaredecoderh-派生实现如下2个父类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1、include SoftwareDecoder.h,派生实现如下2个父类：</h4>
-<pre><code class="hljs">    <span class="hljs-comment">/**
+<h4><a class="anchor" aria-hidden="true" id="1-include-font-color-blue-softwaredecoderh-font-file-softwaredecoderh-派生实现如下2个父类"></a><a href="#1-include-font-color-blue-softwaredecoderh-font-file-softwaredecoderh-派生实现如下2个父类" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1、include <a href="/file/SoftwareDecoder.h"><font color=blue>SoftwareDecoder.h</font></a>,派生实现如下2个父类：</h4>
+<pre><code class="hljs"><span class="hljs-keyword">namespace</span> pag {
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">OutputFrame</span> {</span>
+        <span class="hljs-comment">/**
+         * The YUV data, each value is a pointer to the picture planes.
+         */</span>
+        <span class="hljs-keyword">uint8_t</span>* data[<span class="hljs-number">3</span>];
+        <span class="hljs-comment">/**
+         * The size in bytes of each picture line.
+         */</span>
+        <span class="hljs-keyword">int</span> lineSize[<span class="hljs-number">3</span>];
+    };
+
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">CodecHeader</span> {</span>
+        <span class="hljs-comment">/**
+         * Codec specific data
+         */</span>
+        <span class="hljs-keyword">uint8_t</span>* data;
+        <span class="hljs-comment">/**
+        * The size in bytes of each CSD.
+        */</span>
+        <span class="hljs-keyword">size_t</span> length;
+    };
+
+    <span class="hljs-keyword">enum</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoftwareDecodingResult</span> {</span>
+        Success = <span class="hljs-number">0</span>,            <span class="hljs-comment">//success</span>
+        TryAgainLater = <span class="hljs-number">-1</span>,     <span class="hljs-comment">//try again later.</span>
+        Error = <span class="hljs-number">-2</span>,             <span class="hljs-comment">//error</span>
+    };
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoftwareDecoder</span>;</span>
+
+    <span class="hljs-comment">/**
      * The factory of software decoder.
      */</span>
     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoftwareDecoderFactory</span> {</span>
@@ -96,12 +127,12 @@
          * frames will be sent by onSendBytes() if it returns SoftwareDecodeResult::TryAgainLater.
          */</span>
         <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodingResult <span class="hljs-title">onDecodeFrame</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
-
+        
         <span class="hljs-comment">/**
          * Called to notify there is no more sample bytes available.
          */</span>
         <span class="hljs-function"><span class="hljs-keyword">virtual</span> SoftwareDecodingResult <span class="hljs-title">onEndOfStream</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
-
+        
         <span class="hljs-comment">/**
          * Called when seeking happens to clear all pending frames.
          */</span>
@@ -112,13 +143,17 @@
          */</span>
         <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;OutputFrame&gt; onRenderFrame() = <span class="hljs-number">0</span>;
 
-
+        
     };
+}
+
 </code></pre>
-<h4><a class="anchor" aria-hidden="true" id="2-实例化派生softwaredecoderfactory的子类-将该实例的指针动态注册给pag模块-同时设置最大硬件码器个数为0"></a><a href="#2-实例化派生softwaredecoderfactory的子类-将该实例的指针动态注册给pag模块-同时设置最大硬件码器个数为0" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2、实例化派生SoftwareDecoderFactory的子类，将该实例的指针动态注册给pag模块，同时设置最大硬件码器个数为0.</h4>
+<h4><a class="anchor" aria-hidden="true" id="2-实例化派生softwaredecoderfactory的子类-将该实例的指针动态注册给pag模块"></a><a href="#2-实例化派生softwaredecoderfactory的子类-将该实例的指针动态注册给pag模块" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2、实例化派生SoftwareDecoderFactory的子类，将该实例的指针动态注册给pag模块.</h4>
 <p>该 factory 的实例指针，强转为 long 类形参数通过 jni 传递到 Java 层，然后调用如下方法注入指针到 libpag 模块。</p>
 <pre><code class="hljs">    <span class="hljs-selector-tag">VideoDecoder</span><span class="hljs-selector-class">.RegisterSoftwareDecoderFactory</span>(<span class="hljs-selector-tag">FFmpegDecoderFactory</span><span class="hljs-selector-class">.GetDecoderFactory</span>());
-    <span class="hljs-selector-tag">VideoDecoder</span><span class="hljs-selector-class">.SetMaxHardwareDecoderCount</span>(0);
+</code></pre>
+<p>若需要测试软解解码器是否生效，可以通过如下代码来设置最大硬件码器个数为0，强制使用软解解码器：</p>
+<pre><code class="hljs">VideoDecoder.SetMaxHardwareDecoderCount(<span class="hljs-number">0</span>)<span class="hljs-comment">;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="注入解码器范例工程"></a><a href="#注入解码器范例工程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>注入解码器范例工程：</h3>
 <p>ligpag 注入视频解码器范例工程的获取请联系我们的产品经理： <strong>bosslin(林泽容), <a href="mailto:bosslin@tencent.com">bosslin@tencent.com</a></strong></p>

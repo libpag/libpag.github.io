@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGViewListener Protocol Reference</title>
+	<title>PAGVideoDecoder Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -54,19 +54,15 @@
 	
 
 	
-
-	
-	<optgroup label="Instance Methods">
+	<optgroup label="Class Methods">
 		
-		<option value="//api/name/onAnimationCancel">- onAnimationCancel</option>
+		<option value="//api/name/RegisterSoftwareDecoderFactory:">+ RegisterSoftwareDecoderFactory:</option>
 		
-		<option value="//api/name/onAnimationEnd">- onAnimationEnd</option>
-		
-		<option value="//api/name/onAnimationRepeat">- onAnimationRepeat</option>
-		
-		<option value="//api/name/onAnimationStart">- onAnimationStart</option>
+		<option value="//api/name/SetMaxHardwareDecoderCount:">+ SetMaxHardwareDecoderCount:</option>
 		
 	</optgroup>
+	
+
 	
 	
 </select>
@@ -81,16 +77,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGViewListener Protocol Reference</h1>
+					<h1 class="title">PAGVideoDecoder Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Conforms to</th>
+	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGView.h</td>
+	<td>PAGVideoDecoder.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -108,8 +104,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/onAnimationStart" title="onAnimationStart"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationStart">&ndash;&nbsp;onAnimationStart</a></code>
+	<a name="//api/name/RegisterSoftwareDecoderFactory:" title="RegisterSoftwareDecoderFactory:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/RegisterSoftwareDecoderFactory:">+&nbsp;RegisterSoftwareDecoderFactory:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -119,12 +115,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the start of the animation.</p>
+				<p>Register a software decoder factory to implement the decoder fallback mechanism.
+For further info please visit : <a href="https://pag.im/docs/plugin-decoder.html">https://pag.im/docs/plugin-decoder.html</a></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationStart</code></div>
+			<div class="method-subsection method-declaration"><code>+ (void)RegisterSoftwareDecoderFactory:(void *)<em>decoderFactory</em></code></div>
 
 		    
 			
@@ -142,15 +139,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoDecoder.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onAnimationEnd" title="onAnimationEnd"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationEnd">&ndash;&nbsp;onAnimationEnd</a></code>
+	<a name="//api/name/SetMaxHardwareDecoderCount:" title="SetMaxHardwareDecoderCount:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/SetMaxHardwareDecoderCount:">+&nbsp;SetMaxHardwareDecoderCount:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -160,12 +157,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the end of the animation.</p>
+				<p>Set the maximum number of hardware video decoders that can be create.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationEnd</code></div>
+			<div class="method-subsection method-declaration"><code>+ (void)SetMaxHardwareDecoderCount:(int)<em>maxCount</em></code></div>
 
 		    
 			
@@ -183,89 +180,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/onAnimationCancel" title="onAnimationCancel"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationCancel">&ndash;&nbsp;onAnimationCancel</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Notifies the repetition of the animation.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationCancel</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/onAnimationRepeat" title="onAnimationRepeat"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationRepeat">&ndash;&nbsp;onAnimationRepeat</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Notifies the cancellation of the animation.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationRepeat</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoDecoder.h</code></p>
 			</div>
 			
 			

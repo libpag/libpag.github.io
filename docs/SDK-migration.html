@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAGSDK迁移指南 · PAG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="目前PAG更专注于编辑能力，因此Lottie与PAG大部分接口比较类似，但有些Lottie接口PAG并没有支持，目前我们基于iOS接口简单对常用接口迁移进行说明。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAGSDK迁移指南 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="目前PAG更专注于编辑能力，因此Lottie与PAG大部分接口比较类似，但有些Lottie接口PAG并没有支持，目前我们基于iOS接口简单对常用接口迁移进行说明。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/pag-256x256.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/pag-export.html" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/docs/api.html" target="_self">API参考</a></li><li class="siteNavGroupActive"><a href="/docs/faq.html" target="_self">常见问题</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>更多</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/install.html">安装</a></li><li class="navListItem"><a class="navItem" href="/docs/update.html">检查更新</a></li><li class="navListItem"><a class="navItem" href="/docs/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">使用指南</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/pag-export.html">导出PAG文件</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-support.html">AE功能支持列表</a></li><li class="navListItem"><a class="navItem" href="/docs/editable-text.html">可编辑文本制作规则</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-config.html">插件选项配置面板</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler.html">使用性能监测面板</a></li><li class="navListItem"><a class="navItem" href="/docs/cms-verify.html">PAG性能校验使用指南</a></li><li class="navListItem"><a class="navItem" href="/docs/export-png.html">从 PAG 导出其他图片格式</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-edit.html">使用PAGViewer编辑预览图层</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-file.html">使用PAGViewer查看PAG文件结构</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-decoder.html">注入视频软件解码器</a></li><li class="navListItem"><a class="navItem" href="/docs/hot-key.html">PAGViewer 快捷键说明</a></li><li class="navListItem"><a class="navItem" href="/docs/error-code.html">导出错误码说明</a></li><li class="navListItem"><a class="navItem" href="/docs/beta.html">使用beta版本的PAGViewer</a></li><li class="navListItem"><a class="navItem" href="/docs/export-font.html">如何从 AE 中导出字体</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API参考</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/api.html">API参考</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">更多</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/faq.html">常见问题</a></li><li class="navListItem"><a class="navItem" href="/docs/lottie-migration.html">Lottie迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/animation-convertor.html">素材迁移说明</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/SDK-migration.html">PAGSDK迁移指南</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">PAGSDK迁移指南</h1></header><article><div><span><p>目前PAG更专注于编辑能力，因此Lottie与PAG大部分接口比较类似，但有些Lottie接口PAG并没有支持，目前我们基于iOS接口简单对常用接口迁移进行说明。</p>
+<p>在iOS端，PAG目前只提供了OC对应接口，没有对swift进行进一步的支持。Lottie目前推荐使用swift，也同时提供了对应的OC接口。</p>
+<p>下面我们将从Lottie的<code>Animation(swift)</code>/<code>CompatibleAnimation(OC)</code>和<code>AnimationView(swift)</code>/ <code>CompatibleAnimationView(OC)</code>来简述Lottie和PAG常用接口的迁移。</p>
+<h4><a class="anchor" aria-hidden="true" id="animationswift-compatibleanimationoc"></a><a href="#animationswift-compatibleanimationoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Animation(swift) /CompatibleAnimation(OC)</h4>
+<h5><a class="anchor" aria-hidden="true" id="动画加载"></a><a href="#动画加载" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>动画加载</h5>
+<p>Animation/CompatibleAnimation在Lottie中提供动画的加载功能，在PAG中，我们使用PAGFile来加载动画。</p>
+<p>Lottie:</p>
+<pre><code class="hljs css language-swift"><span class="hljs-comment">//文件加载</span>
+<span class="hljs-keyword">let</span> animation = <span class="hljs-type">Animation</span>.named(<span class="hljs-string">"LottieLogo1"</span>, subdirectory: <span class="hljs-string">"TestAnimations"</span>)
+
+<span class="hljs-type">CompatibleAnimation</span>* animation = [[<span class="hljs-type">CompatibleAnimation</span> alloc] initWithName:@<span class="hljs-string">"LottieLogo1"</span> bundle:[<span class="hljs-type">NSBundle</span> mainBundle]];
+</code></pre>
+<p>PAG:</p>
+<pre><code class="hljs css language-objective-c">PAGFile* pagFile = [PAGFile <span class="hljs-string">Load:</span>[[NSBundle mainBundle] <span class="hljs-string">pathForResource:</span>@<span class="hljs-string">"LottieLogo1"</span> <span class="hljs-string">ofType:</span>@<span class="hljs-string">"pag"</span>]];
+</code></pre>
+<blockquote>
+<p>高级加载功能：</p>
+<p>1.PAG暂时不支持从URL加载文件，如果需要，需要自行完成下载环境。</p>
+<p>2.Lottie提供协议AnimationCacheProvider，进行文件高级加载控制。由于相对于LottieAnimation加载来说，PAGFile的加载十分迅速，因此PAG并没有提供对应协议。</p>
+</blockquote>
+<h5><a class="anchor" aria-hidden="true" id="动画基本信息"></a><a href="#动画基本信息" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>动画基本信息</h5>
+<p>其中Lottie可以获取动画的基本信息，包括<code>version、type、startFrame、endFrame、frameRate、duration、width、height</code>。</p>
+<p>在PAG中，PAGFile也可以获取相关信息。</p>
+<p>其中，<code>tagLevel</code>对应<code>version</code>，用于标记文件版本。在PAG中，高版本导出的PAG素材可以被低版本兼容，但是会丢失不支持的效果。</p>
+<p>PAG只支持<code>type2d</code>，因此没有记录<code>type</code>属性。</p>
+<p>PAG文件默认从0帧开始，因此<code>startFrame</code>、<code>endFrame</code>、<code>duration</code>对应于PAG中的<code>duration</code>。</p>
+<p>（注*：<code>duration</code>属性基于microseconds进行计算，并不和Lottie一致）。</p>
+<p><code>frameRate</code>对应PAGFile中的<code>frameRate</code>，二者均表示文件帧率。</p>
+<p>Lottie中<code>width\height</code>对应PAGFile中的<code>width\height</code>，单位和意义一致。</p>
+<blockquote>
+<p>基于Marker的功能：</p>
+<p>1.PAG支持在Layer中标记Marker，但目前无法直接根据Marker获取帧号或者时长，因此如果有需要，可以通过获取Layer再判断Layer中的Marker信息进行计算。</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="animationviewswift-compatibleanimationviewoc"></a><a href="#animationviewswift-compatibleanimationviewoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AnimationView(swift)/CompatibleAnimationView(OC)</h4>
+<p>AnimationView/CompatibleAniamtionView提供动画的播放功能，在PAG中，我们使用PAGView来进行基础动画的播放。</p>
+<p>Lottie:</p>
+<pre><code class="hljs css language-swift"><span class="hljs-comment">//View创建</span>
+<span class="hljs-keyword">let</span> animationView = <span class="hljs-type">AnimationView</span>(animation: animation)
+
+<span class="hljs-type">CompatibleAnimationView</span>* lottieView = [[<span class="hljs-type">CompatibleAnimationView</span> alloc] initWithFrame:frame];
+</code></pre>
+<p>PAG:</p>
+<pre><code class="hljs css language-objective-c"> PAGView* pagView = <span class="hljs-comment">[<span class="hljs-comment">[PAGView alloc]</span> initWithFrame:frame]</span>;
+</code></pre>
+<blockquote>
+<p>PAGView无法根据动画自动适应View的大小，需要通过代码根据PAGFile的信息控制View的Frame。</p>
+</blockquote>
+<h5><a class="anchor" aria-hidden="true" id="contentmode"></a><a href="#contentmode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>contentMode</h5>
+<p>Lottie直接支持<code>UIView</code>的<code>contentMode</code>，在PAG中，对应属性为<code>scaleMode</code>。具体对应关系如下：</p>
+<pre><code class="hljs">PAGScaleModeLetterBox <span class="hljs-comment">-- UIViewContentModeScaleAspectFit (默认属性)</span>
+PAGScaleModeStretch <span class="hljs-comment">-- UIViewContentModeScaleToFill*</span>
+PAGScaleModeZoom <span class="hljs-comment">-- UIViewContentModeScaleAspectFill</span>
+</code></pre>
+<p>对于其他属性，PAG目前并没有支持，可以根据需要直接设置<code>matrix</code>。（注*：<code>matrix</code>与<code>scaleMode</code>为互斥属性）。</p>
+<h5><a class="anchor" aria-hidden="true" id="图片替换"></a><a href="#图片替换" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图片替换</h5>
+<p>Lottie通过接口<code>setImageProvider</code>进行图片替换，在PAG中，<code>PAGView</code>有<code>- (void)replaceImage:(int)index data:(PAGImage*)value;</code>这一接口。</p>
+<p>其中<code>index</code>为对应Layer的<code>editableIndex</code>，图片与文字各自维护一套。<code>PAGImage</code>可以根据<code>name</code>\<code>path</code>等各种方法创建，具体可以看PAGImage的对应接口。</p>
+<h5><a class="anchor" aria-hidden="true" id="文字替换"></a><a href="#文字替换" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>文字替换</h5>
+<p>Lottie通过接口<code>setTextProvider</code>进行文字替换，在PAG中，<code>PAGView</code>有<code>- (void)setTextData:(int)index data:(PAGText*)value;</code>这一接口</p>
+<p>其中<code>index</code>为对应Layer的<code>editableIndex</code>，图片与文字各自维护一套。<code>PAGText</code>包含文字各种属性，具体可以看<code>PAGText</code>对应的定义，推荐先获取Layer的PAGText，再将修改后的PAGText设置给对应的Layer。</p>
+<h5><a class="anchor" aria-hidden="true" id="播放控制"></a><a href="#播放控制" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>播放控制</h5>
+<h6><a class="anchor" aria-hidden="true" id="isanimationplaying"></a><a href="#isanimationplaying" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>isAnimationPlaying</code></h6>
+<p>播放状态在PAG中为<code>isPlaying</code>，获取结果与Lottie一致。</p>
+<h6><a class="anchor" aria-hidden="true" id="loopmode"></a><a href="#loopmode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>loopMode</code></h6>
+<p>循环模式在PAG中为<code>setRepeatCount</code>，其中0表示无限循环。loopMode中<code>autoReverse</code> \<code>repeat</code>\ <code>repeatBackwards</code>暂时不支持。</p>
+<h6><a class="anchor" aria-hidden="true" id="backgroundbehavior"></a><a href="#backgroundbehavior" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>backgroundBehavior</code></h6>
+<p>PAG目前不支持<code>backgroundBehavior</code>，默认会继续计算进度。</p>
+<h6><a class="anchor" aria-hidden="true" id="shouldrasterizewhenidle"></a><a href="#shouldrasterizewhenidle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>shouldRasterizeWhenIdle</code></h6>
+<p>PAG目前不支持<code>shouldRasterizeWhenIdle</code>，需要上层设置progress控制进度。</p>
+<h6><a class="anchor" aria-hidden="true" id="progress"></a><a href="#progress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>progress</code></h6>
+<p><code>currentProgress</code>与PAG中<code>progress</code>一致。（注*：在PAG中，setProgress是不会刷新界面的，默认会在下一次绘制时更新界面。如果需要立即更新，比如暂停状态下，需要调用<code>flush</code>方法进行更新）</p>
+<p><code>currentTime</code>与<code>currentFrame</code>，在<code>PAGView</code>中暂不支持。（注*：<code>currentTime</code>可以在PAGLayer直接设置，从而控制每个图层的播放进度，<code>currentFrame</code>需要自行转换）。</p>
+<h6><a class="anchor" aria-hidden="true" id="animationspeed"></a><a href="#animationspeed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>animationSpeed</code></h6>
+<p>目前PAGView不支持<code>speed</code>控制，请直接控制<code>progress</code>来控制<code>speed</code>。</p>
+<h6><a class="anchor" aria-hidden="true" id="respectanimationframerate"></a><a href="#respectanimationframerate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>respectAnimationFrameRate</code></h6>
+<p>目前PAGView不支持<code>respectAnimationFrameRate</code>的选择，默认是按照设备屏幕刷新频率进行更新的。</p>
+<h6><a class="anchor" aria-hidden="true" id="play"></a><a href="#play" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>play</code></h6>
+<p>PAGView的<code>play</code>方法既从当前<code>progress</code>开始播放。</p>
+<blockquote>
+<p>Lottie中的各类播放控制，PAG暂时没有支持，需要上层业务自己控制</p>
+</blockquote>
+<h6><a class="anchor" aria-hidden="true" id="stop-pasue"></a><a href="#stop-pasue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>stop/pasue</code></h6>
+<p>PAG中<code>stop</code>方法不会改变进度，只会停止更新画面，效果与Lottie中<code>pasue</code>相同。如果需要实现Lottie中<code>stop</code>效果，可以使用如下代码块：</p>
+<pre><code class="hljs css language-objc">[view stop];
+[view setProgress:<span class="hljs-number">0</span>];
+[view flush];
+</code></pre>
+<h6><a class="anchor" aria-hidden="true" id="forcedisplayupdate"></a><a href="#forcedisplayupdate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>forceDisplayUpdate</code></h6>
+<p>PAG中<code>flush</code>相当于<code>forceDisplayUpdate</code>方法，当flush调用时，如果画面有变化，会立刻刷新界面。如果需要画面无变化下也刷新，请调用<code>- (BOOL)flush:(BOOL)force;</code>方法</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/animation-convertor.html"><span class="arrow-prev">← </span><span>素材迁移说明</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2019 pag.io</section></footer></div></body></html>

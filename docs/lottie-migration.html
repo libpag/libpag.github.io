@@ -57,9 +57,40 @@
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Lottie迁移指南</h1></header><article><div><span><p>虽然PAG与Lottie在使用上基本类似，但是在迁移过程中仍然可能会遇到一些问题。本文希望能够尽可能减少相关的迁移成本，希望能够帮助设计师、运营、开发者尽快的掌握PAG。</p>
 <p>目前，PAG迁移文档还在不断的迭代，欢迎大家随时查看。如果使用过程中有什么问题，可以直接联系<strong><a href="mailto:libpag@tencent.com">libpag@tencent.com</a></strong>。我们会将问题转给相应的接口人。</p>
 <h4><a class="anchor" aria-hidden="true" id="通用迁移指南"></a><a href="#通用迁移指南" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>通用迁移指南</h4>
-<h5><a class="anchor" aria-hidden="true" id="1pagviewer和ae插件安装方法"></a><a href="#1pagviewer和ae插件安装方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.PAGViewer和AE插件安装方法</h5>
+<h5><a class="anchor" aria-hidden="true" id="1pag与lottie功能区别点"></a><a href="#1pag与lottie功能区别点" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.PAG与Lottie功能区别点</h5>
+<table>
+<thead>
+<tr><th>Lottie</th><th>PAG</th></tr>
+</thead>
+<tbody>
+<tr><td><b>KeyFrame</b></td><td></td></tr>
+<tr><td>对于关键帧的时间的bezier曲线只能支持两个点</td><td>可以完全支持AE的关键帧</td></tr>
+<tr><td><b>Layer</b></td><td></td></tr>
+<tr><td>mask不支持Accum</td><td>mask支持Accum</td></tr>
+<tr><td>matte支持alpha通道</td><td>matte 由于性能问题，不支持alpha通道</td></tr>
+<tr><td><b>ShapeLayer</b></td><td></td></tr>
+<tr><td>无round图形</td><td>有round图形</td></tr>
+<tr><td>导出插件中GradientFill与GradientStroke多语言支持有问题</td><td>可以正常支持属性导出</td></tr>
+<tr><td>Fill中不支持blendMode与composite</td><td>Fill图形中支持blendMode与composite</td></tr>
+<tr><td>GradientFill中不支持fillRule、blendMode与composite</td><td>GradientFill中支持fillRule、blendMode与composite</td></tr>
+<tr><td>Stroke/GradientStroke不支持blendMode与composite</td><td>Stroke/GradientStroke支持blendMode与composite</td></tr>
+<tr><td>GradientColor不支持alpha渐变</td><td>GradientColor支持alpha渐变</td></tr>
+<tr><td>GradientColor支持highlightLength和highlightAngle</td><td>GradientColor不支持highlightLength和highlightAngle</td></tr>
+<tr><td>PathDirection支持userSetClockwise</td><td>PathDirection只支持顺时针和逆时针</td></tr>
+<tr><td>Repeater中RepeaterOrder只支持Below</td><td>RepeaterOrder支持Below和Above</td></tr>
+<tr><td>ShapePath支持方向</td><td>ShapePath不支持方向</td></tr>
+<tr><td><b>Composition</b></td><td></td></tr>
+<tr><td>支持timeRemapping</td><td>不支持timeRemapping，只有ImageLayer支持</td></tr>
+<tr><td><b>TextLayer</b></td><td></td></tr>
+<tr><td>移动端不支持boxText、firstBaseLine、粗体、斜体、baseLine</td><td>支持boxText、firstBaseLine、粗体、斜体、baseLine</td></tr>
+<tr><td>不支持PathOption和MoreOptions</td><td>支持PathOption和MoreOptions</td></tr>
+<tr><td>支持Animator</td><td>不支持Animator</td></tr>
+<tr><td>iOS有毛边</td><td>无毛边</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="2pagviewer和ae插件安装方法"></a><a href="#2pagviewer和ae插件安装方法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.PAGViewer和AE插件安装方法</h5>
 <p>安装 <a href="/docs/install.html"><font color=blue>文章地址</font></a></p>
-<h5><a class="anchor" aria-hidden="true" id="2pagviewer快捷键说明"></a><a href="#2pagviewer快捷键说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.PAGViewer快捷键说明</h5>
+<h5><a class="anchor" aria-hidden="true" id="3pagviewer快捷键说明"></a><a href="#3pagviewer快捷键说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.PAGViewer快捷键说明</h5>
 <p>PAGViewer 快捷键说明 <a href="/docs/hot-key.html"><font color=blue>文章地址</font></a></p>
 <h4><a class="anchor" aria-hidden="true" id="设计师迁移指南"></a><a href="#设计师迁移指南" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>设计师迁移指南</h4>
 <h5><a class="anchor" aria-hidden="true" id="1pag支持的ae效果"></a><a href="#1pag支持的ae效果" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.PAG支持的AE效果</h5>

@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG文件体积优化 · PAG</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="文件体积的优化有多重环节来保证。除了在导出过程中程序会自动化的体积优化外，设计师还可以手动操作达到更深度的优化压缩，进一步减小导出PAG文件体积。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG文件体积优化 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="文件体积的优化有多重环节来保证。除了在导出过程中程序会自动化的体积优化外，设计师还可以手动操作达到更深度的优化压缩，进一步减小导出PAG文件体积。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/pag-256x256.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/pag-export.html" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/docs/api.html" target="_self">API参考</a></li><li class="siteNavGroupActive"><a href="/docs/faq.html" target="_self">常见问题</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>使用指南</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/install.html">安装</a></li><li class="navListItem"><a class="navItem" href="/docs/update.html">检查更新</a></li><li class="navListItem"><a class="navItem" href="/docs/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">使用指南</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/pag-export.html">导出PAG文件</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-support.html">AE功能支持列表</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-export-verify.html">AE导出自动检测规则</a></li><li class="navListItem"><a class="navItem" href="/docs/editable-text.html">可编辑文本制作规则</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-config.html">插件选项配置面板</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler.html">使用性能监测面板</a></li><li class="navListItem"><a class="navItem" href="/docs/cms-verify.html">PAG性能校验使用指南</a></li><li class="navListItem"><a class="navItem" href="/docs/export-png.html">从 PAG 导出其他图片格式</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-edit.html">使用PAGViewer编辑预览图层</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-file.html">使用PAGViewer查看PAG文件结构</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/pag-file-optimization.html">PAG文件体积优化</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-decoder.html">注入视频软件解码器</a></li><li class="navListItem"><a class="navItem" href="/docs/hot-key.html">PAGViewer 快捷键说明</a></li><li class="navListItem"><a class="navItem" href="/docs/error-code.html">导出错误码说明</a></li><li class="navListItem"><a class="navItem" href="/docs/beta.html">使用beta版本的PAGViewer</a></li><li class="navListItem"><a class="navItem" href="/docs/export-font.html">如何从 AE 中导出字体</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-music-mark.html">如何在AE中到导出音频</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API参考</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/api.html">API参考</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">更多</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/faq.html">常见问题</a></li><li class="navListItem"><a class="navItem" href="/docs/lottie-migration.html">Lottie迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/animation-convertor.html">素材迁移说明</a></li><li class="navListItem"><a class="navItem" href="/docs/SDK-migration.html">PAGSDK迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-effect.html">AE内置特效支持</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">PAG文件体积优化</h1></header><article><div><span><p>文件体积的优化有多重环节来保证。除了在导出过程中程序会自动化的体积优化外，设计师还可以手动操作达到更深度的优化压缩，进一步减小导出PAG文件体积。</p>
+<ol>
+<li>启用此功能需在“首选项-&gt;PAG Config...-&gt;单独调节图像尺寸”中选择开启（默认关闭)并点击确认。
+<img src="/img/docs/FileOptimization/pagconfig.png" alt=""></li>
+<li>如果导出的素材中包含图片或视频序列帧，AE导出插件将在导出过程中弹出“素材压缩面板“，以供设计师在素材效果与素材体积之间做出最优选择。
+<img src="/img/docs/FileOptimization/panel.png" alt=""></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="图片压缩"></a><a href="#图片压缩" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>图片压缩:</h4>
+<ol>
+<li>调整大小：用户可以选择 1, 1/2, 1/3,1/4, 1/8 进行调整</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="序列帧压缩"></a><a href="#序列帧压缩" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>序列帧压缩:</h4>
+<ol>
+<li>调整分辨率：用户可以选择 1, 1/2, 1/3, 1/4 进行调整</li>
+<li>调整帧率: 用户可以选择 1, 3/4, 1/2 进行调整</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="重新导出"></a><a href="#重新导出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>重新导出：</h4>
+<p>用户设置完压缩选项可点击“重新导出素”按钮重新导出素材，重新导出后“素材压缩设置”面板会再次打开。此时“导出体积”与“导出分辨率”将显示用户设置生效的参数，进而有针对的优化素材体积。</p>
+<h4><a class="anchor" aria-hidden="true" id="确认"></a><a href="#确认" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>确认：</h4>
+<p>用户确认素材压缩参数，点击“确认”按钮后，素材将按照已生效的导出参数进行压缩导出。</p>
+<h4><a class="anchor" aria-hidden="true" id="调整策略"></a><a href="#调整策略" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>调整策略:</h4>
+<p>为了提高素材优化效率，请参考以下几点进行优化：</p>
+<ol>
+<li>优先考虑压缩“导出体积”中数值较大的素材</li>
+<li>其次考虑画面内容比较平滑的素材(比如：光效)，而画面比较锐利的素材则更容易造成肉眼可见的质量损失。</li>
+<li>当参数调整完压缩导出之后，建议与未压缩的导出文件进行对比，尽量在文件体积与文件质量上寻求最佳平衡。如下图所示：同样一个素材调整前1.1M；调整后310KB，并且素材质量视觉上没有明显的损失。
+<img src="/img/docs/FileOptimization/compare.png" alt=""></li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="备注"></a><a href="#备注" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>备注：</h4>
+<p>如下图，在“AE导出素材尺寸压缩设置”功能中。当用户导出素材中只包含图片素材时，将只弹出“图片压缩设置”面板；当只包含视频序列帧素材时将只弹出“序列帧压缩设置&quot;面板。只有同时包含图片与视频序列帧素材时才会弹出“素材压缩面板“。
+<img src="/img/docs/FileOptimization/onlyImage.png" alt="">
+当只包含图片素材时
+<img src="/img/docs/FileOptimization/onlySequence.png" alt="">
+当只包含序列帧素材时
+<img src="/img/docs/FileOptimization/imageAndSequence.png" alt="">
+当同时包含图片素材与序列帧素材</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/pag-file.html"><span class="arrow-prev">← </span><span>使用PAGViewer查看PAG文件结构</span></a><a class="docs-next button" href="/docs/plugin-decoder.html"><span>注入视频软件解码器</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2019 pag.io</section></footer></div></body></html>

@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">PAGSDK迁移指南</h1></header><article><div><span><p>目前PAG更专注于编辑能力，因此Lottie与PAG大部分接口比较类似，但有些Lottie接口PAG并没有支持，目前我们基于iOS接口简单对常用接口迁移进行说明。</p>
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PAGSDK迁移指南</h1></header><article><div><span><p>目前PAG更专注于编辑能力，因此Lottie与PAG大部分接口比较类似，但有些Lottie接口PAG并没有支持，目前我们基于iOS接口简单对常用接口迁移进行说明。</p>
 <p>在iOS端，PAG目前只提供了OC对应接口，没有对swift进行进一步的支持。Lottie目前推荐使用swift，也同时提供了对应的OC接口。</p>
 <p>下面我们将从Lottie的<code>Animation(swift)</code>/<code>CompatibleAnimation(OC)</code>和<code>AnimationView(swift)</code>/ <code>CompatibleAnimationView(OC)</code>来简述Lottie和PAG常用接口的迁移。</p>
 <h4><a class="anchor" aria-hidden="true" id="animationswift-compatibleanimationoc"></a><a href="#animationswift-compatibleanimationoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Animation(swift) /CompatibleAnimation(OC)</h4>
@@ -87,7 +87,7 @@
 <p>基于Marker的功能：</p>
 <p>1.PAG支持在Layer中标记Marker，但目前无法直接根据Marker获取帧号或者时长，因此如果有需要，可以通过获取Layer再判断Layer中的Marker信息进行计算。</p>
 </blockquote>
-<h4><a class="anchor" aria-hidden="true" id="animationviewswift-compatibleanimationviewoc"></a><a href="#animationviewswift-compatibleanimationviewoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AnimationView(swift)/CompatibleAnimationView(OC)</h4>
+<h4><a class="anchor" aria-hidden="true" id="animationviewswiftcompatibleanimationviewoc"></a><a href="#animationviewswiftcompatibleanimationviewoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AnimationView(swift)/CompatibleAnimationView(OC)</h4>
 <p>AnimationView/CompatibleAniamtionView提供动画的播放功能，在PAG中，我们使用PAGView来进行基础动画的播放。</p>
 <p>Lottie:</p>
 <pre><code class="hljs css language-swift"><span class="hljs-comment">//View创建</span>
@@ -135,7 +135,7 @@ PAGScaleModeZoom <span class="hljs-comment">-- UIViewContentModeScaleAspectFill<
 <blockquote>
 <p>Lottie中的各类播放控制，PAG暂时没有支持，需要上层业务自己控制</p>
 </blockquote>
-<h6><a class="anchor" aria-hidden="true" id="stop-pasue"></a><a href="#stop-pasue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>stop/pasue</code></h6>
+<h6><a class="anchor" aria-hidden="true" id="stoppasue"></a><a href="#stoppasue" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>stop/pasue</code></h6>
 <p>PAG中<code>stop</code>方法不会改变进度，只会停止更新画面，效果与Lottie中<code>pasue</code>相同。如果需要实现Lottie中<code>stop</code>效果，可以使用如下代码块：</p>
 <pre><code class="hljs css language-objc">[view stop];
 [view setProgress:<span class="hljs-number">0</span>];

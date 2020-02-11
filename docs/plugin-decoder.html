@@ -99,7 +99,7 @@
         <span class="hljs-comment">/**
          * Create a software decoder
          */</span>
-        <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;SoftwareDecoder&gt; createSoftwareDecoder() = <span class="hljs-number">0</span>;
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;SoftwareDecoder&gt; <span class="hljs-title">createSoftwareDecoder</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
     };
 
     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoftwareDecoder</span> {</span>
@@ -145,7 +145,7 @@
         <span class="hljs-comment">/**
          * Return decoded data to render, the format of decoded data must be in YUV420p format.
          */</span>
-        <span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;OutputFrame&gt; onRenderFrame() = <span class="hljs-number">0</span>;
+        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">unique_ptr</span>&lt;OutputFrame&gt; <span class="hljs-title">onRenderFrame</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;
 
         
     };

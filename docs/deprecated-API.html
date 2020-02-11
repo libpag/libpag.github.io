@@ -56,15 +56,26 @@
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">已经废弃的API</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="30废弃的api"></a><a href="#30废弃的api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.0废弃的API</h2>
 <h3><a class="anchor" aria-hidden="true" id="pagview"></a><a href="#pagview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PAGView</h3>
-<pre><code class="hljs css language-objective-c"><span class="hljs-meta">@protocol</span> PAGViewListener
+<pre><code class="hljs css language-objective-c"><span class="hljs-comment">//iOS</span>
+<span class="hljs-meta">@protocol</span> PAGViewListener
 - (<span class="hljs-keyword">void</span>)<span class="hljs-function">onAnimationStart <span class="hljs-title">DEPRECATED_MSG_ATTRIBUTE</span><span class="hljs-params">(<span class="hljs-string">"Please use onAnimationStart:pagView instead."</span>)</span></span>;
 - (<span class="hljs-keyword">void</span>)<span class="hljs-function">onAnimationEnd <span class="hljs-title">DEPRECATED_MSG_ATTRIBUTE</span><span class="hljs-params">(<span class="hljs-string">"Please use onAnimationEnd:pagView instead."</span>)</span></span>;
 - (<span class="hljs-keyword">void</span>)<span class="hljs-function">onAnimationCancel <span class="hljs-title">DEPRECATED_MSG_ATTRIBUTE</span><span class="hljs-params">(<span class="hljs-string">"Please use onAnimationCancel:pagView instead."</span>)</span></span>;
 - (<span class="hljs-keyword">void</span>)<span class="hljs-function">onAnimationRepeat <span class="hljs-title">DEPRECATED_MSG_ATTRIBUTE</span><span class="hljs-params">(<span class="hljs-string">"Please use onAnimationRepeat:pagView instead."</span>)</span></span>;
 <span class="hljs-meta">@end</span>
 </code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Android</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PAGView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TextureView</span> </span>{
+    <span class="hljs-comment">//Deprecated</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeListener</span><span class="hljs-params">(Animator.AnimatorListener listener)</span></span>;
+    <span class="hljs-comment">//Deprecated</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addListener</span><span class="hljs-params">(Animator.AnimatorListener listener)</span></span>;
+}
+
+</code></pre>
 <p>废弃原因：提供了新的更全面的API</p>
-<pre><code class="hljs css language-objective-c"><span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGView </span>: UIView
+<pre><code class="hljs css language-objective-c"><span class="hljs-comment">//iOS</span>
+<span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGView </span>: UIView
 ……
 - (PAGFile*)getFile DEPRECATED_MSG_ATTRIBUTE(<span class="hljs-string">"Please use getComposition instead."</span>);
 <span class="hljs-selector-tag">-</span> (void)<span class="hljs-selector-tag">setFile</span><span class="hljs-selector-pseudo">:(PAGFile</span>*)<span class="hljs-selector-tag">newFile</span> <span class="hljs-selector-tag">DEPRECATED_MSG_ATTRIBUTE</span>(<span class="hljs-string">"Please use 'setPath' or 'setComposition' instead"</span>);
@@ -74,40 +85,71 @@
 ……
 @<span class="hljs-selector-tag">end</span>
 </code></pre>
-<p>废弃原因：3.0中，PAGView中可以使用PAGComposition作为播放内容。在不使用PAGFile作为参数时，PAGFile相关的接口会出现错误的结果。</p>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Android</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PAGView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TextureView</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> PAGFile <span class="hljs-title">getFile</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> PAGComposition <span class="hljs-title">getRootComposition</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setTextData</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index, PAGText data)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">replaceImage</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index, PAGImage image)</span></span>;
+}
+</code></pre>
+<p>原因：3.0中，PAGView中可以使用PAGComposition作为播放内容。在不使用PAGFile作为参数时，PAGFile相关的接口会出现错误的结果。</p>
 <blockquote>
 <p>注：setFile会使用newFile的originalCopy，对newFile进行的replace操作不会应用上。</p>
 </blockquote>
-<pre><code class="hljs css language-objective-c"><span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGView </span>: UIView
+<pre><code class="hljs css language-objective-c"><span class="hljs-comment">//iOS</span>
+<span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGView </span>: UIView
 ……
 - (BOOL)<span class="hljs-attribute">flush</span>:(BOOL)force DEPRECATED_MSG_ATTRIBUTE(<span class="hljs-string">"Please use 'flush' instead"</span>);
 ……
 <span class="hljs-variable">@end</span>
 </code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Android</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PAGView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TextureView</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">flush</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> force)</span></span>;
+}
+</code></pre>
 <p>废弃原因：force在View的场景下基本无用，如果过多调用还会导致性能问题，因此删除。</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="pagrenderer"></a><a href="#pagrenderer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PAGRenderer</h3>
-<pre><code class="hljs css language-objective-c"><span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGRenderer </span>: NSObject
+<pre><code class="hljs css language-objective-c"><span class="hljs-comment">//iOS</span>
+<span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGRenderer </span>: NSObject
 ……
 <span class="hljs-variable">@end</span>
+</code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Android</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PAGRenderer</span> </span>{
+}
 </code></pre>
 <p>废弃原因：PAGRenderer只支持对于PAGFile的操作，无法支持更加细粒度的素材编辑。3.0使用PAGPlayer替代了PAGRenderer。</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="pagsurface"></a><a href="#pagsurface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PAGSurface</h3>
-<pre><code class="hljs css language-objective-c"><span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGSurface </span>: NSObject
+<pre><code class="hljs css language-objective-c"><span class="hljs-comment">//iOS</span>
+<span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGSurface </span>: NSObject
 ……
 - (BOOL)present DEPRECATED_MSG_ATTRIBUTE(<span class="hljs-string">"Please use 'flush' instead"</span>);
 ……
 <span class="hljs-variable">@end</span>
 </code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Android</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PAGSurface</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">present</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
 <p>废弃原因：present接口被统一成flush，防止使用者对接口产生歧义。</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="pagcomposition"></a><a href="#pagcomposition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PAGComposition</h3>
-<pre><code class="hljs css language-objective-c"><span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGComposition </span>: PAGLayer
+<pre><code class="hljs css language-objective-c"><span class="hljs-comment">//iOS</span>
+<span class="hljs-variable">@interface</span> <span class="hljs-attribute">PAGComposition </span>: PAGLayer
 ……
 - (NSInteger)numLayers DEPRECATED_MSG_ATTRIBUTE(<span class="hljs-string">"Please use 'numChildren' instead"</span>);
 ……
 <span class="hljs-variable">@end</span>
+</code></pre>
+<pre><code class="hljs css language-java"><span class="hljs-comment">//Android</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PAGComposition</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PAGLayer</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">numLayers</span><span class="hljs-params">()</span></span>;
+}
 </code></pre>
 <p>废弃原因：numLayers接口被修改成numChildren。相对于numLayers，children更能表现节点的父子关系。</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/modify-material.html"><span class="arrow-prev">← </span><span>修改素材的时间属性和位置属性</span></a><a class="docs-next button" href="/docs/faq.html"><span>常见问题</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#30废弃的api">3.0废弃的API</a><ul class="toc-headings"><li><a href="#pagview">PAGView</a></li><li><a href="#pagrenderer">PAGRenderer</a></li><li><a href="#pagsurface">PAGSurface</a></li><li><a href="#pagcomposition">PAGComposition</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2020 pag.io</section></footer></div></body></html>

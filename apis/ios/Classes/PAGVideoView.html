@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGView Class Reference</title>
+	<title>PAGVideoView Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -60,27 +60,21 @@
 		
 		<option value="//api/name/addListener:">- addListener:</option>
 		
-		<option value="//api/name/cacheEnabled">- cacheEnabled</option>
-		
-		<option value="//api/name/cacheScale">- cacheScale</option>
-		
 		<option value="//api/name/duration">- duration</option>
 		
 		<option value="//api/name/flush">- flush</option>
 		
-		<option value="//api/name/flush:">- flush:</option>
-		
-		<option value="//api/name/freeCache">- freeCache</option>
-		
-		<option value="//api/name/getFile">- getFile</option>
-		
-		<option value="//api/name/getLayersUnderPoint:">- getLayersUnderPoint:</option>
+		<option value="//api/name/frameRate">- frameRate</option>
 		
 		<option value="//api/name/getProgress">- getProgress</option>
 		
-		<option value="//api/name/getRootComposition">- getRootComposition</option>
+		<option value="//api/name/height">- height</option>
 		
 		<option value="//api/name/isPlaying">- isPlaying</option>
+		
+		<option value="//api/name/loadFromBytes:size:">- loadFromBytes:size:</option>
+		
+		<option value="//api/name/loadFromPath:">- loadFromPath:</option>
 		
 		<option value="//api/name/matrix">- matrix</option>
 		
@@ -90,15 +84,7 @@
 		
 		<option value="//api/name/removeListener:">- removeListener:</option>
 		
-		<option value="//api/name/replaceImage:data:">- replaceImage:data:</option>
-		
 		<option value="//api/name/scaleMode">- scaleMode</option>
-		
-		<option value="//api/name/setCacheEnabled:">- setCacheEnabled:</option>
-		
-		<option value="//api/name/setCacheScale:">- setCacheScale:</option>
-		
-		<option value="//api/name/setFile:">- setFile:</option>
 		
 		<option value="//api/name/setMatrix:">- setMatrix:</option>
 		
@@ -110,9 +96,9 @@
 		
 		<option value="//api/name/setScaleMode:">- setScaleMode:</option>
 		
-		<option value="//api/name/setTextData:data:">- setTextData:data:</option>
-		
 		<option value="//api/name/stop">- stop</option>
+		
+		<option value="//api/name/width">- width</option>
 		
 	</optgroup>
 	
@@ -129,7 +115,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGView Class Reference</h1>
+					<h1 class="title">PAGVideoView Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -138,7 +124,7 @@
 	<td>UIView</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGView.h</td>
+	<td>PAGVideoView.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -172,7 +158,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addListener:(id&lt;PAGViewListener&gt;)<em>listener</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)addListener:(id&lt;PAGVideoViewListener&gt;)<em>listener</em></code></div>
 
 		    
 			
@@ -190,7 +176,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -213,7 +199,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)removeListener:(id&lt;PAGViewListener&gt;)<em>listener</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)removeListener:(id&lt;PAGVideoViewListener&gt;)<em>listener</em></code></div>
 
 		    
 			
@@ -231,7 +217,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -272,7 +258,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -313,7 +299,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -354,7 +340,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -396,7 +382,130 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loadFromPath:" title="loadFromPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loadFromPath:">&ndash;&nbsp;loadFromPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Load a pag file from the specified path, return false if the file does not exist or the data is not a pag file.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)loadFromPath:(NSString *)<em>path</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loadFromBytes:size:" title="loadFromBytes:size:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loadFromBytes:size:">&ndash;&nbsp;loadFromBytes:size:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Load a pag file from byte data, return false if the bytes is empty or it&rsquo;s not a valid pag file.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)loadFromBytes:(const void *)<em>bytes</em> size:(size_t)<em>length</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/frameRate" title="frameRate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/frameRate">&ndash;&nbsp;frameRate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The frame rate of the pag file.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (float)frameRate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -437,15 +546,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getFile" title="getFile"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getFile">&ndash;&nbsp;getFile</a></code>
+	<a name="//api/name/width" title="width"></a>
+	<h3 class="method-title"><code><a href="#//api/name/width">&ndash;&nbsp;width</a></code>
 </h3>
 
 	<div class="method-info">
@@ -455,12 +564,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the current <a href="../Classes/PAGFile.html">PAGFile</a> object.</p>
+				<p>The width of the pag file.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (PAGFile *)getFile</code></div>
+			<div class="method-subsection method-declaration"><code>- (int32_t)width</code></div>
 
 		    
 			
@@ -478,15 +587,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setFile:" title="setFile:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setFile:">&ndash;&nbsp;setFile:</a></code>
+	<a name="//api/name/height" title="height"></a>
+	<h3 class="method-title"><code><a href="#//api/name/height">&ndash;&nbsp;height</a></code>
 </h3>
 
 	<div class="method-info">
@@ -496,12 +605,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set the <a href="../Classes/PAGFile.html">PAGFile</a> object for <a href="../Classes/PAGRenderer.html">PAGRenderer</a> to render.</p>
+				<p>The height of the pag file.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setFile:(PAGFile *)<em>file</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (int32_t)height</code></div>
 
 		    
 			
@@ -519,217 +628,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/cacheEnabled" title="cacheEnabled"></a>
-	<h3 class="method-title"><code><a href="#//api/name/cacheEnabled">&ndash;&nbsp;cacheEnabled</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>If set to true, PAG renderer caches an internal bitmap representation of the static content for each layer.
-This caching can increase performance for layers that contain complex vector content. The execution speed can
-be significantly faster depending on the complexity of the content, but it requires extra graphics memory.
-The default value is true.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (BOOL)cacheEnabled</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setCacheEnabled:" title="setCacheEnabled:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setCacheEnabled:">&ndash;&nbsp;setCacheEnabled:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set the value of <a href="#//api/name/cacheEnabled">cacheEnabled</a> property.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setCacheEnabled:(BOOL)<em>value</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/freeCache" title="freeCache"></a>
-	<h3 class="method-title"><code><a href="#//api/name/freeCache">&ndash;&nbsp;freeCache</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Free the cache created by the pag view immediately. Can be called to reduce memory pressure.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)freeCache</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/cacheScale" title="cacheScale"></a>
-	<h3 class="method-title"><code><a href="#//api/name/cacheScale">&ndash;&nbsp;cacheScale</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This value defines the scale factor for internal graphics caches, ranges from 0.0 to 1.0. The scale factors less than
-1.0 may result in blurred output, but it can reduce the usage of graphics memory which leads to better performance.
-The default value is 1.0.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (float)cacheScale</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setCacheScale:" title="setCacheScale:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setCacheScale:">&ndash;&nbsp;setCacheScale:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set the value of <a href="#//api/name/cacheScale">cacheScale</a> property.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setCacheScale:(float)<em>value</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -747,7 +646,7 @@ The default value is 1.0.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The maximum frame rate for rendering. If set to a value less than the actual frame rate from <a href="../Classes/PAGFile.html">PAGFile</a>, it drops
+				<p>The maximum frame rate for rendering. If set to a value less than the actual frame rate from PAGFile, it drops
 frames but increases performance. Otherwise, it has no effect. The default value is 60.</p>
 			</div>
 			
@@ -771,7 +670,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -812,7 +711,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -835,7 +734,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (PAGScaleMode)scaleMode</code></div>
+			<div class="method-subsection method-declaration"><code>- (PAGVideoScaleMode)scaleMode</code></div>
 
 		    
 			
@@ -853,7 +752,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -877,7 +776,7 @@ changes when this method is called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setScaleMode:(PAGScaleMode)<em>value</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setScaleMode:(PAGVideoScaleMode)<em>value</em></code></div>
 
 		    
 			
@@ -895,7 +794,7 @@ changes when this method is called.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -936,7 +835,7 @@ changes when this method is called.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -978,91 +877,7 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setTextData:data:" title="setTextData:data:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setTextData:data:">&ndash;&nbsp;setTextData:data:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Update the text data of the specified index. The index ranges from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numTexts - 1. Passing in null
-for the data parameter will reset it to the default text data.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setTextData:(int)<em>index</em> data:(PAGText *)<em>value</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/replaceImage:data:" title="replaceImage:data:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/replaceImage:data:">&ndash;&nbsp;replaceImage:data:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Replace the image data of the specified index. The index ranges from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numImages - 1. Passing in null
-for the image parameter will reset it to the default image data.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)replaceImage:(int)<em>index</em> data:(PAGImage *)<em>value</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -1103,7 +918,7 @@ for the image parameter will reset it to the default image data.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -1144,61 +959,7 @@ for the image parameter will reset it to the default image data.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/flush:" title="flush:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/flush:">&ndash;&nbsp;flush:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Call this method to render current position immediately. If the <a href="#//api/name/play">play</a>() method is already
-called, there is no need to call it. Returns true if the content has changed.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (BOOL)flush:(BOOL)<em>force</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>force</code></th>
-						<td><p>Indicates whether the PAGView should redraw all content by force.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -1217,7 +978,7 @@ called, there is no need to call it. Returns true if the content has changed.</p
 			
 			<div class="method-subsection brief-description">
 				<p>Call this method to render current position immediately. If the <a href="#//api/name/play">play</a>() method is already
-called, there is no need to call it. Returns true if the content has changed.</p>
+called, there is no need to call it, Returns true if the content has changed.</p>
 			</div>
 			
 		    
@@ -1240,90 +1001,7 @@ called, there is no need to call it. Returns true if the content has changed.</p
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getRootComposition" title="getRootComposition"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getRootComposition">&ndash;&nbsp;getRootComposition</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns get the root <a href="../Classes/PAGComposition.html">PAGComposition</a> object.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (PAGComposition *)getRootComposition</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getLayersUnderPoint:" title="getLayersUnderPoint:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getLayersUnderPoint:">&ndash;&nbsp;getLayersUnderPoint:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns an array of layers that lie under the specified point.
-The point is in pixels, convert dp to pixel by multiply [UIScreen mainScreen].scale, eg: point.x * scale,point.y* scale.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSArray&lt;PAGLayer*&gt; *)getLayersUnderPoint:(CGPoint)<em>point</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -1344,7 +1022,7 @@ The point is in pixels, convert dp to pixel by multiply [UIScreen mainScreen].sc
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Tencent. All rights reserved. Updated: 2019-03-28</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-03-23</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

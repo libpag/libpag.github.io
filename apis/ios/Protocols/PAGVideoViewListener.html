@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGViewListener Protocol Reference</title>
+	<title>PAGVideoViewListener Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -60,11 +60,19 @@
 		
 		<option value="//api/name/onAnimationCancel">- onAnimationCancel</option>
 		
+		<option value="//api/name/onAnimationCancel:">- onAnimationCancel:</option>
+		
 		<option value="//api/name/onAnimationEnd">- onAnimationEnd</option>
+		
+		<option value="//api/name/onAnimationEnd:">- onAnimationEnd:</option>
 		
 		<option value="//api/name/onAnimationRepeat">- onAnimationRepeat</option>
 		
+		<option value="//api/name/onAnimationRepeat:">- onAnimationRepeat:</option>
+		
 		<option value="//api/name/onAnimationStart">- onAnimationStart</option>
+		
+		<option value="//api/name/onAnimationStart:">- onAnimationStart:</option>
 		
 	</optgroup>
 	
@@ -81,7 +89,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGViewListener Protocol Reference</h1>
+					<h1 class="title">PAGVideoViewListener Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -90,7 +98,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGView.h</td>
+	<td>PAGVideoView.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -108,6 +116,170 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/onAnimationStart:" title="onAnimationStart:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationStart:">&ndash;&nbsp;onAnimationStart:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the start of the animation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationStart:(PAGVideoView *)<em>pagVideoView</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationEnd:" title="onAnimationEnd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationEnd:">&ndash;&nbsp;onAnimationEnd:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the end of the animation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationEnd:(PAGVideoView *)<em>pagVideoView</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationCancel:" title="onAnimationCancel:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationCancel:">&ndash;&nbsp;onAnimationCancel:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the cancellation of the animation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationCancel:(PAGVideoView *)<em>pagVideoView</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationRepeat:" title="onAnimationRepeat:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationRepeat:">&ndash;&nbsp;onAnimationRepeat:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the repetition of the animation.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationRepeat:(PAGVideoView *)<em>pagVideoView</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/onAnimationStart" title="onAnimationStart"></a>
 	<h3 class="method-title"><code><a href="#//api/name/onAnimationStart">&ndash;&nbsp;onAnimationStart</a></code>
 </h3>
@@ -142,7 +314,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -183,7 +355,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -201,7 +373,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the repetition of the animation.</p>
+				<p>Notifies the cancellation of the animation.</p>
 			</div>
 			
 		    
@@ -224,7 +396,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -242,7 +414,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the cancellation of the animation.</p>
+				<p>Notifies the repetition of the animation.</p>
 			</div>
 			
 		    
@@ -265,7 +437,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGView.h</code></p>
+				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
 			</div>
 			
 			
@@ -286,7 +458,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Tencent. All rights reserved. Updated: 2019-03-28</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-03-23</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

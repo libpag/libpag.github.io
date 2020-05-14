@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGVideoView Class Reference</title>
+	<title>PAGPlayer Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -58,33 +58,33 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/addListener:">- addListener:</option>
+		<option value="//api/name/cacheEnabled">- cacheEnabled</option>
+		
+		<option value="//api/name/cacheScale">- cacheScale</option>
 		
 		<option value="//api/name/duration">- duration</option>
 		
 		<option value="//api/name/flush">- flush</option>
 		
-		<option value="//api/name/frameRate">- frameRate</option>
+		<option value="//api/name/getComposition">- getComposition</option>
+		
+		<option value="//api/name/getLayersUnderPoint:">- getLayersUnderPoint:</option>
 		
 		<option value="//api/name/getProgress">- getProgress</option>
 		
-		<option value="//api/name/height">- height</option>
-		
-		<option value="//api/name/isPlaying">- isPlaying</option>
-		
-		<option value="//api/name/loadFromBytes:size:">- loadFromBytes:size:</option>
-		
-		<option value="//api/name/loadFromPath:">- loadFromPath:</option>
+		<option value="//api/name/getSurface">- getSurface</option>
 		
 		<option value="//api/name/matrix">- matrix</option>
 		
 		<option value="//api/name/maxFrameRate">- maxFrameRate</option>
 		
-		<option value="//api/name/play">- play</option>
-		
-		<option value="//api/name/removeListener:">- removeListener:</option>
-		
 		<option value="//api/name/scaleMode">- scaleMode</option>
+		
+		<option value="//api/name/setCacheEnabled:">- setCacheEnabled:</option>
+		
+		<option value="//api/name/setCacheScale:">- setCacheScale:</option>
+		
+		<option value="//api/name/setComposition:">- setComposition:</option>
 		
 		<option value="//api/name/setMatrix:">- setMatrix:</option>
 		
@@ -92,13 +92,13 @@
 		
 		<option value="//api/name/setProgress:">- setProgress:</option>
 		
-		<option value="//api/name/setRepeatCount:">- setRepeatCount:</option>
-		
 		<option value="//api/name/setScaleMode:">- setScaleMode:</option>
 		
-		<option value="//api/name/stop">- stop</option>
+		<option value="//api/name/setSurface:">- setSurface:</option>
 		
-		<option value="//api/name/width">- width</option>
+		<option value="//api/name/setVideoEnabled:">- setVideoEnabled:</option>
+		
+		<option value="//api/name/videoEnabled">- videoEnabled</option>
 		
 	</optgroup>
 	
@@ -115,16 +115,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGVideoView Class Reference</h1>
+					<h1 class="title">PAGPlayer Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>UIView</td>
+	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGVideoView.h</td>
+	<td>PAGPlayer.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -142,8 +142,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/addListener:" title="addListener:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/addListener:">&ndash;&nbsp;addListener:</a></code>
+	<a name="//api/name/getComposition" title="getComposition"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getComposition">&ndash;&nbsp;getComposition</a></code>
 </h3>
 
 	<div class="method-info">
@@ -153,12 +153,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds a listener to the set of listeners that are sent events through the life of an animation, such as start, repeat, and end.</p>
+				<p>Returns the current <a href="../Classes/PAGComposition.html">PAGComposition</a> for PAGPlayer to render as content.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addListener:(id&lt;PAGVideoViewListener&gt;)<em>listener</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (PAGComposition *)getComposition</code></div>
 
 		    
 			
@@ -176,15 +176,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/removeListener:" title="removeListener:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/removeListener:">&ndash;&nbsp;removeListener:</a></code>
+	<a name="//api/name/setComposition:" title="setComposition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setComposition:">&ndash;&nbsp;setComposition:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -194,12 +194,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Removes a listener from the set listening to this animation.</p>
+				<p>Sets a new <a href="../Classes/PAGComposition.html">PAGComposition</a> for PAGPlayer to render as content.
+Note: If the composition is already added to another PAGPlayer, it will be removed from the previous PAGPlayer.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)removeListener:(id&lt;PAGVideoViewListener&gt;)<em>listener</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setComposition:(PAGComposition *)<em>newComposition</em></code></div>
 
 		    
 			
@@ -217,15 +218,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/isPlaying" title="isPlaying"></a>
-	<h3 class="method-title"><code><a href="#//api/name/isPlaying">&ndash;&nbsp;isPlaying</a></code>
+	<a name="//api/name/getSurface" title="getSurface"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSurface">&ndash;&nbsp;getSurface</a></code>
 </h3>
 
 	<div class="method-info">
@@ -235,12 +236,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Indicates whether or not this pag view is playing.</p>
+				<p>Returns the <a href="../Classes/PAGSurface.html">PAGSurface</a> object for PAGPlayer to render onto.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)isPlaying</code></div>
+			<div class="method-subsection method-declaration"><code>- (PAGSurface *)getSurface</code></div>
 
 		    
 			
@@ -258,15 +259,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/play" title="play"></a>
-	<h3 class="method-title"><code><a href="#//api/name/play">&ndash;&nbsp;play</a></code>
+	<a name="//api/name/setSurface:" title="setSurface:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSurface:">&ndash;&nbsp;setSurface:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -276,12 +277,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Start the animation.</p>
+				<p>Set the <a href="../Classes/PAGSurface.html">PAGSurface</a> object for PAGPlayer to render onto.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)play</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setSurface:(PAGSurface *)<em>surface</em></code></div>
 
 		    
 			
@@ -299,15 +300,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/stop" title="stop"></a>
-	<h3 class="method-title"><code><a href="#//api/name/stop">&ndash;&nbsp;stop</a></code>
+	<a name="//api/name/videoEnabled" title="videoEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoEnabled">&ndash;&nbsp;videoEnabled</a></code>
 </h3>
 
 	<div class="method-info">
@@ -317,12 +318,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Stop the animation.</p>
+				<p>If set to false, the player skips rendering for video composition.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stop</code></div>
+			<div class="method-subsection method-declaration"><code>- (BOOL)videoEnabled</code></div>
 
 		    
 			
@@ -340,15 +341,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setRepeatCount:" title="setRepeatCount:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setRepeatCount:">&ndash;&nbsp;setRepeatCount:</a></code>
+	<a name="//api/name/setVideoEnabled:" title="setVideoEnabled:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setVideoEnabled:">&ndash;&nbsp;setVideoEnabled:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -358,13 +359,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set the number of times the animation will repeat. The default is 1, which means the animation will <a href="#//api/name/play">play</a> only once.
-0 means the animation will <a href="#//api/name/play">play</a> infinity times.</p>
+				<p>Set the value of <a href="#//api/name/videoEnabled">videoEnabled</a> property.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setRepeatCount:(int)<em>repeatCount</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setVideoEnabled:(BOOL)<em>value</em></code></div>
 
 		    
 			
@@ -382,15 +382,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/loadFromPath:" title="loadFromPath:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/loadFromPath:">&ndash;&nbsp;loadFromPath:</a></code>
+	<a name="//api/name/cacheEnabled" title="cacheEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cacheEnabled">&ndash;&nbsp;cacheEnabled</a></code>
 </h3>
 
 	<div class="method-info">
@@ -400,12 +400,15 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Load a pag file from the specified path, return false if the file does not exist or the data is not a pag file.</p>
+				<p>If set to true, PAGPlayer caches an internal bitmap representation of the static content for each layer.
+This caching can increase performance for layers that contain complex vector content. The execution speed can
+be significantly faster depending on the complexity of the content, but it requires extra graphics memory.
+The default value is true.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)loadFromPath:(NSString *)<em>path</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (BOOL)cacheEnabled</code></div>
 
 		    
 			
@@ -423,15 +426,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/loadFromBytes:size:" title="loadFromBytes:size:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/loadFromBytes:size:">&ndash;&nbsp;loadFromBytes:size:</a></code>
+	<a name="//api/name/setCacheEnabled:" title="setCacheEnabled:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCacheEnabled:">&ndash;&nbsp;setCacheEnabled:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -441,12 +444,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Load a pag file from byte data, return false if the bytes is empty or it&rsquo;s not a valid pag file.</p>
+				<p>Set the value of <a href="#//api/name/cacheEnabled">cacheEnabled</a> property.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)loadFromBytes:(const void *)<em>bytes</em> size:(size_t)<em>length</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setCacheEnabled:(BOOL)<em>value</em></code></div>
 
 		    
 			
@@ -464,15 +467,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/frameRate" title="frameRate"></a>
-	<h3 class="method-title"><code><a href="#//api/name/frameRate">&ndash;&nbsp;frameRate</a></code>
+	<a name="//api/name/cacheScale" title="cacheScale"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cacheScale">&ndash;&nbsp;cacheScale</a></code>
 </h3>
 
 	<div class="method-info">
@@ -482,12 +485,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The frame rate of the pag file.</p>
+				<p>This value defines the scale factor for internal graphics caches, ranges from 0.0 to 1.0. The scale factors less than
+1.0 may result in blurred output, but it can reduce the usage of graphics memory which leads to better performance.
+The default value is 1.0.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (float)frameRate</code></div>
+			<div class="method-subsection method-declaration"><code>- (float)cacheScale</code></div>
 
 		    
 			
@@ -505,15 +510,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/duration" title="duration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/duration">&ndash;&nbsp;duration</a></code>
+	<a name="//api/name/setCacheScale:" title="setCacheScale:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCacheScale:">&ndash;&nbsp;setCacheScale:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -523,12 +528,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Return the duration of the pag file in microseconds.</p>
+				<p>Set the value of <a href="#//api/name/cacheScale">cacheScale</a> property.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (int64_t)duration</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setCacheScale:(float)<em>value</em></code></div>
 
 		    
 			
@@ -546,89 +551,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/width" title="width"></a>
-	<h3 class="method-title"><code><a href="#//api/name/width">&ndash;&nbsp;width</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The width of the pag file.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (int32_t)width</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/height" title="height"></a>
-	<h3 class="method-title"><code><a href="#//api/name/height">&ndash;&nbsp;height</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The height of the pag file.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (int32_t)height</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -646,8 +569,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The maximum frame rate for rendering. If set to a value less than the actual frame rate from PAGFile, it drops
-frames but increases performance. Otherwise, it has no effect. The default value is 60.</p>
+				<p>The maximum frame rate for rendering, ranges from 1 to 60. If set to a value less than the actual frame rate
+from composition, it drops frames but increases performance. Otherwise, it has no effect. The default value is 60.</p>
 			</div>
 			
 		    
@@ -670,7 +593,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -711,7 +634,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -734,7 +657,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (PAGVideoScaleMode)scaleMode</code></div>
+			<div class="method-subsection method-declaration"><code>- (PAGScaleMode)scaleMode</code></div>
 
 		    
 			
@@ -752,7 +675,7 @@ frames but increases performance. Otherwise, it has no effect. The default value
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -776,7 +699,7 @@ changes when this method is called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setScaleMode:(PAGVideoScaleMode)<em>value</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setScaleMode:(PAGScaleMode)<em>value</em></code></div>
 
 		    
 			
@@ -794,7 +717,7 @@ changes when this method is called.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -835,7 +758,7 @@ changes when this method is called.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -853,8 +776,8 @@ changes when this method is called.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set the transformation which will be applied to the composition. The method is valid only
-when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
+				<p>Set the transformation which will be applied to the composition. The <a href="#//api/name/scaleMode">scaleMode</a> property
+will be set to PAGScaleMode::None when this method is called.</p>
 			</div>
 			
 		    
@@ -877,7 +800,48 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/duration">&ndash;&nbsp;duration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The duration of current composition in microseconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (int64_t)duration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -895,7 +859,7 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the current progress of <a href="#//api/name/play">play</a> position, the value is from 0.0 to 1.0.</p>
+				<p>Returns the current progress of play position, the value is from 0.0 to 1.0.</p>
 			</div>
 			
 		    
@@ -918,7 +882,7 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -936,7 +900,7 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set the progress of <a href="#//api/name/play">play</a> position, the value is from 0.0 to 1.0.</p>
+				<p>Set the progress of play position, the value is from 0.0 to 1.0.</p>
 			</div>
 			
 		    
@@ -959,7 +923,7 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -977,8 +941,7 @@ when the <a href="#//api/name/scaleMode">scaleMode</a> is PAGScaleMode.None.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Call this method to render current position immediately. If the <a href="#//api/name/play">play</a>() method is already
-called, there is no need to call it, Returns true if the content has changed.</p>
+				<p>Apply all pending changes to the target surface immediately. Returns true if the content has changed.</p>
 			</div>
 			
 		    
@@ -1001,7 +964,49 @@ called, there is no need to call it, Returns true if the content has changed.</p
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getLayersUnderPoint:" title="getLayersUnderPoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLayersUnderPoint:">&ndash;&nbsp;getLayersUnderPoint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an array of layers that lie under the specified point. The point is in pixels and from the surface&rsquo;s
+coordinates.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSArray&lt;PAGLayer*&gt; *)getLayersUnderPoint:(CGPoint)<em>point</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
 			</div>
 			
 			
@@ -1022,7 +1027,7 @@ called, there is no need to call it, Returns true if the content has changed.</p
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-03-23</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-05-14</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

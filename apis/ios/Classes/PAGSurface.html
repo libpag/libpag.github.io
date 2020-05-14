@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGVideoViewListener Protocol Reference</title>
+	<title>PAGSurface Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -54,25 +54,29 @@
 	
 
 	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/FromLayer:">+ FromLayer:</option>
+		
+		<option value="//api/name/MakeFromGPU:">+ MakeFromGPU:</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/onAnimationCancel">- onAnimationCancel</option>
+		<option value="//api/name/freeCache">- freeCache</option>
 		
-		<option value="//api/name/onAnimationCancel:">- onAnimationCancel:</option>
+		<option value="//api/name/getCVPixelBuffer">- getCVPixelBuffer</option>
 		
-		<option value="//api/name/onAnimationEnd">- onAnimationEnd</option>
+		<option value="//api/name/height">- height</option>
 		
-		<option value="//api/name/onAnimationEnd:">- onAnimationEnd:</option>
+		<option value="//api/name/present">- present</option>
 		
-		<option value="//api/name/onAnimationRepeat">- onAnimationRepeat</option>
+		<option value="//api/name/updateSize">- updateSize</option>
 		
-		<option value="//api/name/onAnimationRepeat:">- onAnimationRepeat:</option>
-		
-		<option value="//api/name/onAnimationStart">- onAnimationStart</option>
-		
-		<option value="//api/name/onAnimationStart:">- onAnimationStart:</option>
+		<option value="//api/name/width">- width</option>
 		
 	</optgroup>
 	
@@ -89,16 +93,16 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGVideoViewListener Protocol Reference</h1>
+					<h1 class="title">PAGSurface Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Conforms to</th>
+	<th>Inherits from</th>
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGVideoView.h</td>
+	<td>PAGSurface.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -116,8 +120,40 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/onAnimationStart:" title="onAnimationStart:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationStart:">&ndash;&nbsp;onAnimationStart:</a></code>
+	<a name="//api/name/FromLayer:" title="FromLayer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromLayer:">+&nbsp;FromLayer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (PAGSurface *)FromLayer:(CAEAGLLayer *)<em>layer</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/MakeFromGPU:" title="MakeFromGPU:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/MakeFromGPU:">+&nbsp;MakeFromGPU:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (PAGSurface *)MakeFromGPU:(CGSize)<em>size</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/width" title="width"></a>
+	<h3 class="method-title"><code><a href="#//api/name/width">&ndash;&nbsp;width</a></code>
 </h3>
 
 	<div class="method-info">
@@ -127,12 +163,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the start of the animation.</p>
+				<p>The width of surface in pixels.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationStart:(PAGVideoView *)<em>pagVideoView</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (int)width</code></div>
 
 		    
 			
@@ -150,15 +186,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onAnimationEnd:" title="onAnimationEnd:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationEnd:">&ndash;&nbsp;onAnimationEnd:</a></code>
+	<a name="//api/name/height" title="height"></a>
+	<h3 class="method-title"><code><a href="#//api/name/height">&ndash;&nbsp;height</a></code>
 </h3>
 
 	<div class="method-info">
@@ -168,12 +204,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the end of the animation.</p>
+				<p>The height of surface in pixels.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationEnd:(PAGVideoView *)<em>pagVideoView</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (int)height</code></div>
 
 		    
 			
@@ -191,15 +227,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onAnimationCancel:" title="onAnimationCancel:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationCancel:">&ndash;&nbsp;onAnimationCancel:</a></code>
+	<a name="//api/name/updateSize" title="updateSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateSize">&ndash;&nbsp;updateSize</a></code>
 </h3>
 
 	<div class="method-info">
@@ -209,12 +245,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the cancellation of the animation.</p>
+				<p>Update the size of surface, and reset the internal surface.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationCancel:(PAGVideoView *)<em>pagVideoView</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateSize</code></div>
 
 		    
 			
@@ -232,15 +268,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onAnimationRepeat:" title="onAnimationRepeat:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationRepeat:">&ndash;&nbsp;onAnimationRepeat:</a></code>
+	<a name="//api/name/present" title="present"></a>
+	<h3 class="method-title"><code><a href="#//api/name/present">&ndash;&nbsp;present</a></code>
 </h3>
 
 	<div class="method-info">
@@ -250,12 +286,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the repetition of the animation.</p>
+				<p><a href="Please%20use%20'[[PAGPlayer%20flush]](../Classes/PAGPlayer.html#//api/name/flush">Deprecated</a>&lsquo; instead)
+Apply all changes to the surface. Returns true if the content has changed.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationRepeat:(PAGVideoView *)<em>pagVideoView</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (BOOL)present</code></div>
 
 		    
 			
@@ -273,15 +310,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onAnimationStart" title="onAnimationStart"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationStart">&ndash;&nbsp;onAnimationStart</a></code>
+	<a name="//api/name/freeCache" title="freeCache"></a>
+	<h3 class="method-title"><code><a href="#//api/name/freeCache">&ndash;&nbsp;freeCache</a></code>
 </h3>
 
 	<div class="method-info">
@@ -291,12 +328,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the start of the animation.</p>
+				<p>Free the cache created by the surface immediately. Can be called to reduce memory pressure.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationStart</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)freeCache</code></div>
 
 		    
 			
@@ -314,15 +351,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/onAnimationEnd" title="onAnimationEnd"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationEnd">&ndash;&nbsp;onAnimationEnd</a></code>
+	<a name="//api/name/getCVPixelBuffer" title="getCVPixelBuffer"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCVPixelBuffer">&ndash;&nbsp;getCVPixelBuffer</a></code>
 </h3>
 
 	<div class="method-info">
@@ -332,12 +369,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Notifies the end of the animation.</p>
+				<p>Returns the CVPixelBuffer object created by MakeFromGPU.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationEnd</code></div>
+			<div class="method-subsection method-declaration"><code>- (CVPixelBufferRef)getCVPixelBuffer</code></div>
 
 		    
 			
@@ -355,89 +392,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/onAnimationCancel" title="onAnimationCancel"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationCancel">&ndash;&nbsp;onAnimationCancel</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Notifies the cancellation of the animation.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationCancel</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/onAnimationRepeat" title="onAnimationRepeat"></a>
-	<h3 class="method-title"><code><a href="#//api/name/onAnimationRepeat">&ndash;&nbsp;onAnimationRepeat</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Notifies the repetition of the animation.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)onAnimationRepeat</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoView.h</code></p>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
 			</div>
 			
 			
@@ -458,7 +413,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-03-23</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-05-14</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

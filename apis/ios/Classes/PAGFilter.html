@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>PAGFilter Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">libpag </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Tencent</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/FromPAGFile:editableImageIndex:">+ FromPAGFile:editableImageIndex:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/currentTime">- currentTime</option>
+		
+		<option value="//api/name/duration">- duration</option>
+		
+		<option value="//api/name/excludedFromTimeline">- excludedFromTimeline</option>
+		
+		<option value="//api/name/setCurrentTime:">- setCurrentTime:</option>
+		
+		<option value="//api/name/setDuration:">- setDuration:</option>
+		
+		<option value="//api/name/setExcludedFromTimeline:">- setExcludedFromTimeline:</option>
+		
+		<option value="//api/name/setStartTime:">- setStartTime:</option>
+		
+		<option value="//api/name/setVisible:">- setVisible:</option>
+		
+		<option value="//api/name/startTime">- startTime</option>
+		
+		<option value="//api/name/visible">- visible</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">PAGFilter Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>PAGFilter.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/FromPAGFile:editableImageIndex:" title="FromPAGFile:editableImageIndex:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromPAGFile:editableImageIndex:">+&nbsp;FromPAGFile:editableImageIndex:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a PAGFilter from the specified <a href="../Classes/PAGFile.html">PAGFile</a> object and it&rsquo;s corresponding editableImageIndex. If the <a href="../Classes/PAGFile.html">PAGFile</a>
+object has a <a href="../Classes/PAGComposition.html">PAGComposition</a> object as a parent, the object is removed from it&rsquo;s parent. The <a href="#//api/name/startTime">startTime</a> and
+<a href="#//api/name/duration">duration</a> of PAGFilter object are in the timeline of PAGLayer&rsquo;s content  (0 means layer&rsquo;s <a href="#//api/name/startTime">startTime</a>).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (PAGFilter *)FromPAGFile:(PAGFile *)<em>pagFile</em> editableImageIndex:(int)<em>editableImageIndex</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/visible" title="visible"></a>
+	<h3 class="method-title"><code><a href="#//api/name/visible">&ndash;&nbsp;visible</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Whether or not the filter is visible.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)visible</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setVisible:" title="setVisible:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setVisible:">&ndash;&nbsp;setVisible:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the <a href="#//api/name/visible">visible</a> of the filter.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setVisible:(BOOL)<em>visible</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startTime" title="startTime"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startTime">&ndash;&nbsp;startTime</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The start time of the filter in microseconds, indicates the start position of the <a href="#//api/name/visible">visible</a> range in the
+timeline of layer&rsquo;s content. It could be negative value.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (int64_t)startTime</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setStartTime:" title="setStartTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setStartTime:">&ndash;&nbsp;setStartTime:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the start time of the filter, in microseconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setStartTime:(int64_t)<em>startTime</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/duration">&ndash;&nbsp;duration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The duration of the filter in microseconds, indicates the length of the <a href="#//api/name/visible">visible</a> range.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (int64_t)duration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setDuration:" title="setDuration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setDuration:">&ndash;&nbsp;setDuration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the <a href="#//api/name/duration">duration</a> of this filter.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setDuration:(int64_t)<em>duration</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/currentTime" title="currentTime"></a>
+	<h3 class="method-title"><code><a href="#//api/name/currentTime">&ndash;&nbsp;currentTime</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The current time of the filter in microseconds, the layer is in<a href="#//api/name/visible">visible</a> if currentTime is not in the <a href="#//api/name/visible">visible</a>
+range (<a href="#//api/name/startTime">startTime</a> &lt;= currentTime &lt; <a href="#//api/name/startTime">startTime</a> + <a href="#//api/name/duration">duration</a>).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (int64_t)currentTime</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setCurrentTime:" title="setCurrentTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCurrentTime:">&ndash;&nbsp;setCurrentTime:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the current time of the filter, in microseconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setCurrentTime:(int64_t)<em>currentTime</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/excludedFromTimeline" title="excludedFromTimeline"></a>
+	<h3 class="method-title"><code><a href="#//api/name/excludedFromTimeline">&ndash;&nbsp;excludedFromTimeline</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Indicate whether this filter is excluded from layer&rsquo;s timeline. If set to true, this filter&rsquo;s <a href="#//api/name/currentTime">currentTime</a>
+will not change when layer&rsquo;s current time changes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)excludedFromTimeline</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setExcludedFromTimeline:" title="setExcludedFromTimeline:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setExcludedFromTimeline:">&ndash;&nbsp;setExcludedFromTimeline:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the <a href="#//api/name/excludedFromTimeline">excludedFromTimeline</a> flag of this filter.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setExcludedFromTimeline:(BOOL)<em>value</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGFilter.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-08-28</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

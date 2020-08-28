@@ -52,7 +52,25 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/bufferPrepared">bufferPrepared</option>
+		
+		<option value="//api/name/isAsyncFlushing">isAsyncFlushing</option>
+		
+	</optgroup>
+	
 
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/FlushQueue">+ FlushQueue</option>
+		
+		<option value="//api/name/RegisterFlushQueueDestoryMethod">+ RegisterFlushQueueDestoryMethod</option>
+		
+		<option value="//api/name/layerClass">+ layerClass</option>
+		
+	</optgroup>
 	
 
 	
@@ -60,15 +78,29 @@
 		
 		<option value="//api/name/addListener:">- addListener:</option>
 		
+		<option value="//api/name/applicationWillEnterForeground:">- applicationWillEnterForeground:</option>
+		
+		<option value="//api/name/applyReplacements">- applyReplacements</option>
+		
 		<option value="//api/name/cacheEnabled">- cacheEnabled</option>
 		
 		<option value="//api/name/cacheScale">- cacheScale</option>
+		
+		<option value="//api/name/checkVisible">- checkVisible</option>
+		
+		<option value="//api/name/dealloc">- dealloc</option>
+		
+		<option value="//api/name/didMoveToWindow">- didMoveToWindow</option>
+		
+		<option value="//api/name/doPlay">- doPlay</option>
 		
 		<option value="//api/name/duration">- duration</option>
 		
 		<option value="//api/name/flush">- flush</option>
 		
 		<option value="//api/name/flush:">- flush:</option>
+		
+		<option value="//api/name/flushAsync">- flushAsync</option>
 		
 		<option value="//api/name/freeCache">- freeCache</option>
 		
@@ -84,19 +116,41 @@
 		
 		<option value="//api/name/getRootComposition">- getRootComposition</option>
 		
+		<option value="//api/name/initPAG">- initPAG</option>
+		
+		<option value="//api/name/initPAGSurface">- initPAGSurface</option>
+		
+		<option value="//api/name/initWithFrame:">- initWithFrame:</option>
+		
 		<option value="//api/name/isPlaying">- isPlaying</option>
 		
 		<option value="//api/name/matrix">- matrix</option>
 		
 		<option value="//api/name/maxFrameRate">- maxFrameRate</option>
 		
+		<option value="//api/name/onAnimationCancel">- onAnimationCancel</option>
+		
+		<option value="//api/name/onAnimationEnd">- onAnimationEnd</option>
+		
+		<option value="//api/name/onAnimationRepeat">- onAnimationRepeat</option>
+		
+		<option value="//api/name/onAnimationStart">- onAnimationStart</option>
+		
+		<option value="//api/name/onAnimationUpdate:">- onAnimationUpdate:</option>
+		
 		<option value="//api/name/play">- play</option>
 		
 		<option value="//api/name/removeListener:">- removeListener:</option>
 		
+		<option value="//api/name/renderTargetBufferPrepared:">- renderTargetBufferPrepared:</option>
+		
 		<option value="//api/name/replaceImage:data:">- replaceImage:data:</option>
 		
 		<option value="//api/name/scaleMode">- scaleMode</option>
+		
+		<option value="//api/name/setAlpha:">- setAlpha:</option>
+		
+		<option value="//api/name/setBounds:">- setBounds:</option>
 		
 		<option value="//api/name/setCacheEnabled:">- setCacheEnabled:</option>
 		
@@ -104,7 +158,13 @@
 		
 		<option value="//api/name/setComposition:">- setComposition:</option>
 		
+		<option value="//api/name/setContentScaleFactor:">- setContentScaleFactor:</option>
+		
 		<option value="//api/name/setFile:">- setFile:</option>
+		
+		<option value="//api/name/setFrame:">- setFrame:</option>
+		
+		<option value="//api/name/setHidden:">- setHidden:</option>
 		
 		<option value="//api/name/setMatrix:">- setMatrix:</option>
 		
@@ -150,7 +210,7 @@
 	<td>UIView</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGView.h</td>
+	<td>PAGView.h<br />PAGView.mm</td>
 </tr>
 						</tbody></table></div>
 					
@@ -164,7 +224,7 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
@@ -467,7 +527,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Load a pag file from the specified path, returns false if the file does not exist or the data is not a pag file.</p>
+				<p>Load a pag file from the specified path, returns false if the file does not exist or the data is not a pag file.
+Note: All PAGFiles loaded by the same path share the same internal cache. The internal cache is alive until all PAGFiles are released. Use &lsquo;<a href="../Classes/PAGFile.html#//api/name/Load:size:">[PAGFile Load:size:]</a>&rsquo; instead if you don&rsquo;t want to load a <a href="../Classes/PAGFile.html">PAGFile</a> from the intenal caches.</p>
 			</div>
 			
 		    
@@ -1595,6 +1656,489 @@ for the image parameter will reset it to the default image data.</p>
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/FlushQueue" title="FlushQueue"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FlushQueue">+&nbsp;FlushQueue</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (NSOperationQueue *)FlushQueue</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/RegisterFlushQueueDestoryMethod" title="RegisterFlushQueueDestoryMethod"></a>
+	<h3 class="method-title"><code><a href="#//api/name/RegisterFlushQueueDestoryMethod">+&nbsp;RegisterFlushQueueDestoryMethod</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>函数用于在执行exit()函数时把渲染任务全部完成，防止skia的全局函数被析构，导致skia野指针crash。
+注意这里注册需要等待skia执行一次后再进行注册。因此需要等到bufferPerpared并再执行一次flush后,否则skia的static对象仍然会先析构</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)RegisterFlushQueueDestoryMethod</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.mm</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithFrame:" title="initWithFrame:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithFrame:">&ndash;&nbsp;initWithFrame:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithFrame:(CGRect)<em>frame</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initPAG" title="initPAG"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initPAG">&ndash;&nbsp;initPAG</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)initPAG</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dealloc" title="dealloc"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dealloc">&ndash;&nbsp;dealloc</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)dealloc</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/layerClass" title="layerClass"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layerClass">+&nbsp;layerClass</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>+ (Class)layerClass</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setBounds:" title="setBounds:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setBounds:">&ndash;&nbsp;setBounds:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)setBounds:(CGRect)<em>bounds</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setFrame:" title="setFrame:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setFrame:">&ndash;&nbsp;setFrame:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)setFrame:(CGRect)<em>frame</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setContentScaleFactor:" title="setContentScaleFactor:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setContentScaleFactor:">&ndash;&nbsp;setContentScaleFactor:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)setContentScaleFactor:(CGFloat)<em>scaleFactor</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didMoveToWindow" title="didMoveToWindow"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didMoveToWindow">&ndash;&nbsp;didMoveToWindow</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)didMoveToWindow</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setAlpha:" title="setAlpha:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setAlpha:">&ndash;&nbsp;setAlpha:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)setAlpha:(CGFloat)<em>alpha</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setHidden:" title="setHidden:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setHidden:">&ndash;&nbsp;setHidden:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)setHidden:(BOOL)<em>hidden</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/checkVisible" title="checkVisible"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkVisible">&ndash;&nbsp;checkVisible</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)checkVisible</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initPAGSurface" title="initPAGSurface"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initPAGSurface">&ndash;&nbsp;initPAGSurface</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>先调用doPlay·doPlay会获取composition的duration，如果先初始化PAGSurface会让composition被锁，导致异步失效</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)initPAGSurface</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.mm</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationUpdate:" title="onAnimationUpdate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationUpdate:">&ndash;&nbsp;onAnimationUpdate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationUpdate:(double)<em>value</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationStart" title="onAnimationStart"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationStart">&ndash;&nbsp;onAnimationStart</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationStart</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationEnd" title="onAnimationEnd"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationEnd">&ndash;&nbsp;onAnimationEnd</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationEnd</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationCancel" title="onAnimationCancel"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationCancel">&ndash;&nbsp;onAnimationCancel</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationCancel</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/onAnimationRepeat" title="onAnimationRepeat"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onAnimationRepeat">&ndash;&nbsp;onAnimationRepeat</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)onAnimationRepeat</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/doPlay" title="doPlay"></a>
+	<h3 class="method-title"><code><a href="#//api/name/doPlay">&ndash;&nbsp;doPlay</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)doPlay</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/flushAsync" title="flushAsync"></a>
+	<h3 class="method-title"><code><a href="#//api/name/flushAsync">&ndash;&nbsp;flushAsync</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)flushAsync</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/applyReplacements" title="applyReplacements"></a>
+	<h3 class="method-title"><code><a href="#//api/name/applyReplacements">&ndash;&nbsp;applyReplacements</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)applyReplacements</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/applicationWillEnterForeground:" title="applicationWillEnterForeground:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/applicationWillEnterForeground:">&ndash;&nbsp;applicationWillEnterForeground:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)applicationWillEnterForeground:(NSNotification *)<em>notification</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/renderTargetBufferPrepared:" title="renderTargetBufferPrepared:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/renderTargetBufferPrepared:">&ndash;&nbsp;renderTargetBufferPrepared:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (void)renderTargetBufferPrepared:(NSNotification *)<em>notification</em></code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Extension Methods" name="task_Extension Methods"></a>
+						<h2 class="task-title">Extension Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/isAsyncFlushing" title="isAsyncFlushing"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isAsyncFlushing">&nbsp;&nbsp;isAsyncFlushing</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (atomic, assign) BOOL isAsyncFlushing</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferPrepared" title="bufferPrepared"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferPrepared">&nbsp;&nbsp;bufferPrepared</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (atomic, assign) BOOL bufferPrepared</code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -1607,7 +2151,7 @@ for the image parameter will reset it to the default image data.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-05-14</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-08-28</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

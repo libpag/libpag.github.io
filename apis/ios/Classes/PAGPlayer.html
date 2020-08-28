@@ -66,6 +66,8 @@
 		
 		<option value="//api/name/flush">- flush</option>
 		
+		<option value="//api/name/getBounds:">- getBounds:</option>
+		
 		<option value="//api/name/getComposition">- getComposition</option>
 		
 		<option value="//api/name/getLayersUnderPoint:">- getLayersUnderPoint:</option>
@@ -73,6 +75,10 @@
 		<option value="//api/name/getProgress">- getProgress</option>
 		
 		<option value="//api/name/getSurface">- getSurface</option>
+		
+		<option value="//api/name/hitTestPoint:point:">- hitTestPoint:point:</option>
+		
+		<option value="//api/name/hitTestPoint:point:pixelHitTest:">- hitTestPoint:point:pixelHitTest:</option>
 		
 		<option value="//api/name/matrix">- matrix</option>
 		
@@ -971,6 +977,48 @@ will be set to PAGScaleMode::None when this method is called.</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getBounds:" title="getBounds:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getBounds:">&ndash;&nbsp;getBounds:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a rectangle that defines the displaying area of the specified layer, which is in the coordinate of
+the <a href="../Classes/PAGSurface.html">PAGSurface</a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (CGRect)getBounds:(PAGLayer *)<em>pagLayer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getLayersUnderPoint:" title="getLayersUnderPoint:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getLayersUnderPoint:">&ndash;&nbsp;getLayersUnderPoint:</a></code>
 </h3>
@@ -1012,6 +1060,95 @@ coordinates.</p>
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/hitTestPoint:point:" title="hitTestPoint:point:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hitTestPoint:point:">&ndash;&nbsp;hitTestPoint:point:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Evaluates the <a href="../Classes/PAGLayer.html">PAGLayer</a> to see if it overlaps or intersects with the specified point. The point is in the
+coordinate space of the <a href="../Classes/PAGSurface.html">PAGSurface</a>, not the <a href="../Classes/PAGComposition.html">PAGComposition</a> that contains the <a href="../Classes/PAGLayer.html">PAGLayer</a>. It always returns
+false if the <a href="../Classes/PAGLayer.html">PAGLayer</a> or its parent (or parent&rsquo;s parent&hellip;) has not been added to this PAGPlayer. This method
+only check against the bounding box not the acual pixels.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)hitTestPoint:(PAGLayer *)<em>layer</em> point:(CGPoint)<em>point</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hitTestPoint:point:pixelHitTest:" title="hitTestPoint:point:pixelHitTest:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hitTestPoint:point:pixelHitTest:">&ndash;&nbsp;hitTestPoint:point:pixelHitTest:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Evaluates the <a href="../Classes/PAGLayer.html">PAGLayer</a> to see if it overlaps or intersects with the specified point. The point is in the
+coordinate space of the <a href="../Classes/PAGSurface.html">PAGSurface</a>, not the <a href="../Classes/PAGComposition.html">PAGComposition</a> that contains the <a href="../Classes/PAGLayer.html">PAGLayer</a>. It always returns
+false if the <a href="../Classes/PAGLayer.html">PAGLayer</a> or its parent (or parent&rsquo;s parent&hellip;) has not been added to this PAGPlayer. The
+pixelHitTest parameter indicates whether or not to check against the actual pixels of the object (true) or
+the bounding box (false). Returns true if the <a href="../Classes/PAGLayer.html">PAGLayer</a> overlaps or intersects with the specified point.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)hitTestPoint:(PAGLayer *)<em>layer</em> point:(CGPoint)<em>point</em> pixelHitTest:(BOOL)<em>pixelHitTest</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGPlayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1027,7 +1164,7 @@ coordinates.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-05-14</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-08-28</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

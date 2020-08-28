@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGVideoRange Class Reference</title>
+	<title>PAGMovie Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -43,8 +43,6 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
 
 	
 	
@@ -54,21 +52,25 @@
 
 	
 	
-	<optgroup label="Properties">
+
+	
+	<optgroup label="Class Methods">
 		
-		<option value="//api/name/endTime">endTime</option>
+		<option value="//api/name/FromComposition:">+ FromComposition:</option>
 		
-		<option value="//api/name/playDuration">playDuration</option>
+		<option value="//api/name/FromVideoPath:">+ FromVideoPath:</option>
 		
-		<option value="//api/name/reversed">reversed</option>
-		
-		<option value="//api/name/startTime">startTime</option>
+		<option value="//api/name/FromVideoPath:startTime:duration:">+ FromVideoPath:startTime:duration:</option>
 		
 	</optgroup>
 	
 
 	
-
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/duration">- duration</option>
+		
+	</optgroup>
 	
 	
 </select>
@@ -83,29 +85,21 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGVideoRange Class Reference</h1>
+					<h1 class="title">PAGMovie Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>NSObject</td>
+	<td><a href="../Classes/PAGImage.html">PAGImage</a> : NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGVideoRange.h</td>
+	<td>PAGMovie.h</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><a href="Please%20use%20[PAGMovie](../Classes/PAGMovie.html">Deprecated</a> class instead)</p>
-					</div>
-					
-					
 
 					
 					
@@ -118,8 +112,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/startTime" title="startTime"></a>
-	<h3 class="method-title"><code><a href="#//api/name/startTime">&nbsp;&nbsp;startTime</a></code>
+	<a name="//api/name/FromComposition:" title="FromComposition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromComposition:">+&nbsp;FromComposition:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -129,12 +123,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The start time of the source video, in microseconds.</p>
+				<p>Creates a PAGMovie object from a <a href="../Classes/PAGComposition.html">PAGComposition</a> object, returns null if the composition is null.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) int64_t startTime</code></div>
+			<div class="method-subsection method-declaration"><code>+ (PAGMovie *)FromComposition:(PAGComposition *)<em>composition</em></code></div>
 
 		    
 			
@@ -152,15 +146,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoRange.h</code></p>
+				<p><code class="declared-in-ref">PAGMovie.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/endTime" title="endTime"></a>
-	<h3 class="method-title"><code><a href="#//api/name/endTime">&nbsp;&nbsp;endTime</a></code>
+	<a name="//api/name/FromVideoPath:" title="FromVideoPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromVideoPath:">+&nbsp;FromVideoPath:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -170,14 +164,32 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The end time of the source video (not included), in microseconds.</p>
+				<p>Creates a PAGMovie object from a path of a video file, return null if the file does not exist or it&rsquo;s not a
+valid video file.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) int64_t endTime</code></div>
+			<div class="method-subsection method-declaration"><code>+ (PAGMovie *)FromVideoPath:(NSString *)<em>filePath</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>startTime</code></th>
+						<td><p>start time of the movie in microseconds.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>duration</code></th>
+						<td><p><a href="#//api/name/duration">duration</a> of the movie in microseconds.</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -193,15 +205,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoRange.h</code></p>
+				<p><code class="declared-in-ref">PAGMovie.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/playDuration" title="playDuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/playDuration">&nbsp;&nbsp;playDuration</a></code>
+	<a name="//api/name/FromVideoPath:startTime:duration:" title="FromVideoPath:startTime:duration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromVideoPath:startTime:duration:">+&nbsp;FromVideoPath:startTime:duration:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -211,12 +223,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The duration for playing after applying speed.</p>
+				<p>Creates a PAGMovie object from a specified range of a video file, return null if the file does not exist or
+it&rsquo;s not a valid video file.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) int64_t playDuration</code></div>
+			<div class="method-subsection method-declaration"><code>+ (PAGMovie *)FromVideoPath:(NSString *)<em>filePath</em> startTime:(int64_t)<em>startTime</em> duration:(int64_t)<em>duration</em></code></div>
 
 		    
 			
@@ -234,15 +247,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoRange.h</code></p>
+				<p><code class="declared-in-ref">PAGMovie.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/reversed" title="reversed"></a>
-	<h3 class="method-title"><code><a href="#//api/name/reversed">&nbsp;&nbsp;reversed</a></code>
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/duration">&ndash;&nbsp;duration</a></code>
 </h3>
 
 	<div class="method-info">
@@ -252,12 +265,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Indicates whether the video should play backward.</p>
+				<p>Returns the duration of this movie in microseconds.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) int64_t reversed</code></div>
+			<div class="method-subsection method-declaration"><code>- (int64_t)duration</code></div>
 
 		    
 			
@@ -275,7 +288,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoRange.h</code></p>
+				<p><code class="declared-in-ref">PAGMovie.h</code></p>
 			</div>
 			
 			

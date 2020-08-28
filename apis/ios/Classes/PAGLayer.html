@@ -58,11 +58,15 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/addFilter:">- addFilter:</option>
+		
 		<option value="//api/name/currentTime">- currentTime</option>
 		
 		<option value="//api/name/duration">- duration</option>
 		
 		<option value="//api/name/editableIndex">- editableIndex</option>
+		
+		<option value="//api/name/excludedFromTimeline">- excludedFromTimeline</option>
 		
 		<option value="//api/name/frameRate">- frameRate</option>
 		
@@ -74,8 +78,6 @@
 		
 		<option value="//api/name/globalToLocalTime:">- globalToLocalTime:</option>
 		
-		<option value="//api/name/hitTestPoint:pixelHitTest:">- hitTestPoint:pixelHitTest:</option>
-		
 		<option value="//api/name/layerName">- layerName</option>
 		
 		<option value="//api/name/layerType">- layerType</option>
@@ -86,11 +88,17 @@
 		
 		<option value="//api/name/matrix">- matrix</option>
 		
+		<option value="//api/name/numFilters">- numFilters</option>
+		
 		<option value="//api/name/parent">- parent</option>
+		
+		<option value="//api/name/removeAllFilters">- removeAllFilters</option>
 		
 		<option value="//api/name/resetMatrix">- resetMatrix</option>
 		
 		<option value="//api/name/setCurrentTime:">- setCurrentTime:</option>
+		
+		<option value="//api/name/setExcludedFromTimeline:">- setExcludedFromTimeline:</option>
 		
 		<option value="//api/name/setMatrix:">- setMatrix:</option>
 		
@@ -935,7 +943,8 @@ microseconds.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set the progress of play position, the value is from 0.0 to 1.0.</p>
+				<p>Set the progress of play position, the value ranges from 0.0 to 1.0. A value of 0.0 represents the
+frame at <a href="#//api/name/startTime">startTime</a>. A value of 1.0 represents the frame at the end of <a href="#//api/name/duration">duration</a>.</p>
 			</div>
 			
 		    
@@ -1047,8 +1056,8 @@ microseconds.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/hitTestPoint:pixelHitTest:" title="hitTestPoint:pixelHitTest:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/hitTestPoint:pixelHitTest:">&ndash;&nbsp;hitTestPoint:pixelHitTest:</a></code>
+	<a name="//api/name/numFilters" title="numFilters"></a>
+	<h3 class="method-title"><code><a href="#//api/name/numFilters">&ndash;&nbsp;numFilters</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1058,41 +1067,182 @@ microseconds.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Evaluates the PAGLayer to see if it overlaps or intersects with the point specified.
-The point parameter specify a point in the coordinate space of the <a href="../Classes/PAGSurface.html">PAGSurface</a>, not the <a href="../Classes/PAGComposition.html">PAGComposition</a>
-that contains the PAGLayer. It always returns false if the PAGLayer or its <a href="#//api/name/parent">parent</a> (or parent&rsquo;s <a href="#//api/name/parent">parent</a>&hellip;) has
-not been added to a <a href="../Classes/PAGSurface.html">PAGSurface</a>.</p>
+				<p>Returns the number of filter nodes of this PAGLayer.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)hitTestPoint:(CGPoint)<em>point</em> pixelHitTest:(BOOL)<em>pixelHitTest</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NSInteger)numFilters</code></div>
 
 		    
 			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>point</code></th>
-						<td><p>The point coordinate to test against this layer.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>pixelHitTest</code></th>
-						<td><p>Whether to check against the actual pixels of the object (true) or the bounding box (false)</p></td>
-					</tr>
-				
-				</table>
-			</div>
+
 			
 
 			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>true if the PAGLayer overlaps or intersects with the specified point; false otherwise.</p>
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGLayer.h</code></p>
 			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addFilter:" title="addFilter:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addFilter:">&ndash;&nbsp;addFilter:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Add a <a href="../Classes/PAGFilter.html">PAGFilter</a> object to current PAGLayer as it&rsquo;s last filter node. If the <a href="../Classes/PAGFilter.html">PAGFilter</a> object has a PAGLayer
+object as a owner, the object is removed from it&rsquo;s owner.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addFilter:(PAGFilter *)<em>pagFilter</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGLayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAllFilters" title="removeAllFilters"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAllFilters">&ndash;&nbsp;removeAllFilters</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove all filter nodes from current PAGLayer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeAllFilters</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGLayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/excludedFromTimeline" title="excludedFromTimeline"></a>
+	<h3 class="method-title"><code><a href="#//api/name/excludedFromTimeline">&ndash;&nbsp;excludedFromTimeline</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Indicate whether this layer is excluded from parent&rsquo;s timeline. If set to true, this layer&rsquo;s current time
+will not change when parent&rsquo;s current time changes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)excludedFromTimeline</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGLayer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setExcludedFromTimeline:" title="setExcludedFromTimeline:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setExcludedFromTimeline:">&ndash;&nbsp;setExcludedFromTimeline:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the <a href="#//api/name/excludedFromTimeline">excludedFromTimeline</a> flag of this layer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setExcludedFromTimeline:(BOOL)<em>value</em></code></div>
+
+		    
+			
+
 			
 
 			
@@ -1127,7 +1277,7 @@ not been added to a <a href="../Classes/PAGSurface.html">PAGSurface</a>.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-05-14</p>
+						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-08-28</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

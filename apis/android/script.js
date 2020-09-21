@@ -28,3 +28,4 @@ function updateTabs(type)
         }
     }
 }
+window.top.postMessage(location.pathname+"#"+location.hash);

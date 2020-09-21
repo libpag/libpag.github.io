@@ -7,7 +7,7 @@ if (navigator.userAgent.indexOf("Xcode") != -1) {
 }
 
 var jumpTo = $("#jump-to");
-
+var innerDocClick = false;
 if (jumpTo) {
 	jumpTo.addEventListener("change", function(e) {
 		location.hash = this.options[this.selectedIndex].value;
@@ -26,6 +26,9 @@ function hashChanged() {
 
 		element.classList.remove("hide");
 		fixScrollPosition(element);
+		if(innerDocClick){
+			window.top.postMessage('iframe_url_change');
+		}
 	}
 }
 
@@ -55,5 +58,24 @@ function fixScrollPosition(element) {
 	});
 });
 
+document.onmouseover = function() {
+	innerDocClick = true;
+}
+
+document.onmouseleave = function() {
+	innerDocClick = false;
+}
+
 window.addEventListener("hashchange", hashChanged);
 hashChanged();
+
+window.top.postMessage('iframe_url_change');
+
+var bar = document.getElementById("hide_top_bar");
+if(!bar){
+	var style = document.createElement('style');
+	style.appendChild(
+		document.createTextNode('header>.container{display:none} body>aside>.container{margin-top:-23px !important}')
+	)
+	document.head.appendChild(style)
+}

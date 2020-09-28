@@ -59,6 +59,7 @@
                 position: absolute;
                 right: 0;
                 top: 0;
+                width: 360px;
             }
             .btn-bar{
                 display: flex;
@@ -86,7 +87,10 @@
             width: 1080px;
             .wrap{
                 display: flex;
-                justify-content:space-between
+                justify-content:space-between;
+                >img{
+                    width: 564px;
+                }
             }
             .reverse{
                 flex-direction: row-reverse ;
@@ -94,6 +98,7 @@
             .feature{
                 display: block;
                 margin-bottom: 45px;
+                width: 80px;
             }
             .text{
                 font-size: 16px;
@@ -101,6 +106,7 @@
                 font-weight: 100;
             }
             .arrow{
+                width: 33px;
                 display: block;
                 margin: 72px auto 72px auto;
                 position: relative;
@@ -112,6 +118,7 @@
             }
             .num{
                 margin-bottom:15px;
+                width: 108px;
             }
             .title{
                 font-size: 32px;
@@ -445,6 +452,7 @@
             height: 24px;
             background-image: url('/img/new_official_website/github.png');
             background-repeat: no-repeat;
+            background-size: 24px;
             margin-right: 20px;
             cursor: pointer;
             float: left;
@@ -456,6 +464,7 @@
             height: 24px;
             line-height: 24px;
             background-repeat: no-repeat;
+            background-size: 24px;
             background-image: url('/img/new_official_website/qq.png');
             color: #ccc;
         }

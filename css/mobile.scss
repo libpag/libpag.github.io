@@ -113,6 +113,7 @@
         background-color: white;
         padding: rem(45) rem(24) rem(47) rem(24);
         .feature{
+            width: rem(80);
             margin-bottom: rem(23);
         }
         .wrap {
@@ -327,6 +328,7 @@
         top: rem(10);
         right: rem(15);
         position: fixed;
+        background-size: rem(24);
         background-image: url('/img/new_official_website/nav-m.png');
     }
     .expand{

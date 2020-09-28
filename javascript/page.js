@@ -117,4 +117,15 @@ docReady(()=>{
             pkg.scrollIntoView()
         }
     };
+
+    var pathname = location.pathname
+    if( pathname == '/' ){
+        document.getElementsByClassName('nav-site')[0].children[0].classList.add('active')
+    }
+    else if(pathname.indexOf('/docs') == 0){
+        document.getElementsByClassName('nav-site')[0].children[1].classList.add('active')
+    }
+    else if(pathname.indexOf('/api') == 0){
+        document.getElementsByClassName('nav-site')[0].children[2].classList.add('active')
+    }
 })

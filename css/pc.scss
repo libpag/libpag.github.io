@@ -210,6 +210,7 @@
                     width: 507px;
                     height: 616px;
                     margin-top: -160px;
+                    background-size: 507px;
                     background-image: url('/img/new_official_website/pkg_download.png');
                 }
             }
@@ -235,8 +236,8 @@
     }
     .customer-service{
      position: fixed;   
-     right: 45px;
-     bottom: 65px;
+     right: 40px;
+     bottom: 36px;
      #js_cs_popup{
          display: none;
      }
@@ -435,7 +436,42 @@
             a:hover{
                 background-color: $theme-blue !important;
             }
-            
+        }
+        li.active{
+            a{
+                color: #000 !important;
+                text-align: center;
+                position: relative;
+                background-color: transparent  !important;
+                color: $theme-blue !important;
+            }
+            a:after{
+                content: "";
+                border-top: 2px solid $theme-blue;
+                position: absolute;
+                
+            }
+        }
+        li:nth-child(1).active{
+            a:after{
+                width: 30px;
+                height: 1px;
+                bottom: -13px;
+            }
+        }
+        li:nth-child(2).active{
+            a:after{
+                width: 65px;
+                height: 1px;
+                bottom: -13px;
+            }
+        }
+        li:nth-child(3).active{
+            a:after{
+                width: 56px;
+                height: 1px;
+                bottom: -13px;
+            }
         }
     }
     .nav-footer{

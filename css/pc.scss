@@ -149,6 +149,9 @@
         .wrap{
             width: 1080px;
             margin: 0 auto;
+            .users{
+                width: 65px;
+            }
             .title{
                 margin-top: 25px;
                 margin-bottom: 25px;
@@ -238,6 +241,7 @@
      position: fixed;   
      right: 40px;
      bottom: 36px;
+     z-index: 1;
      #js_cs_popup{
          display: none;
      }

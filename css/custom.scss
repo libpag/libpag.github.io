@@ -1,0 +1,17 @@
+/* navbar */
+*{
+    font-family: "PingFang HK","PingFang SC","Microsoft YaHei","Heiti SC","Heiti TC","Helvetica Neue","Helvetica","Arial","sans-serif" !important;
+}
+$theme-blue:#005AD9;
+body{
+    background-repeat: no-repeat;
+    background-color: #fafafa;
+}
+.strong{
+    font-weight: 400;
+}
+.underline{
+    text-decoration: underline;
+}
+@import "./pc.scss";
+@import "./mobile.scss";

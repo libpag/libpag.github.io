@@ -241,6 +241,9 @@
      #js_cs_popup{
          display: none;
      }
+     #js_cs{
+         width: 96px;
+     }
      .panel{
          position: absolute;
          width: 384px;
@@ -708,6 +711,8 @@
                 .wrapper{
                     .showcaseSection{
                         max-width: 1080px;
+                        min-width: 1080px;
+                        width: 1080px;
                         .prose{
                             max-width: 1080px;
                             h1{

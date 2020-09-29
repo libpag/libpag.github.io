@@ -96,13 +96,19 @@ docReady(()=>{
 
         //qq group
         var qqgroup = document.createElement("div");
-        qqgroup.id = 'js_qqgroup'
-        qqgroup.className='qq-group-icon';
+        // qqgroup.id = 'js_qqgroup'
+        qqgroup.className='qq-group-icon js_qqgroup';
         qqgroup.innerText = 'QQ 群: 893379574';
         footer.children[0].appendChild(qqgroup)
-        document.getElementById('js_qqgroup').onclick = function(){
-            window.open('https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&jump_from=webapi')
-        }
+        // document.getElementById('js_qqgroup').onclick = function(){
+        //     window.open('https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&jump_from=webapi')
+        // }
+        var qgroupbtn = document.getElementsByClassName('js_qqgroup');
+        for (var i=0; i < qgroupbtn.length; i++) {
+            qgroupbtn[i].onclick = function(){
+                window.open('https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&jump_from=webapi')
+            }
+        };
 
         var copyright = document.createElement("div"); 
         copyright.innerText = 'Copyright © 2020 pag.io'

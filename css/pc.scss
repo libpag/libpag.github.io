@@ -83,6 +83,41 @@
         background-color: #fff;
         position: relative;
         padding-top: 95px;
+        .chapter:nth-child(1){
+            .wrap{
+                >img{
+                    height: 376px;
+                }
+            }
+        }
+        .chapter:nth-child(2){
+            .wrap{
+                >img{
+                    height: 379.4px;
+                }
+            }
+        }
+        .chapter:nth-child(3){
+            .wrap{
+                >img{
+                    height: 376px;
+                }
+            }
+        }
+        .chapter:nth-child(4){
+            .wrap{
+                >img{
+                    height: 372px;
+                }
+            }
+        }
+        .chapter:nth-child(5){
+            .wrap{
+                >img{
+                    height: 376px;
+                }
+            }
+        }
         .chapter{
             margin: 0 auto;
             width: 1080px;

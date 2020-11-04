@@ -1,9 +1,10 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG · Portable Animated Graphics</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Portable Animated Graphics"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG · Portable Animated Graphics"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="Portable Animated Graphics"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">说明文档</a></li><li class=""><a href="/api.html" target="_self">API参考</a></li><li class=""><a href="/docs/sdk.html" target="_self">接入SDK</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div><div class="docMainWrapper wrapper" id="js_original_part"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">API参考</h1></header><article><div><span><p>最新版本的API文档请点击如下链接查看：</p><p id="js_ios_doc"><font color="blue">iOS API文档</font></p><p id="js_android_doc"><font color="blue">Android API文档</font></p></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><div id="js_iframe_part" style="width:100%"><iframe id="ifame" style="width:100%"></iframe></div><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG · Portable Animated Graphics</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Portable Animated Graphics"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG · Portable Animated Graphics"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="Portable Animated Graphics"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">说明文档</a></li><li class=""><a href="/api.html" target="_self">API参考</a></li><li class=""><a href="/docs/sdk.html" target="_self">接入SDK</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div><div class="docMainWrapper wrapper" id="js_original_part"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">API参考</h1></header><article><div><span><p>最新版本的API文档请点击如下链接查看：</p><p id="js_ios_doc"><font color="blue">iOS API文档</font></p><p id="js_android_doc"><font color="blue">Android API文档</font></p></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><div id="js_iframe_part" style="width:100%"><iframe id="ifame" style="width:100%;padding-top:32px"></iframe></div><script>
                         var iframe = document.getElementById('ifame');
                         var iosPathname = "/apis/ios/";
                         var androidPathname = "/apis/android/";
                         var innerDocClick = false;
                         var hasInit = false;
+                        var ignore = false;
                         var android = function (){
                             return location.hash.indexOf('apis/android')>1;
                         }
@@ -14,6 +15,10 @@
                         }
                         function updateIframe (url,cb){
                             iframe.onload = function(){
+                                try{
+                                    iframe.contentDocument.getElementById('header-buttons').style.background = '#fff';
+                                    iframe.contentDocument.getElementById('header-buttons').children[0].children[0].style.color='#fff';
+                                }catch(e){}
                                 iframe.style.height = Math.max(iframe.contentWindow.document.documentElement.scrollHeight,document.body.clientHeight) + 'px';
                                 hasInit = true;
                                 if(android()){
@@ -25,7 +30,7 @@
                                     }
                                 }
                             }
-                            if(android()){
+                            if(hasInit && android()){ 
                                 return ;
                             }
                             iframe.src = android() ? '/apis/android/' :url;
@@ -37,6 +42,7 @@
                         else{
                             hasInit = true;
                         }
+                        // 入口按钮
                         document.getElementById('js_ios_doc').onclick = ()=>{ 
                             document.getElementById('js_original_part').style.display = 'none';
                             document.getElementById('js_iframe_part').style.display = 'block';
@@ -45,7 +51,9 @@
                         document.getElementById('js_android_doc').onclick = ()=>{ 
                             document.getElementById('js_original_part').style.display = 'none';
                             document.getElementById('js_iframe_part').style.display = 'block';
+                            ignore = true;
                             updateIframe(androidPathname)
+                            window.location.hash = '#'+androidPathname + 'org/libpag/package-summary.html' ;
                         }
                         //监听子页面URL的变化事件，同步到壳的URL
                         window.addEventListener("message", function(e){
@@ -64,9 +72,21 @@
                         }, false);
                         //URL的变化更新到Iframe
                         window.onhashchange = function(){
+                            if(ignore){
+                                ignore = false;
+                                return;
+                            }
                             if(!innerDocClick || !hasInit){
                                 return;
                             }
                             updateIframe(location.hash.replace('#',''))
                         }
+
+                        //
+                        var css = document.createElement('style');
+                        css.type = 'text/css';
+                        css.appendChild(document.createTextNode(
+                            'aside #header-buttons{  background: #fff !important;}aside #header-buttons > li > a{ color:transparent !important; }'
+                        ));
+                        document.head.appendChild(css)
                         </script></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2020 pag.io</section></footer></div></body></html>

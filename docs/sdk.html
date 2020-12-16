@@ -106,18 +106,11 @@
     
 </code></pre>
 <p>ii. 在app的gradle文件app/build.gradle，添加libpag的库依赖</p>
-<pre><code class="hljs">    <span class="hljs-attr">android</span> <span class="hljs-string">{</span>
-        <span class="hljs-attr">defaultConfig</span> <span class="hljs-string">{</span>
-            <span class="hljs-attr">ndk</span> <span class="hljs-string">{</span>
-            <span class="hljs-attr">abiFilters</span> <span class="hljs-string">"armeabi-v7a"</span>
-            <span class="hljs-attr">}</span>
-        <span class="hljs-attr">}</span>
-    <span class="hljs-attr">}</span>
-    
-    <span class="hljs-attr">dependencies</span> <span class="hljs-string">{</span>
-        <span class="hljs-attr">//libpag的核心库</span>
-        <span class="hljs-attr">implementation</span> <span class="hljs-string">'com.tencent.tav:libpag:3.2.5.1'</span>
-    <span class="hljs-attr">}</span>
+<pre><code class="hljs">    
+    dependencies {
+        <span class="hljs-comment">//libpag的核心库</span>
+        <span class="hljs-keyword">implementation</span> <span class="hljs-string">'com.tencent.tav:libpag:3.2.5.1'</span>
+    }
     
 </code></pre>
 <p><strong>注意：</strong> 需要在混淆列表里面，添加libpag的keep规则：</p>

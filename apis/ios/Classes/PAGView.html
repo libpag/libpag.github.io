@@ -52,6 +52,12 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/sync">sync</option>
+		
+	</optgroup>
+	
 
 	
 
@@ -68,15 +74,21 @@
 		
 		<option value="//api/name/flush">- flush</option>
 		
+		<option value="//api/name/flush:">- flush:</option>
+		
 		<option value="//api/name/freeCache">- freeCache</option>
 		
 		<option value="//api/name/getComposition">- getComposition</option>
+		
+		<option value="//api/name/getFile">- getFile</option>
 		
 		<option value="//api/name/getLayersUnderPoint:">- getLayersUnderPoint:</option>
 		
 		<option value="//api/name/getPath">- getPath</option>
 		
 		<option value="//api/name/getProgress">- getProgress</option>
+		
+		<option value="//api/name/getRootComposition">- getRootComposition</option>
 		
 		<option value="//api/name/isPlaying">- isPlaying</option>
 		
@@ -88,6 +100,8 @@
 		
 		<option value="//api/name/removeListener:">- removeListener:</option>
 		
+		<option value="//api/name/replaceImage:data:">- replaceImage:data:</option>
+		
 		<option value="//api/name/scaleMode">- scaleMode</option>
 		
 		<option value="//api/name/setCacheEnabled:">- setCacheEnabled:</option>
@@ -95,6 +109,8 @@
 		<option value="//api/name/setCacheScale:">- setCacheScale:</option>
 		
 		<option value="//api/name/setComposition:">- setComposition:</option>
+		
+		<option value="//api/name/setFile:">- setFile:</option>
 		
 		<option value="//api/name/setMatrix:">- setMatrix:</option>
 		
@@ -107,6 +123,8 @@
 		<option value="//api/name/setRepeatCount:">- setRepeatCount:</option>
 		
 		<option value="//api/name/setScaleMode:">- setScaleMode:</option>
+		
+		<option value="//api/name/setTextData:data:">- setTextData:data:</option>
 		
 		<option value="//api/name/setVideoEnabled:">- setVideoEnabled:</option>
 		
@@ -156,6 +174,47 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/sync" title="sync"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sync">&nbsp;&nbsp;sync</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Default is NO.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL sync</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/addListener:" title="addListener:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/addListener:">&ndash;&nbsp;addListener:</a></code>
 </h3>
@@ -1317,6 +1376,270 @@ The point is in pixels, convert dp to pixel by multiply [UIScreen mainScreen].sc
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/getFile" title="getFile"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getFile">&ndash;&nbsp;getFile</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="Please%20use%20'getComposition'%20instead">Deprecated</a> Returns the current <a href="../Classes/PAGFile.html">PAGFile</a> object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (PAGFile *)getFile</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setFile:" title="setFile:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setFile:">&ndash;&nbsp;setFile:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="Please%20use%20'setPath'%20or%20'setComposition'%20instead">Deprecated</a> Set the <a href="../Classes/PAGFile.html">PAGFile</a> object for PAGView to render.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setFile:(PAGFile *)<em>newFile</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getRootComposition" title="getRootComposition"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getRootComposition">&ndash;&nbsp;getRootComposition</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="Please%20use%20'getComposition'%20instead">Deprecated</a> Returns get the root <a href="../Classes/PAGComposition.html">PAGComposition</a> object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (PAGComposition *)getRootComposition</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/flush:" title="flush:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/flush:">&ndash;&nbsp;flush:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="Please%20use%20'flush'%20instead">Deprecated</a>
+Call this method to render current position immediately. If the <a href="#//api/name/play">play</a>() method is already
+called, there is no need to call it. Returns true if the content has changed.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)flush:(BOOL)<em>force</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>force</code></th>
+						<td><p>Indicates whether the PAGView should redraw all content by force.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTextData:data:" title="setTextData:data:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTextData:data:">&ndash;&nbsp;setTextData:data:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="Please%20use%20'[PAGFile%20replaceText]'instead">Deprecated</a>
+Update the text data of the specified index. The index ranges from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numTexts - 1. Passing in null
+for the data parameter will reset it to the default text data.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setTextData:(int)<em>index</em> data:(PAGText *)<em>value</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/replaceImage:data:" title="replaceImage:data:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/replaceImage:data:">&ndash;&nbsp;replaceImage:data:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><a href="Please%20use%20'[PAGFile%20replaceImage]'instead">Deprecated</a>
+Replace the image data of the specified index. The index ranges from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numImages - 1. Passing in null
+for the image parameter will reset it to the default image data.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)replaceImage:(int)<em>index</em> data:(PAGImage *)<em>value</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1332,7 +1655,7 @@ The point is in pixels, convert dp to pixel by multiply [UIScreen mainScreen].sc
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2020 Tencent. All rights reserved. Updated: 2020-11-04</p>
+						<p class="copyright">Copyright &copy; 2021 Tencent. All rights reserved. Updated: 2021-03-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

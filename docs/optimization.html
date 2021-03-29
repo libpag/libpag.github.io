@@ -88,52 +88,26 @@
 <li><p>尽可能减少视频序列帧的数目，多个序列帧尽量合并成一个<br/></p></li>
 <li><p>如果已经有了一个视频序列帧，与它相邻的不可编辑图层也可以考虑添加到序列帧的预合成中<br/></p>
 <p>视频序列帧优化案例:<br/>
-(1)  相邻多个不同视频序列帧可合并
-<div align="left">
-<img src=/img/docs/opt_0.png/></p></li>
+(1)  相邻多个不同视频序列帧可合并</p>
+<p><img src="/img/docs/opt_0.png#pic_left" alt=""></p>
+<p>(2）不同BlendMode的视频序列帧不能合并</p>
+<p><img src="/img/docs/opt_1.png#pic_left" alt=""></p>
+<p>(3）不可编辑图层内容合入相近视频序列帧</p>
+<p><img src="/img/docs/opt_2.png#pic_left" alt=""></p>
+<p>(4) 跨图层视频序列帧合并 <br/>
+如下图，有两个视频序列帧，分别处于不同的图层</p>
+<p><img src="/img/docs/opt_3.png#pic_left" alt=""></p>
+<p>序列帧跨图层合并后，只有一个视频序列帧</p>
+<p><img src="/img/docs/opt_4.png#pic_left" alt=""></p>
+<p>(5）视频序列帧错误使用案例 <br/>
+如下图，做了两个内容和名字都相同的预合成</p>
+<p><img src="/img/docs/opt_5.png#pic_left" alt=""></p>
+<p>正确做法：一个预合成被引用两次 <br/></p>
+<p>(6）重叠区间视频序列帧优化</p>
+<p><img src="/img/docs/opt_6.png#pic_left" alt=""></p>
+<p>如上图，虽然是相同内容，但是有重叠时间段，不能做成一个预合成复用，否则重叠时间段内会不断seek解码 <br/>
+优化建议：合成一个视频序列帧 <br/></p></li>
 </ul>
-   </div>    
-<pre><code class="hljs">(2）不同BlendMode的视频序列帧不能合并
-
-![](/img/docs/opt_1.png#pic_left)
-
-(3）不可编辑图层内容合入相近视频序列帧
-
-&lt;div align=&quot;left&quot;&gt;
-&lt;img src=/img/docs/opt_2.png/&gt;
-</code></pre>
-   </div>   
-<pre><code class="hljs">(4) 跨图层视频序列帧合并 &lt;br/&gt;
-如下图，有两个视频序列帧，分别处于不同的图层
-
-&lt;div align=&quot;left&quot;&gt;
-&lt;img src=/img/docs/opt_3.png/&gt;
-</code></pre>
-   </div>   
-<pre><code class="hljs">序列帧跨图层合并后，只有一个视频序列帧
-
-&lt;div align=&quot;left&quot;&gt;
-&lt;img src=/img/docs/opt_4.png/&gt;
-</code></pre>
-   </div>   
-<pre><code class="hljs">(5）视频序列帧错误使用案例 &lt;br/&gt;
-如下图，做了两个内容和名字都相同的预合成
-
-&lt;div align=&quot;left&quot;&gt;
-&lt;img src=/img/docs/opt_5.png/&gt;
-</code></pre>
-   </div>   
-<pre><code class="hljs">正确做法：一个预合成被引用两次 &lt;br/&gt;
-
-(6）重叠区间视频序列帧优化
-
-&lt;div align=&quot;left&quot;&gt;
-&lt;img src=/img/docs/opt_6.png/&gt;
-</code></pre>
-   </div>   
-<pre><code class="hljs">如上图，虽然是相同内容，但是有重叠时间段，不能做成一个预合成复用，否则重叠时间段内会不断seek解码 &lt;br/&gt;
-优化建议：合成一个视频序列帧 &lt;br/&gt;
-</code></pre>
 <h5><a class="anchor" aria-hidden="true" id="4、-ui图片素材优化-br"></a><a href="#4、-ui图片素材优化-br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4、 UI图片素材优化 <br/></h5>
 <ul>
 <li>满足最细需求原则，降低图片素材分辨率 <br/>

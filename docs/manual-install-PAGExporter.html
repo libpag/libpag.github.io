@@ -54,21 +54,18 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">手动安装 AE 导出插件（windows）</h1></header><article><div><span><pre><code class="hljs">windows上安装 AE 导出插件时，因为权限和兼容性等问题，偶尔出现安装失败的情况，这时可以采用手动安装。
-</code></pre>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">手动安装 AE 导出插件（windows）</h1></header><article><div><span><p>windows上安装 AE 导出插件时，因为权限和兼容性等问题，偶尔出现安装失败的情况，这时可以采用手动安装。</p>
 <h3><a class="anchor" aria-hidden="true" id="准备工作："></a><a href="#准备工作：" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>准备工作：</h3>
-<pre><code class="hljs">1，确保已经安装了 AE（Adobe After Effects）（AE2018、AE2019、AE2020 皆可）&lt;br/&gt;
-2，确保已经安装 PAGViewer。[&lt;font color=blue&gt;如何安装 PAGViewer&lt;/font&gt;](/docs/install.html)&lt;br/&gt;
-3，如果 AE 正在运行，则关闭&lt;br/&gt;
-4，先尝试[&lt;font color=blue&gt;自动安装&lt;/font&gt;](/docs/install-PAGExporter.html)，自动安装失败再进行下面的手动安装
-</code></pre>
+<p>1，确保已经安装了 AE（Adobe After Effects）（AE2018、AE2019、AE2020 皆可）<br/>
+2，确保已经安装 PAGViewer。<a href="/docs/install.html"><font color=blue>如何安装 PAGViewer</font></a><br/>
+3，如果 AE 正在运行，则关闭<br/>
+4，先尝试<a href="/docs/install-PAGExporter.html"><font color=blue>自动安装</font></a>，自动安装失败再进行下面的手动安装</p>
 <h3><a class="anchor" aria-hidden="true" id="手动安装-ae-导出插件"></a><a href="#手动安装-ae-导出插件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>手动安装 AE 导出插件</h3>
-<p>主要是按下面3个步骤将 PAGViewer 安装目录下的某些文件拷贝到 AE 的相应目录。<br/></p>
-<h5><a class="anchor" aria-hidden="true" id="说明：br"></a><a href="#说明：br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>说明：<br/></h5>
-<pre><code class="hljs">PAGViewer 安装目录（示例）： C:\Program Files\PAGViewer &lt;br/&gt;
-AE 安装目录（示例）： C:\Program Files\Adobe\Adobe After Effects 2020\Support Files &lt;br/&gt;
-AE 公共目录（示例）： C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore &lt;br/&gt;
-</code></pre>
+<p>主要是按下面3个步骤将 PAGViewer 安装目录下的某些文件拷贝到 AE 的相应目录。<br/>
+说明：<br/>
+PAGViewer 安装目录（示例）： C:\Program Files\PAGViewer <br/>
+AE 安装目录（示例）： C:\Program Files\Adobe\Adobe After Effects 2020\Support Files <br/>
+AE 公共目录（示例）： C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore <br/></p>
 <h4><a class="anchor" aria-hidden="true" id="1，拷贝导出插件-pagexporter："></a><a href="#1，拷贝导出插件-pagexporter：" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1，拷贝导出插件 PAGExporter：</h4>
 <p><img src="/img/docs/manual-install-PAGExporter1.jpg" alt="手动安装AE插件截图1">
 将 PAGViewer 安装目录（如上图）下的 PAGExporter.aex 文件拷贝到 AE 安装目录下的 Plug-ins 目录（如下图）
@@ -82,5 +79,5 @@ AE 公共目录（示例）： C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaC
 将 PAGViewer 安装目录（如上图）下的 ImageFillRule.aex 和 TextBackground.aex 这两个文件拷贝到 AE 公共目录（如下图）
 <img src="/img/docs/manual-install-PAGExporter6.jpg" alt="手动安装AE插件截图6"></p>
 <h3><a class="anchor" aria-hidden="true" id="验证"></a><a href="#验证" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>验证</h3>
-<pre><code class="hljs">打开AE软件，在菜单项中将会看到：“文件” -&gt; “导出” -&gt; “PAG File...”，则说明已经成功安装。</code></pre>
+<p>打开AE软件，在菜单项中将会看到：“文件” -&gt; “导出” -&gt; “PAG File...”，则说明已经成功安装。</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/install-PAGExporter.html"><span class="arrow-prev">← </span><span>安装 AE 导出插件</span></a><a class="docs-next button" href="/docs/update.html"><span>检查更新</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2021 pag.io</section></footer></div></body></html>

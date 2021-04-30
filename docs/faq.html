@@ -59,15 +59,15 @@
 <p>桌面预览工具 PAGViewer(2.1.40版本以上) 和客户端 SDK 使用的色彩空间是 sRGB，如果 AE 设置的是其他色彩空间，导出的 PAG 文件在渲染的时候可能会出现色差。<br/></p>
 <h3><a class="anchor" aria-hidden="true" id="问：导出的pag为什么播放卡顿不流畅？br"></a><a href="#问：导出的pag为什么播放卡顿不流畅？br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>问：导出的PAG为什么播放卡顿不流畅？<br/></h3>
 <h3><a class="anchor" aria-hidden="true" id="答：-1"></a><a href="#答：-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>答：</h3>
-<p>造成卡顿常见的一个原因是视频序列帧数目太多。<br/>
-视频序列帧要尽量少用，能不用就不用。<br/>
-尽量不用：通常只有在正常导出效果不正确时，才使用视频序列帧。<br/>
-尽量少用：如果有多个图层和预合成需要使用视频序列帧，尽量将它们合并，以减少视频序列帧的数目。<br/>
+<p>造成卡顿常见的一个常见原因是标记为BMP预合成的数目太多。<br/>
+BMP预合成要尽量少用，能不用就不用。<br/>
+尽量不用：通常只有在正常导出效果不正确时，才使用BMP预合成。<br/>
+尽量少用：如果有多个图层和预合成需要使用BMP预合成，尽量将它们合并，以减少BMP预合成的数目。<br/>
 <br/>
-看这个文档里支持的<a href="/docs/ae-support.html"><font color=blue>AE特性列表</font></a>，在这个表里支持的一般就不用视频序列帧。<br/>
+看这个文档里支持的<a href="/docs/ae-support.html"><font color=blue>AE特性列表</font></a>，在这个表里支持的一般就不用BMP预合成。<br/>
 <br/>
 简单判别的话（不一定准）：<br/>
 比较规则的线条样的，通常可以矢量制作；<br/>
 复杂但静止的（或者只有规则的运动比如平移/旋转/缩放）通常可以用图片；<br/>
-复杂且不规则运动的，才用视频序列帧。比如一些粒子动效。<br/></p>
+复杂且不规则运动的，才用BMP预合成。比如一些粒子动效。<br/></p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/pag-viewer.html"><span class="arrow-prev">← </span><span>PAGViewer Beta 版快速上手</span></a><a class="docs-next button" href="/docs/lottie-migration.html"><span>Lottie迁移指南</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2021 pag.io</section></footer></div></body></html>

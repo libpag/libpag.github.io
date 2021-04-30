@@ -64,18 +64,18 @@
 </div>
 <p>关于PAGViewer性能面板的使用，可以参考 <a href="https://pag.io/docs/profiler.html"><font color=blue>使用性能检测面板</font></a></p>
 <h3><a class="anchor" aria-hidden="true" id="pag素材设计基本原则"></a><a href="#pag素材设计基本原则" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PAG素材设计基本原则</h3>
-<h4><a class="anchor" aria-hidden="true" id="1、-相比视频序列帧导出，尽可能的使用矢量导出"></a><a href="#1、-相比视频序列帧导出，尽可能的使用矢量导出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1、 相比视频序列帧导出，尽可能的使用矢量导出</h4>
-<p>视频序列帧解决的是AE动画特性众多但PAG支持特性有限的问题，其原理是在AE渲染的过程中对特定图层截屏，将一帧帧画面编码成视频流，其本质是一个视频。在终端渲染的过程中，视频的解码、渲染相对比较耗时，因此视频序列帧更适用于需要使用PAG不支持的AE特性的场景。<br/>
+<h4><a class="anchor" aria-hidden="true" id="1、-相比bmp预合成导出，尽可能的使用矢量导出"></a><a href="#1、-相比bmp预合成导出，尽可能的使用矢量导出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1、 相比BMP预合成导出，尽可能的使用矢量导出</h4>
+<p>BMP预合成解决的是AE动画特性众多但矢量导出目前支持的特性有限的问题，包括对一些第三方AE插件的特性的导出。其原理是在AE渲染的过程中对特定图层截屏，将一帧帧画面编码成序列帧，性能整体会比矢量导出模式差一些，并且性能消耗只跟尺寸面积有关，没有类似矢量的进一步优化空间。因此BMP预合成更适用于需要使用矢量导出不支持的AE特性的场景。<br/>
 <a href="https://pag.io/docs/ae-support.html"><font color=blue>PAG的AE功能支持列表</font></a><br></p>
-<p><strong>视频序列帧优点：</strong><br/></p>
+<p><strong>BMP预合成优点：</strong><br/></p>
 <ul>
 <li>支持所有AE动画效果</li>
 </ul>
-<p><strong>视频序列帧缺点：</strong><br/></p>
+<p><strong>BMP预合成缺点：</strong><br/></p>
 <ul>
 <li>PAG导出文件较大 <br/></li>
 <li>在终端渲染的性能稍差，会使用到终端的硬件解码器资源，渲染显存较大  <br/></li>
-<li>不可编辑视频序列帧中的文本或图片  <br/></li>
+<li>运行时不可编辑替换BMP预合成内的文本或图片  <br/></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="2、-矢量贴纸优化策略"></a><a href="#2、-矢量贴纸优化策略" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2、 矢量贴纸优化策略</h4>
 <ul>
@@ -83,30 +83,30 @@
 <li>遮罩和轨道蒙板在绘制的过程中相对耗时，能用普通图形做出来的效果请避免使用遮罩和轨道蒙板，只有确定必须使用它们才能做出效果的情况再使用。如果必须使用遮罩和轨道蒙板，请尽量用简单图形或者简单内容图层去遮罩或蒙板住一个复杂图层，避免反过来操作。<br/></li>
 <li>图层内容尽可能静止，多使用Transform变换位置大小旋转缩放。例如形状图层，即避免对形状内容打关键帧。</li>
 </ul>
-<h4><a class="anchor" aria-hidden="true" id="3、-视频序列帧贴纸优化策略"></a><a href="#3、-视频序列帧贴纸优化策略" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3、 视频序列帧贴纸优化策略</h4>
+<h4><a class="anchor" aria-hidden="true" id="3、-bmp预合成贴纸优化策略"></a><a href="#3、-bmp预合成贴纸优化策略" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3、 BMP预合成贴纸优化策略</h4>
 <ul>
-<li><p>尽可能减少视频序列帧的数目，多个序列帧尽量合并成一个<br/></p></li>
-<li><p>如果已经有了一个视频序列帧，与它相邻的不可编辑图层也可以考虑添加到序列帧的预合成中<br/></p>
-<p>视频序列帧优化案例:<br/>
-(1)  相邻多个不同视频序列帧可合并</p>
+<li><p>尽可能减少BMP预合成的数目，多个BMP预合成尽量合并成一个<br/></p></li>
+<li><p>如果已经有了一个BMP预合成，与它相邻的不可编辑图层也可以考虑添加到标记了BMP的预合成中，因为已经截图了，包含再多内容都是相同的性能开销<br/></p>
+<p>BMP预合成优化案例:<br/>
+(1)  相邻多个不同BMP预合成可合并</p>
 <p><img src="/img/docs/opt_0.png#pic_left" alt=""></p>
-<p>(2）不同BlendMode的视频序列帧不能合并</p>
+<p>(2）不同BlendMode的BMP预合成不能合并</p>
 <p><img src="/img/docs/opt_1.png#pic_left" alt=""></p>
-<p>(3）不可编辑图层内容合入相近视频序列帧</p>
+<p>(3）不可编辑图层内容合入相近BMP预合成</p>
 <p><img src="/img/docs/opt_2.png#pic_left" alt=""></p>
-<p>(4) 跨图层视频序列帧合并 <br/>
-如下图，有两个视频序列帧，分别处于不同的图层</p>
+<p>(4) 跨图层BMP预合成合并 <br/>
+如下图，有两个BMP预合成，分别处于不同的图层</p>
 <p><img src="/img/docs/opt_3.png#pic_left" alt=""></p>
-<p>序列帧跨图层合并后，只有一个视频序列帧</p>
+<p>BMP预合成跨图层合并后，只有一个BMP预合成</p>
 <p><img src="/img/docs/opt_4.png#pic_left" alt=""></p>
-<p>(5）视频序列帧错误使用案例 <br/>
+<p>(5）BMP预合成反面使用案例 <br/>
 如下图，做了两个内容和名字都相同的预合成</p>
 <p><img src="/img/docs/opt_5.png#pic_left" alt=""></p>
 <p>正确做法：一个预合成被引用两次 <br/></p>
-<p>(6）重叠区间视频序列帧优化</p>
+<p>(6）重叠区间BMP预合成优化</p>
 <p><img src="/img/docs/opt_6.png#pic_left" alt=""></p>
 <p>如上图，虽然是相同内容，但是有重叠时间段，不能做成一个预合成复用，否则重叠时间段内会不断seek解码 <br/>
-优化建议：合成一个视频序列帧 <br/></p></li>
+优化建议：合成一个BMP预合成 <br/></p></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="4、-ui图片素材优化-br"></a><a href="#4、-ui图片素材优化-br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4、 UI图片素材优化 <br/></h4>
 <ul>
@@ -116,11 +116,11 @@
 <p><img src="/img/docs/opt_8.png#pic_left" alt=""></p>
 <p>挑选使用分辨率比较大的图片素材，降低分辨率 <br/></p>
 <ul>
-<li><p>对于视频序列帧素材一样，视频序列帧的尺寸也不宜大于所在图层的尺寸 <br/>
+<li><p>对于BMP预合成素材一样，BMP预合成的尺寸也不宜大于所在图层的尺寸 <br/>
 <div align="left">
 <img src=/img/docs/opt_9.png width=60%/>
 </div></p>
-<p>同时，降低视频序列帧素材的分辨率同样可以提升性能 <br/></p></li>
+<p>同时，降低BMP预合成素材的分辨率同样可以提升性能 <br/></p></li>
 </ul>
 <h4><a class="anchor" aria-hidden="true" id="5、-性能检测面板提醒-br"></a><a href="#5、-性能检测面板提醒-br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5、 性能检测面板提醒 <br/></h4>
 <p>当导出PAG素材预览的时候有红色警告信息，可以结合提示信息对PAG素材进行优化，如何解读参考 <a href="https://pag.io/docs/profiler.html"><font color=blue>使用性能检测面板</font></a> 和 <a href="https://pag.io/docs/pag-export-verify.html"><font color=blue>AE导出自动检测规则</font></a></p>

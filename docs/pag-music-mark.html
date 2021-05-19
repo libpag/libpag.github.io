@@ -57,22 +57,14 @@
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">如何在AE中到导出音频</h1></header><article><div><span><h3><a class="anchor" aria-hidden="true" id="如何在ae中到导出音频"></a><a href="#如何在ae中到导出音频" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何在AE中到导出音频</h3>
 <ol>
 <li>升级版本：升级 PAGViewer 至最新的 beta 版 （2.0.0或以上）。<a href="/docs/beta.html"><font color=blue>如何升级至beta版</font></a> <br/></li>
-<li>将音频文件添加到目标合成中即可。如需为音频图层添加Marker信息(如MusicID)，可参考以下步骤。</li>
+<li>将音频文件添加到目标合成中即可。</li>
 </ol>
-<h3><a class="anchor" aria-hidden="true" id="如何在ae中为音频图层添加musicid"></a><a href="#如何在ae中为音频图层添加musicid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何在AE中为音频图层添加MusicID</h3>
-<ol>
-<li><p>升级版本：升级 PAGViewer 至最新的 beta 版 （2.0.0或以上）。<a href="/docs/beta.html"><font color=blue>如何升级至beta版</font></a> <br/></p></li>
-<li><p>选中要标记的音乐图层，点击：“After Effect CC” -&gt; &quot;图层&quot; -&gt; &quot;添加标记&quot;，即可为图层新增标记锚点。
-<img src="/img/docs/music_mark_setting1.png" alt=""></p></li>
-<li><p>点击已添加的标记锚点，右键选择&quot;设置&quot;即可弹出&quot;图层标记&quot;面板。
-<img src="/img/docs/music_mark_setting2.png" alt=""></p></li>
-<li><p>如下图所示，在注释设置框总，按照格式输入MusicID，如“ {&quot;musicID&quot; : &quot;000rnXvS2DFTXb&quot;} ”。
-<img src="/img/docs/music_mark_setting.png" alt=""></p></li>
-</ol>
+<p>在PAGViewer中查看PAG文件结构：getRootLayer：PreComposition -&gt; composition:VectorComposition -&gt; audioBytes 的值，来判断pag文件中音频输入是否导出成功，为{}时导出成功，为<null>导出失败</p>
+<p>导出成功：</p>
+<p>导出失败：</p>
 <h3><a class="anchor" aria-hidden="true" id="说明"></a><a href="#说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>说明</h3>
 <ol>
-<li>MusicID必须打在音乐图层上；</li>
-<li>音乐图层必须在矢量预合成中，不能出现在BMP预合成（&quot;_bmp&quot;) 中；</li>
-<li>如果总合成是BMP预合成 (&quot;_bmp&quot;) 时，音乐图层应该与之并列，再构成一个新的矢量总合成，这个新的总合成包含原来的BMP预合成和新增的音乐图层；</li>
+<li>音乐图层必须在非BMP预合成中，不能出现在BMP预合成（&quot;_bmp&quot;) 中；</li>
+<li>如果总合成是BMP预合成 (&quot;_bmp&quot;) 时，音乐图层应该与之并列，再构成一个新的非BMP预合成，这个新的总合成包含原来的BMP预合成和新增的音乐图层；</li>
 </ol>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/export-font.html"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/text-background.html"><span>如何添加文本背景框</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2021 pag.io</section></footer></div></body></html>

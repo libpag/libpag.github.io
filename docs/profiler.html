@@ -83,8 +83,8 @@ Prensent(MAX) : 当前面板图像内的上屏耗时，单位微秒。
 <h3><a class="anchor" aria-hidden="true" id="如何解读利用这些信息"></a><a href="#如何解读利用这些信息" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何解读利用这些信息</h3>
 <p>1.TagLevel 用于确认一个贴纸的版本兼容性，即在某个版本的客户端是否能正常播放。客户端 SDK 的 PAGFile.MaxSupportedTagLevel() 要大于等于这个贴纸的最高 TagLevel 才能正常播放此贴纸，否则需要升级 SDK。<br/></p>
 <p>2.包含位图的贴纸需要关注尺寸，因为放大可能模糊。全矢量贴纸因为可以无损缩放，不需要关心。目前在视频合成中使用的贴纸为了保证清晰度，若贴纸包含位图要求预合成的最短边必须为720像素。<br/></p>
-<p>3.Graphics 显存大小通常跟图层的数量关联较大也跟贴纸实际绘制时缩放的大小有关，所有内容静止只有矩阵变化的图层都会被缓存成纹理，来提搞绘制效率。这个值过高会导致程序显存耗尽而崩溃，通常应该控制在10M左右内。<br/></p>
+<p>3.Graphics 显存大小通常跟图层的数量关联较大也跟贴纸实际绘制时缩放的大小有关，所有内容静止只有矩阵变化的图层都会被缓存成纹理，来提搞绘制效率，这个值过高会导致程序显存耗尽而崩溃。<br/></p>
 <p>4.Layers 图层数量主要影响的是显存大小，以及绘制时长。Layer越多复杂度越高，绘制需要的计算量也越复杂。如果存在内容完全相同的图层，应该避免直接复制图层，而是将这些图层做成预合成，然后引用预合成的方式，这样图层数量会只计算一份。</p>
-<p>5.Render 渲染耗时通常在是矢量导出的硬性指标，由于这些耗时在每台机器上具体数值都不相同，无法确定出固定值，但可以参考在iMac 27寸电脑上的耗时，需要控制在100微秒左右内。</p>
+<p>5.Render 渲染耗时通常在是矢量导出的硬性指标，由于这些耗时在每台机器上具体数值都不相同，无法确定出固定值，但可以参考在iMac 27寸电脑上的耗时，建议控制在100微秒左右内。</p>
 <p>6.Image 位图解码耗时通常在使用图片图层或者导出采用位图格式存储的BMP预合成时才会占用这个耗时。位图解码耗时基本可以认为只跟图片尺寸有关。</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/plugin-config.html"><span class="arrow-prev">← </span><span>插件选项配置面板</span></a><a class="docs-next button" href="/docs/optimization.html"><span>PAG素材优化指南</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2021 pag.io</section></footer></div></body></html>

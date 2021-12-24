@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>导出面板2.0使用指南--bmp预合成 · PAG</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="在实际使用的过程中，我们发现部分AE特性渲染耗时较高，如AE特效、轨道遮罩等，Lottie的渲染同样也存在这个问题，在移动端展示的时候很难做到实时渲染。同时，虽然我们支持了常用的AE特性，但仅仅是所有AE特性中很少的一部分，这在一定程度上限制了设计师的创造力。于是我们增加支持了BMP预合成的导出方式，支持导出所有AE特性，适用于不可编辑的场景。其原理是将AE特效渲染成图片序列帧，进而导出成视频，针对视频不包含透明通道的问题，我们扩展了视频透明通道的支持，以很高的帧间压缩率实现了那些不能支持的特效，并且支持在平台端开启硬件加速解码。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="导出面板2.0使用指南--bmp预合成 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="在实际使用的过程中，我们发现部分AE特性渲染耗时较高，如AE特效、轨道遮罩等，Lottie的渲染同样也存在这个问题，在移动端展示的时候很难做到实时渲染。同时，虽然我们支持了常用的AE特性，但仅仅是所有AE特性中很少的一部分，这在一定程度上限制了设计师的创造力。于是我们增加支持了BMP预合成的导出方式，支持导出所有AE特性，适用于不可编辑的场景。其原理是将AE特效渲染成图片序列帧，进而导出成视频，针对视频不包含透明通道的问题，我们扩展了视频透明通道的支持，以很高的帧间压缩率实现了那些不能支持的特效，并且支持在平台端开启硬件加速解码。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">说明文档</a></li><li class=""><a href="/api.html" target="_self">API参考</a></li><li class=""><a href="/docs/sdk.html" target="_self">接入SDK</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>使用指南</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">快速开始</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/install.html">安装PAGViewer</a></li><li class="navListItem"><a class="navItem" href="/docs/install-PAGExporter.html">安装 AE 导出插件</a></li><li class="navListItem"><a class="navItem" href="/docs/manual-install-PAGExporter.html">手动安装 AE 导出插件（windows）</a></li><li class="navListItem"><a class="navItem" href="/docs/update.html">检查更新</a></li><li class="navListItem"><a class="navItem" href="/docs/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">使用指南</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/pag-export.html">导出PAG文件</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-support.html">AE功能支持列表</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-export-verify.html">AE导出自动检测规则</a></li><li class="navListItem"><a class="navItem" href="/docs/editable-text.html">文本制作规则</a></li><li class="navListItem"><a class="navItem" href="/docs/plugin-config.html">插件选项配置面板</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler.html">使用性能监测面板</a></li><li class="navListItem"><a class="navItem" href="/docs/optimization.html">PAG素材优化指南</a></li><li class="navListItem"><a class="navItem" href="/docs/export-png.html">从 PAG 导出其他图片格式</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-edit.html">使用PAGViewer编辑预览图层</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-file.html">使用PAGViewer查看PAG文件结构</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-file-optimization.html">PAG文件体积优化</a></li><li class="navListItem"><a class="navItem" href="/docs/hot-key.html">PAGViewer 快捷键说明</a></li><li class="navListItem"><a class="navItem" href="/docs/error-code.html">导出错误码说明</a></li><li class="navListItem"><a class="navItem" href="/docs/beta.html">使用beta版本的PAGViewer</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-music-mark.html">如何在AE中导出音频</a></li><li class="navListItem"><a class="navItem" href="/docs/text-background.html">如何添加文本背景框</a></li><li class="navListItem"><a class="navItem" href="/docs/time-stretch.html">如何使用时间伸缩插件</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-viewer.html">PAGViewer Beta 版快速上手</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ae-bmp-guide.html">导出面板2.0使用指南--bmp预合成</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-error-guide.html">导出面板2.0使用指南--错误定位</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">更多</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/faq.html">常见问题</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-training.html">PAG制作与性能优化培训视频</a></li><li class="navListItem"><a class="navItem" href="/docs/pag-training-2.html">PAG新版导出插件面板培训视频</a></li><li class="navListItem"><a class="navItem" href="/docs/lottie-migration.html">Lottie迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/animation-convertor.html">素材迁移说明</a></li><li class="navListItem"><a class="navItem" href="/docs/SDK-migration.html">PAGSDK迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/ae-effect.html">AE内置特效支持</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">导出面板2.0使用指南--bmp预合成</h1></header><article><div><span><p>在实际使用的过程中，我们发现部分AE特性渲染耗时较高，如AE特效、轨道遮罩等，Lottie的渲染同样也存在这个问题，在移动端展示的时候很难做到实时渲染。同时，虽然我们支持了常用的AE特性，但仅仅是所有AE特性中很少的一部分，这在一定程度上限制了设计师的创造力。于是我们增加支持了BMP预合成的导出方式，支持导出所有AE特性，适用于不可编辑的场景。其原理是将AE特效渲染成图片序列帧，进而导出成视频，针对视频不包含透明通道的问题，我们扩展了视频透明通道的支持，以很高的帧间压缩率实现了那些不能支持的特效，并且支持在平台端开启硬件加速解码。</p>
+<p><img src="/img/docs/bmpGuide/bmp_guide_1.png" alt=""></p>
+<p align="center"><font size="2">图1 视频透明通道支持</font></p>
+<p>与此同时，我们增加支持了矢量和BMP预合成混合导出，从而实现在支持AE所有特性的同时又保持运行时的可编辑性。</p>
+<p><img src="/img/docs/bmpGuide/bmp_guide_2.png" alt=""></p>
+<p align="center"><font size="2">图2 PAG矢量和BMP预合成混合导出</font></p>
+<h3><a class="anchor" aria-hidden="true" id="一bmp使用前提"></a><a href="#一bmp使用前提" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>一、BMP使用前提</h3>
+<p>如上文背景所述，当需要使用的AE特性，用矢量导出的方式无法在PAG中完美支持时，就需要将对应的合成设置成BMP进行导出。</p>
+<p>PAG目前支持的AE特性可以参考文章：<a href="https://pag.io/docs/ae-support.html">AE功能支持列表</a></p>
+<h3><a class="anchor" aria-hidden="true" id="二bmp使用步骤"></a><a href="#二bmp使用步骤" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>二、BMP使用步骤</h3>
+<h4><a class="anchor" aria-hidden="true" id="步骤一-从图3所示入口进入主页面"></a><a href="#步骤一-从图3所示入口进入主页面" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>步骤一: 从图3所示入口，进入主页面</h4>
+<p><img src="/img/docs/bmpGuide/bmp_guide_3.png" alt="img.png"></p>
+<p align="center"><font size="2">图3 导出主面板入口</font></p>
+<h4><a class="anchor" aria-hidden="true" id="步骤二-从图4所示入口进入合成设置页"></a><a href="#步骤二-从图4所示入口进入合成设置页" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>步骤二: 从图4所示入口，进入合成设置页</h4>
+<p><img src="/img/docs/bmpGuide/bmp_guide_4.png" alt="img.png"></p>
+<p align="center"><font size="2">图4 导出主面板-合成设置页入口</font></p>
+<h4><a class="anchor" aria-hidden="true" id="步骤三在合成设置页中-点击对应合成的bmp复选框"></a><a href="#步骤三在合成设置页中-点击对应合成的bmp复选框" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>步骤三：在合成设置页中, 点击对应合成的BMP复选框</h4>
+<p><img src="/img/docs/bmpGuide/bmp_guide_5.png" alt="img.png"></p>
+<p align="center"><font size="2">图5 合成设置页—BMP复选框</font></p>
+<h4><a class="anchor" aria-hidden="true" id="步骤四如图6所示勾选gmp复选框后会有二次确认弹框点击确认完成"></a><a href="#步骤四如图6所示勾选gmp复选框后会有二次确认弹框点击确认完成" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>步骤四：如图6所示，勾选GMP复选框后，会有二次确认弹框，点击确认完成</h4>
+<p><img src="/img/docs/bmpGuide/bmp_guide_6.png" alt="img.png"></p>
+<p align="center"><font size="2">图6 BMP确认提示框</font></p>
+<p>如图7所示完成勾选之后，AE中可以看到对应的合成名称，自动带上了BMP后缀，说明当前合成在导出过程中，将会以BMP的格式进行编码。</p>
+<p><img src="/img/docs/bmpGuide/bmp_guide_7.png" alt="img.png"></p>
+<p align="center"><font size="2">图7</font></p>
+<h3><a class="anchor" aria-hidden="true" id="三注意事项"></a><a href="#三注意事项" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>三、注意事项</h3>
+<p>过多使用BMP导出，会导致最终的PAG文件性能消耗过大，因此，在设计过程中，尽量使用PAG已经支持的AE特性来达到设计效果，而不是首选将合成以BMP形式导出</p>
+<h3><a class="anchor" aria-hidden="true" id="四兼容旧版本"></a><a href="#四兼容旧版本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>四、兼容旧版本</h3>
+<h4><a class="anchor" aria-hidden="true" id="1-标记bmp方式兼容"></a><a href="#1-标记bmp方式兼容" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 标记BMP方式兼容</h4>
+<p>旧版本的导出插件，以人工修改合成名的方式进行BMP设置，直接在AE中进行操作，新版本中也兼容旧版本的操作方式。</p>
+<blockquote>
+<p>注意：人工修改合成名的方式，容易出错，并且新来的同学可能也不知道BMP后缀这个用法，应尽量避免使用</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="2bmp导出格式兼容"></a><a href="#2bmp导出格式兼容" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.BMP导出格式兼容</h4>
+<p>BMP的导出编码格式有两种，一种是图片序列帧的方式，另一种是视频序列帧的方式。视频序列帧的体积和性能都有优势，不建议使用图片序列帧。但是留有入口可以供选择，如图8所示。</p>
+<p><img src="/img/docs/bmpGuide/bmp_guide_8.png" alt="img.png"></p>
+<p align="center"><font size="2">图8 图片-视频序列帧入口</font></p></span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/pag-viewer.html"><span class="arrow-prev">← </span><span>PAGViewer Beta 版快速上手</span></a><a class="docs-next button" href="/docs/ae-error-guide.html"><span>导出面板2.0使用指南--错误定位</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2021 pag.io</section></footer></div></body></html>

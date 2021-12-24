@@ -55,19 +55,19 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">导出面板使用指南——占位图填充设置</h1></header><article><div><span><h3><a class="anchor" aria-hidden="true" id="背景"></a><a href="#背景" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>背景</h3>
-<p>PAG 支持替换图片，设计师需要指定哪些图片可以被替换，哪些图片不可以被替换；以及指定替换时的填充模式（分辨率/长宽比不一致时，该用什么用的填充模式填充）。</p>
+<p>PAG 支持替换图片，设计师需要指定哪些图片可以被替换，哪些图片不可以被替换；以及指定替换时的填充模式（分辨率/长宽比不一致时，该用什么样的填充模式进行填充）。</p>
 <h3><a class="anchor" aria-hidden="true" id="占位图替换格式说明"></a><a href="#占位图替换格式说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>占位图替换格式说明</h3>
-<p>替换格式分为三种：
-A、替换: 添加标签 {&quot;videoTrack&quot;: 1}
-B、不替换: 添加标签 {&quot;noReplace&quot;: 1}
-C、默认: 不添加标签
-(注：PAG里只是提供标签，具体是否替换需要业务决定，这些标签只是给业务提供决定是否替换的依据。)</p>
+<p>替换格式分为三种： <br/>
+A、替换: 添加标签 {&quot;videoTrack&quot;: 1} <br/>
+B、不替换: 添加标签 {&quot;noReplace&quot;: 1} <br/>
+C、默认: 不添加标签 <br/>
+(注：PAG里只是提供标签，具体是否替换需要业务决定，这些标签只是给业务提供决定是否替换的依据。) <br/></p>
 <h3><a class="anchor" aria-hidden="true" id="占位图填充模式说明"></a><a href="#占位图填充模式说明" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>占位图填充模式说明</h3>
-<p>填充模式分为四种：
-A、不缩放
-B、拉伸: 长宽分别拉伸，可能造成长宽比变形。
-C、黑边: 长宽等比例拉伸，不够的部分填充黑边。
-D、裁剪: 长宽等比例拉伸，多余的部分裁掉。</p>
+<p>填充模式分为四种： <br/>
+A、不缩放 <br/>
+B、拉伸: 长宽分别拉伸，可能造成长宽比变形。 <br/>
+C、黑边: 长宽等比例拉伸，不够的部分填充黑边。 <br/>
+D、裁剪: 长宽等比例拉伸，多余的部分裁掉。 <br/></p>
 <h3><a class="anchor" aria-hidden="true" id="如何设置占位图替换格式填充模式"></a><a href="#如何设置占位图替换格式填充模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何设置占位图替换格式/填充模式</h3>
 <h4><a class="anchor" aria-hidden="true" id="一准备确认版本-br"></a><a href="#一准备确认版本-br" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>一、准备：确认版本 <br/></h4>
 <ol>

@@ -508,5 +508,70 @@
             }
         }
     }
+
+    .showCase-container{
+
+        .caseMain{
+            display: flex;
+            flex-direction: column;
+
+            #wallpaper{
+                width: calc(100vw);
+                height: calc(100vw);
+                left: 0;
+                top: 0;
+                position: fixed;
+                background-size: calc(100vw), calc(100vw);
+                background-repeat: no-repeat;
+                background-image: url('/img/new_official_website/bgLogo.png');
+                transition-duration: 0.9s;
+                transition-timing-function: ease-out;
+                transform-origin: center;
+                z-index: -1;
+            }
+            .caseWrapper{
+                padding: 0.6rem 0.32rem 0.63rem 0.32rem;;
+                margin: rem(-120) auto 0 auto;
+            }
+            .caseBox{
+                height: rem(920);
+                display: flex;
+                align-items: center;
+                z-index: 9;
+                
+                .case{
+                    display: flex;
+                    flex-direction: column;
+    
+                    .titleBox{
+                        opacity: 1;
+    
+                        .mainTitle{
+                            font-size: rem(36);
+                            line-height: rem(48);
+                            font-weight: 900;
+                            margin-top: rem(14);
+                            margin-bottom: rem(26);
+                            font-family: 'PingFangSC-Semibold';
+                        }
+                        .subTitle{
+                            line-height: rem(24);
+                            font-size: rem(18);
+                            font-family: 'PingFangSC-Light';
+                            font-weight: 300;
+                            font-family: 'PingFangSC-Light';
+                        }
+                    }
+                    .videoBox{
+                        margin-top: rem(48);
+
+                        .video{
+                            width: calc(100vw - 0.64rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

@@ -1,6 +1,6 @@
 /* navbar */
 *{
-    font-family: "PingFang HK","PingFang SC","Microsoft YaHei","Heiti SC","Heiti TC","Helvetica Neue","Helvetica","Arial","sans-serif" !important;
+    font-family: "-apple-system","BlinkMacSystemFont","PingFang SC","Microsoft YaHei","Heiti SC","Heiti TC","Helvetica Neue","Helvetica","Arial","sans-serif" !important;
 }
 $theme-blue:#005AD9;
 body{
@@ -8,7 +8,11 @@ body{
     background-color: #fafafa;
 }
 .strong{
-    font-weight: 400;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "PingFangHK-Semibold";
 }
 .underline{
     text-decoration: underline;

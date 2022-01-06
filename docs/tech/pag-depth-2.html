@@ -1,4 +1,60 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG深度解读（二）：AE全特性支持 · PAG</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="AE里有很多复杂动效，使用纯代码还原起来非常困难，设计师只能不断简化效果以达到跟开发成本的平衡。导致最终上线的视觉效果都是打过折扣的，不达设计预期。而PAG的SDK已经完全还原了AE整个动画的渲染系统，能够支持所有AE特性，设计师可以充分利用AE动画的原子能力，组合出无限的视觉动效，不用因为代码还原成本的问题而打折扣。本文将介绍PAG是如何实现AE全特性支持的。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG深度解读（二）：AE全特性支持 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="AE里有很多复杂动效，使用纯代码还原起来非常困难，设计师只能不断简化效果以达到跟开发成本的平衡。导致最终上线的视觉效果都是打过折扣的，不达设计预期。而PAG的SDK已经完全还原了AE整个动画的渲染系统，能够支持所有AE特性，设计师可以充分利用AE动画的原子能力，组合出无限的视觉动效，不用因为代码还原成本的问题而打折扣。本文将介绍PAG是如何实现AE全特性支持的。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">设计师文档</a></li><li class=""><a href="/api.html" target="_self">API参考</a></li><li class=""><a href="/docs/sdk.html" target="_self">接入SDK</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PAG深度解读（二）：AE全特性支持</h1></header><article><div><span><p>AE里有很多复杂动效，使用纯代码还原起来非常困难，设计师只能不断简化效果以达到跟开发成本的平衡。导致最终上线的视觉效果都是打过折扣的，不达设计预期。而PAG的SDK已经完全还原了AE整个动画的渲染系统，能够支持所有AE特性，设计师可以充分利用AE动画的原子能力，组合出无限的视觉动效，不用因为代码还原成本的问题而打折扣。本文将介绍PAG是如何实现AE全特性支持的。</p>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG深度解读（二）：AE全特性支持 · PAG</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="AE里有很多复杂动效，使用纯代码还原起来非常困难，设计师只能不断简化效果以达到跟开发成本的平衡。导致最终上线的视觉效果都是打过折扣的，不达设计预期。而PAG的SDK已经完全还原了AE整个动画的渲染系统，能够支持所有AE特性，设计师可以充分利用AE动画的原子能力，组合出无限的视觉动效，不用因为代码还原成本的问题而打折扣。本文将介绍PAG是如何实现AE全特性支持的。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG深度解读（二）：AE全特性支持 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="AE里有很多复杂动效，使用纯代码还原起来非常困难，设计师只能不断简化效果以达到跟开发成本的平衡。导致最终上线的视觉效果都是打过折扣的，不达设计预期。而PAG的SDK已经完全还原了AE整个动画的渲染系统，能够支持所有AE特性，设计师可以充分利用AE动画的原子能力，组合出无限的视觉动效，不用因为代码还原成本的问题而打折扣。本文将介绍PAG是如何实现AE全特性支持的。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/javascript/pagjs/pag.min.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">设计师文档</a></li><li class=""><a href="/docs/tech/pag-depth-1.html" target="_self">开发者文档</a></li><li class=""><a href="/case.html" target="_self">案例展示</a></li><li class=""><a href="/docs/faq.html" target="_self">F&amp;Q</a></li><li class=""><a href="https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&amp;jump_from=webapi" target="_self">加入讨论: 893379574</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>PAG深度解读</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">SDK接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/tech/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">PAG深度解读</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/tech/pag-depth-1.html">PAG深度解读（一）：编辑架构演进</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/tech/pag-depth-2.html">PAG深度解读（二）：AE全特性支持</a></li><li class="navListItem"><a class="navItem" href="/docs/tech/pag-depth-3.html">PAG深度解读（三）：高效动画文件</a></li><li class="navListItem"><a class="navItem" href="/docs/tech/pag-depth-4.html">PAG深度解读（四）：整合视频渲染</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">素材迁移</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/lottie-migration.html">Lottie迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/animation-convertor.html">素材迁移说明</a></li><li class="navListItem"><a class="navItem" href="/docs/SDK-migration.html">PAG SDK迁移指南</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PAG深度解读（二）：AE全特性支持</h1></header><article><div><span><p>AE里有很多复杂动效，使用纯代码还原起来非常困难，设计师只能不断简化效果以达到跟开发成本的平衡。导致最终上线的视觉效果都是打过折扣的，不达设计预期。而PAG的SDK已经完全还原了AE整个动画的渲染系统，能够支持所有AE特性，设计师可以充分利用AE动画的原子能力，组合出无限的视觉动效，不用因为代码还原成本的问题而打折扣。本文将介绍PAG是如何实现AE全特性支持的。</p>
 <h3><a class="anchor" aria-hidden="true" id="一矢量序列帧混合导出"></a><a href="#一矢量序列帧混合导出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>一、矢量+序列帧混合导出</h3>
 <p>我们在PAG 1.0的版本里，为了达到极限的动画文件大小，只实现了动画矢量导出方式的支持。矢量导出方式优势就是文件极小，并且可以运行时编辑动画的内容。但这种方式注定无法支持所有AE特性，因为有很多的AE效果在有桌面显卡的情况下，都要走一个进度条才能预览，在移动端是没有可能做到实时渲染的。这也导致在实际的生产过程中，设计师有很多的复杂动画效果，都无法用矢量模式导出出来，这样会极大限制设计师的创意发挥。</p>
 <p>另外一方面，在矢量的导出模式下，同样一个动画效果，设计师采用不同的制作方式，会产生截然不同的性能表现。设计师虽然可以利用我们配套的性能检测工具去不断优化到极致，但是越复杂的效果，要花费的优化时间也越多。对于视频模板这种注重视觉效果并且需要批量化生产的场景，纯矢量导出很难满足需求。这里我们就想到了传统的序列帧导出方式。它是基于截图的原理，性能只跟分辨率有关，天然的不需要设计师花时间去优化，只需要关注视觉效果即可。但是它的缺点也比较明显，运行时无法编辑，文件也相对较大。PAG方案在这里的创新点就是将两者的进行了完美整合，支持矢量和序列帧的混合导出。设计可以主动标记哪些图层使用序列帧导出，例如不需要编辑并且有复杂的动效，而需要编辑的图层继续用简单的矢量方式导出。从而实现支持所有的AE特性又能保持运行时的编辑性。</p>
@@ -16,4 +72,4 @@
    <source id="mp4" src="/video/bmp.mp4" type="video/mp4">
 </video>
 <p>极限情况下，例如上面这个俄罗斯方块的视频模板，每个方块虽然都是一个静态图层，但是使用了矢量不支持的效果，因此就会导出一个全时长都是静态区间的视频序列帧，这种情况也是比较常见的。而通过刚刚的优化，能够将渲染耗时从1088.4ms优化到7.5ms，提升99.3%的性能。</p>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tech/pag-depth-1.html"><span class="arrow-prev">← </span><span>PAG深度解读（一）：编辑架构演进</span></a><a class="docs-next button" href="/docs/tech/pag-depth-3.html"><span>PAG深度解读（三）：高效动画文件</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>

@@ -1,4 +1,60 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG深度解读（四）：整合视频渲染 · PAG</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="PAG和Lottie方案很重要的一个区别点就是应用场景的不同，Lottie方案仅满足UI动画场景下的使用，而PAG方案除了可以满足UI动画场景下的需求，还弥补了视频编辑领域在动画渲染方案上的空白，能完美支持视频编辑场景下的各种动效需求。这篇文章主要介绍PAG如何实现与视频渲染的整合。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG深度解读（四）：整合视频渲染 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="PAG和Lottie方案很重要的一个区别点就是应用场景的不同，Lottie方案仅满足UI动画场景下的使用，而PAG方案除了可以满足UI动画场景下的需求，还弥补了视频编辑领域在动画渲染方案上的空白，能完美支持视频编辑场景下的各种动效需求。这篇文章主要介绍PAG如何实现与视频渲染的整合。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">设计师文档</a></li><li class=""><a href="/api.html" target="_self">API参考</a></li><li class=""><a href="/docs/sdk.html" target="_self">接入SDK</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PAG深度解读（四）：整合视频渲染</h1></header><article><div><span><p>PAG和Lottie方案很重要的一个区别点就是应用场景的不同，Lottie方案仅满足UI动画场景下的使用，而PAG方案除了可以满足UI动画场景下的需求，还弥补了视频编辑领域在动画渲染方案上的空白，能完美支持视频编辑场景下的各种动效需求。这篇文章主要介绍PAG如何实现与视频渲染的整合。</p>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>PAG深度解读（四）：整合视频渲染 · PAG</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="generator" content="Docusaurus"/><meta name="description" content="PAG和Lottie方案很重要的一个区别点就是应用场景的不同，Lottie方案仅满足UI动画场景下的使用，而PAG方案除了可以满足UI动画场景下的需求，还弥补了视频编辑领域在动画渲染方案上的空白，能完美支持视频编辑场景下的各种动效需求。这篇文章主要介绍PAG如何实现与视频渲染的整合。"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="PAG深度解读（四）：整合视频渲染 · PAG"/><meta property="og:type" content="website"/><meta property="og:url" content="https://pag.io/index.html"/><meta property="og:description" content="PAG和Lottie方案很重要的一个区别点就是应用场景的不同，Lottie方案仅满足UI动画场景下的使用，而PAG方案除了可以满足UI动画场景下的需求，还弥补了视频编辑领域在动画渲染方案上的空白，能完美支持视频编辑场景下的各种动效需求。这篇文章主要介绍PAG如何实现与视频渲染的整合。"/><meta property="og:image" content="https://pag.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://pag.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="/javascript/page.js"></script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/javascript/pagjs/pag.min.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/new_official_website/logo.png" alt="PAG"/><h2 class="headerTitleWithLogo">PAG</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/" target="_self">首页</a></li><li class=""><a href="/docs/install.html" target="_self">设计师文档</a></li><li class=""><a href="/docs/tech/pag-depth-1.html" target="_self">开发者文档</a></li><li class=""><a href="/case.html" target="_self">案例展示</a></li><li class=""><a href="/docs/faq.html" target="_self">F&amp;Q</a></li><li class=""><a href="https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&amp;jump_from=webapi" target="_self">加入讨论: 893379574</a></li><li class=""><a href="/#download" target="_self">免费下载</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>PAG深度解读</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">SDK接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/tech/sdk.html">接入SDK</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">PAG深度解读</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/tech/pag-depth-1.html">PAG深度解读（一）：编辑架构演进</a></li><li class="navListItem"><a class="navItem" href="/docs/tech/pag-depth-2.html">PAG深度解读（二）：AE全特性支持</a></li><li class="navListItem"><a class="navItem" href="/docs/tech/pag-depth-3.html">PAG深度解读（三）：高效动画文件</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/tech/pag-depth-4.html">PAG深度解读（四）：整合视频渲染</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">素材迁移</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/lottie-migration.html">Lottie迁移指南</a></li><li class="navListItem"><a class="navItem" href="/docs/animation-convertor.html">素材迁移说明</a></li><li class="navListItem"><a class="navItem" href="/docs/SDK-migration.html">PAG SDK迁移指南</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">PAG深度解读（四）：整合视频渲染</h1></header><article><div><span><p>PAG和Lottie方案很重要的一个区别点就是应用场景的不同，Lottie方案仅满足UI动画场景下的使用，而PAG方案除了可以满足UI动画场景下的需求，还弥补了视频编辑领域在动画渲染方案上的空白，能完美支持视频编辑场景下的各种动效需求。这篇文章主要介绍PAG如何实现与视频渲染的整合。</p>
 <p><img src="/img/docs/tech/pag_video.png" alt=""></p>
 <h3><a class="anchor" aria-hidden="true" id="一与视频渲染整合"></a><a href="#一与视频渲染整合" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>一、与视频渲染整合</h3>
 <p>PAG 方案最早就是诞生在视频编辑的场景下，要让动画能够在视频编辑场景下无缝整合使用，需要解决两个问题：支持离屏渲染绘制、子线程渲染。Lottie的动画方案之所以无法应用在视频合成中，主要是因为依赖了平台相关的UI框架，开发成本较低，但也导致了它只能渲染到UI视图上，并且无法在子线程中使用。</p>
@@ -15,4 +71,4 @@
 <p>第一个层面是文件缓存，主要解决PAG文件从文件解码到内存过程的耗时，同一个动画文件只需要解码一次，就可以放在多个动画实例中渲染，避免多个相同动画的重复解码。</p>
 <p>第二个层面是绘制缓存，解码后的文件有多个时间轴属性，我们将生成的绘制数据缓存到共享文件中，一个文件的任何一帧，只要绘制过一次，第二次绘制就可以得到加速。同时还利用了静态区间的特点来优化内存，将每个图层拆分成多个属性组，每个属性组计算出静态区间的列表后，只缓存每个静态区间第一帧数据。</p>
 <p>第三个层面是内容缓存，这个层级的加速效果是最明显的。通常情况下，图层的内容绘制是最耗时的，因为要经历栅格化等操作。但是内容一般不会随着时间轴变化，反而是轻量的矩阵参数会频繁的变化。根据这个原理，如果一个图层内容是静止的，我们会把他的内容缓存成一张纹理。这样整个时间轴上，只会经历一次栅格化的过程，后续每帧的绘制都可以复用第一帧的纹理，快速套用矩阵变换，接近零成本地渲染出动画效果。这里的内容缓存我们同样考虑了内存优化问题。例如一个动画文件预设的大小是500x500，但是实际使用中，整体被缩放到了50x50的大小，那么内部创建的内容缓存，会对应的缩小相应的面积倍数。这样可以做到在保证清晰度的前提下，只缓存最小的面积。</p>
-</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tech/pag-depth-3.html"><span class="arrow-prev">← </span><span>PAG深度解读（三）：高效动画文件</span></a><a class="docs-next button" href="/docs/tech/apis-ios.html"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>

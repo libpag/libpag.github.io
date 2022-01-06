@@ -32,15 +32,6 @@ window.onload = async () => {
 
 window.onresize = () => {
     addInteractEffect();
-
-    let nav = document.getElementsByClassName('nav-site nav-site-internal');
-    if (window.innerWidth < 1140) {
-        nav[0].children[5].style.visibility= 'hidden';
-        nav[0].children[6].style.visibility= 'hidden';
-    } else {
-        nav[0].children[5].style.visibility= 'visible';
-        nav[0].children[6].style.visibility= 'visible';
-    }
 }
 
 

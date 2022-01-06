@@ -1,5 +1,7 @@
 
 .pc-mode{
+    min-width: 1200px;
+
     a.btn{
         cursor: pointer;
         display: flex;
@@ -14,7 +16,7 @@
             width: 24px;
             height: 24px;
             margin-right: 10px;
-            top: 10px;
+            top: 12px;
             left: 16px;
             position: relative;
         }
@@ -29,6 +31,7 @@
     }
     .fixedHeaderContainer{
         background-color: transparent;
+        min-width: 1200px;
         padding: 0;
         .wrapper{
             max-width: inherit;
@@ -52,6 +55,7 @@
                 font-size: 16px;
                 font-weight: 300;
                 margin-bottom: 23px;
+                font-family: 'PingFangSC-Light'!important;
             }
             .pag{
                 width: 231px;
@@ -168,7 +172,7 @@
                 line-height: 48px;
                 font-weight: 900;
                 margin-bottom: 24px;
-                font-family: 'PingFangSC-Semibold';
+                font-family: 'PingFangSC-Semibold'!important;
             }
             .btn-bar{
                 display: flex;
@@ -940,7 +944,7 @@
                 height: 24px;
                 line-height: 24px;
                 font-size: 18px;
-                font-family: 'PingFangSC-Light';
+                font-family: 'PingFangSC-Light'!important;
                 font-weight: 300;
             }
         }

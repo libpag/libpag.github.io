@@ -210,8 +210,13 @@ function addInteractEffect() {
         updateBg(fixBg);
         // 标题渐隐
         updateText(titles);
+    });
 
-    }, { passive: false });
+    document.getElementById('progressUl').addEventListener('click', (e) => {
+        let index = Number(e.target.getAttribute('idx'));
+        console.log('index:' + index);
+        skipTo(index);
+    });
 }
 
 function absoluteTop(element) {
@@ -225,12 +230,14 @@ function absoluteTop(element) {
 };
 
 function updateBg(fixBg) {
+    if (fixBg) {
+        return;
+    }
     if (isMobile()) {
         idx = parseInt(document.documentElement.scrollTop / caseBox.HEIGHT_MB, 10);
     } else {
         idx = parseInt(document.documentElement.scrollTop / caseBox.HEIGHT_PC, 10);
     }
-    console.log("updateBg idx: " + idx);
 
     if (idx >= 2 && !fixBg) {
         fixBg = true;
@@ -243,6 +250,7 @@ function updateBg(fixBg) {
         let scale = 616 / window.innerWidth;
         document.getElementById('wallpaper').style = `transform: scale(${scale}) translateY(0.8rem)`;
     }
+    fixBg = true;
 }
 
 function updateText(titles) {
@@ -267,6 +275,8 @@ function updateProgressBar(marks) {
     if (isMobile()) {
         return;
     }
+
+    let microPrgs = ((document.documentElement.scrollTop % caseBox.HEIGHT_PC) / caseBox.HEIGHT_PC).toFixed(2);
     let idx = parseInt((document.documentElement.scrollTop + window.innerHeight / 2 - 100) / caseBox.HEIGHT_PC, 10);
     for (let i = 0; i< marks.length; i++) {
         if (i === idx) {
@@ -277,4 +287,13 @@ function updateProgressBar(marks) {
             marks[i].className = 'mark';
         }
     }
+}
+
+function skipTo(idx) {
+    let anchorPoint = Number(idx * caseBox.HEIGHT_PC);
+    window.scrollTo({
+        top: anchorPoint + 258, 
+        left: 0, 
+        behavior: 'smooth'
+    });
 }

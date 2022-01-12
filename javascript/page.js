@@ -12,9 +12,11 @@ const caseBox = {
 
 var fixBg = false;
 var lastIdx = 0;
-var mouseDelta = 0;
-window.onmousewheel = (e) => {
-    mouseDelta = e.wheelDelta;
+var trigger = false;
+var skipping = false;
+var wheelDelta = 0
+window.onwheel = (e) => {
+    wheelDelta = e.wheelDelta;
 }
 
 window.onload = async () => {
@@ -209,20 +211,25 @@ function addInteractEffect() {
     marks[0].className = 'mark active';
     
     
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function(e) {
+        // console.log("document.documentElement.scrollTop: " + document.documentElement.scrollTop)
         // 进度条更新
         updateProgressBar(marks);
         // 背景更新
         updateBg(fixBg);
         // 标题渐隐
-        updateText(titles);
-
-    });
+        updateText(titles);  
+    },{passive: false});
 
     document.getElementById('progressUl').addEventListener('click', (e) => {
         let index = Number(e.target.getAttribute('idx'));
         console.log('index:' + index);
+        // 点击进度条进行跳转时，避免吸附效果
+        skipping = true;
         skipTo(index);
+        setTimeout(() => {
+            skipping = false;
+        }, 1000);
     });
 }
 
@@ -282,9 +289,15 @@ function updateProgressBar(marks) {
     if (isMobile()) {
         return;
     }
-    let microPrgs = ((document.documentElement.scrollTop % caseBox.HEIGHT_PC) / caseBox.HEIGHT_PC).toFixed(2);
-    // console.log("microPrgs: " + microPrgs);
     let idx = parseInt((document.documentElement.scrollTop + window.innerHeight / 2 - 100) / caseBox.HEIGHT_PC, 10);
+
+    if (idx !== lastIdx && !skipping && wheelDelta < 0) {
+        // console.log("Tigger attatchment " + idx);
+        // trigger attachment
+        lastIdx = idx;
+        trigger = true;
+        attachCase(idx);
+    }
 
     for (let i = 0; i< marks.length; i++) {
         if (i === idx) {
@@ -294,12 +307,6 @@ function updateProgressBar(marks) {
         } else {
             marks[i].className = 'mark';
         }
-    }
-
-    if (idx != lastIdx && idx != 0) {
-        // trigger attachment
-        lastIdx = idx;
-        attachCase(idx);
     }
 }
 
@@ -313,5 +320,9 @@ function skipTo(idx) {
 }
 
 function attachCase(idx) {
-
+    if (!trigger) {
+        return;
+    }
+    skipTo(idx)
+    trigger = false;
 }

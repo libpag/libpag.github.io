@@ -276,8 +276,8 @@ function updateProgressBar(marks) {
         return;
     }
 
-    let microPrgs = ((document.documentElement.scrollTop % caseBox.HEIGHT_PC) / caseBox.HEIGHT_PC).toFixed(2);
     let idx = parseInt((document.documentElement.scrollTop + window.innerHeight / 2 - 100) / caseBox.HEIGHT_PC, 10);
+
     for (let i = 0; i< marks.length; i++) {
         if (i === idx) {
             marks[idx].className = 'mark active';

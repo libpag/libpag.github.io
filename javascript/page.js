@@ -1,3 +1,4 @@
+
 const caseVideo = {
     HEIGHT: 640,
     WIDTH: 360,
@@ -10,9 +11,14 @@ const caseBox = {
 }
 
 var fixBg = false;
+var lastIdx = 0;
+var mouseDelta = 0;
+window.onmousewheel = (e) => {
+    mouseDelta = e.wheelDelta;
+}
 
 window.onload = async () => {
-    // PAG -> Canvas convert
+    // PAG -> Canvas
     const options = {
         repeatCount: 0,
         renderingMode: 'WebGL',
@@ -210,6 +216,7 @@ function addInteractEffect() {
         updateBg(fixBg);
         // 标题渐隐
         updateText(titles);
+
     });
 
     document.getElementById('progressUl').addEventListener('click', (e) => {
@@ -275,7 +282,7 @@ function updateProgressBar(marks) {
     if (isMobile()) {
         return;
     }
-
+    let microPrgs = ((document.documentElement.scrollTop % caseBox.HEIGHT_PC) / caseBox.HEIGHT_PC).toFixed(2);
     let idx = parseInt((document.documentElement.scrollTop + window.innerHeight / 2 - 100) / caseBox.HEIGHT_PC, 10);
 
     for (let i = 0; i< marks.length; i++) {
@@ -287,6 +294,16 @@ function updateProgressBar(marks) {
             marks[i].className = 'mark';
         }
     }
+
+    if (idx != lastIdx && idx != 0) {
+        // trigger attachment
+        lastIdx = idx;
+        attachCase(idx);
+    }
+
+    if (Number(microPrgs) > 0.9 && mouseDelta < 0) {
+        attachCase(idx+1);
+    }
 }
 
 function skipTo(idx) {
@@ -296,4 +313,7 @@ function skipTo(idx) {
         left: 0, 
         behavior: 'smooth'
     });
+}
+
+function attachCase(idx) {
 }

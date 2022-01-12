@@ -283,6 +283,7 @@ function updateProgressBar(marks) {
         return;
     }
     let microPrgs = ((document.documentElement.scrollTop % caseBox.HEIGHT_PC) / caseBox.HEIGHT_PC).toFixed(2);
+    // console.log("microPrgs: " + microPrgs);
     let idx = parseInt((document.documentElement.scrollTop + window.innerHeight / 2 - 100) / caseBox.HEIGHT_PC, 10);
 
     for (let i = 0; i< marks.length; i++) {
@@ -300,10 +301,6 @@ function updateProgressBar(marks) {
         lastIdx = idx;
         attachCase(idx);
     }
-
-    if (Number(microPrgs) > 0.9 && mouseDelta < 0) {
-        attachCase(idx+1);
-    }
 }
 
 function skipTo(idx) {
@@ -316,4 +313,5 @@ function skipTo(idx) {
 }
 
 function attachCase(idx) {
+
 }

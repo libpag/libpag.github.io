@@ -14,10 +14,6 @@ var fixBg = false;
 var lastIdx = 0;
 var trigger = false;
 var skipping = false;
-var wheelDelta = 0
-window.onwheel = (e) => {
-    wheelDelta = e.wheelDelta;
-}
 
 window.onload = async () => {
     // PAG -> Canvas
@@ -40,6 +36,7 @@ window.onload = async () => {
 
 window.onresize = () => {
     addInteractEffect();
+    handlePageNav();
     var pathname = location.pathname;
     if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {
         var iframe = document.getElementsByTagName('iframe')[0];
@@ -146,6 +143,8 @@ docReady(()=>{
         document.body.classList.add('pc-mode')
         function appendNavPC() {
             var nav = document.getElementsByClassName('slidingNav')[0];
+            nav.children[0].children[6].children[0].target = '_blank';
+            nav.children[0].children[5].children[0].target = '_blank';
             // arrowPopUp
             var popup_github = document.createElement('div');
             popup_github.id = 'navPopUp_github';
@@ -170,8 +169,8 @@ docReady(()=>{
             popup_qqgroup.appendChild(popup_qqgroup_wrapper);
 
             // hover popup
-            let github_top = document.getElementsByClassName('slidingNav')[0].children[0].children[5];
-            let qqgroup_top = document.getElementsByClassName('slidingNav')[0].children[0].children[6];
+            let github_top = nav.children[0].children[5];
+            let qqgroup_top = nav.children[0].children[6];
             github_top.onmouseover = () => {
                 popup_github.style.display = 'block';
             }
@@ -186,6 +185,7 @@ docReady(()=>{
             }
         }
         appendNavPC();
+        handlePageNav();
     }
     //append git/QQ group icon
     function generateCopyright() {
@@ -234,6 +234,7 @@ docReady(()=>{
             pkg.scrollIntoView()
         }
     };
+
     const devDocRoutes = [
         "sdk",
         "pag-depth-1",
@@ -245,10 +246,12 @@ docReady(()=>{
         "apis-web",
         "lottie-migration",
         "animation-convertor",
-        "SDK-migration"
+        "SDK-migration",
+        "sdk-web",
+        "sdk-windows",
     ];
 
-    function isInDevDocs(path) {
+    function isDevDoc(path) {
         for (let i = 0; i < devDocRoutes.length; i++) {
             if (path.indexOf(devDocRoutes[i]) != (-1)) {
                 return true;
@@ -261,10 +264,10 @@ docReady(()=>{
     if( pathname == '/' ){
         document.getElementsByClassName('nav-site')[0].children[0].classList.add('active')
     }
-    else if(pathname.indexOf('/docs') == 0 && (!isInDevDocs(pathname) && pathname.indexOf('/docs/faq') != 0)){
+    else if(pathname.indexOf('/docs') == 0 && (!isDevDoc(pathname) && pathname.indexOf('/docs/faq') != 0)){
         document.getElementsByClassName('nav-site')[0].children[1].classList.add('active')
     }
-    else if(isInDevDocs(pathname)){
+    else if(isDevDoc(pathname)){
         document.getElementsByClassName('nav-site')[0].children[2].classList.add('active')
     }
     else if(pathname.indexOf('/case') == 0){
@@ -275,9 +278,7 @@ docReady(()=>{
     }
     if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {
         var iframe = document.getElementsByTagName('iframe')[0];
-        let width = window.innerWidth
-        let height = window.innerHeight;
-        iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
+        iframe.style = `width: ${window.innerWidth}px; height: ${window.innerHeight}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
     }
 })
 
@@ -379,14 +380,6 @@ function updateProgressBar(marks) {
     }
     let idx = parseInt((document.documentElement.scrollTop + window.innerHeight / 2 - 100) / caseBox.HEIGHT_PC, 10);
 
-    if (idx !== lastIdx && !skipping && wheelDelta < 0) {
-        // console.log("Tigger attatchment " + idx);
-        // trigger attachment
-        lastIdx = idx;
-        trigger = true;
-        // attachCase(idx);
-    }
-
     for (let i = 0; i< marks.length; i++) {
         if (i === idx) {
             marks[idx].className = 'mark active';
@@ -413,4 +406,16 @@ function attachCase(idx) {
     }
     skipTo(idx)
     trigger = false;
+}
+
+function handlePageNav() {
+    var pathname = location.pathname;
+    if(!(pathname.indexOf('/docs') == 0 && pathname.indexOf('/docs/faq') != 0)){
+        return;
+    }
+    let pgnav = document.getElementsByClassName('onPageNav')[0];
+    let mainContainer = document.getElementsByClassName('mainContainer')[0];
+    let leftBounding = mainContainer.getBoundingClientRect().left + mainContainer.clientWidth + 140;
+    let right = window.innerWidth - leftBounding - pgnav.clientWidth;
+    pgnav.style.right = `${right}px`;
 }

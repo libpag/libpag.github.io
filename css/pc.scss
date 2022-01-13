@@ -466,7 +466,7 @@
                 content: "";
                 border-top: 2px solid $theme-blue;
                 position: absolute;
-                width: 65px;
+                width: 80px;
                 height: 1px;
                 bottom: -8px;
             }
@@ -476,7 +476,7 @@
                 content: "";
                 border-top: 2px solid $theme-blue;
                 position: absolute;
-                width: 56px;
+                width: 80px;
                 height: 1px;
                 bottom: -8px;
             }
@@ -590,14 +590,14 @@
         }
         li:nth-child(2).active{
             a:after{
-                width: 65px;
+                width: 80px;
                 height: 1px;
                 bottom: -8px;
             }
         }
         li:nth-child(3).active{
             a:after{
-                width: 56px;
+                width: 80px;
                 height: 1px;
                 bottom: -8px;
             }
@@ -926,7 +926,6 @@
     .onPageNav{
         position: fixed;
         top: 90px;
-        right: 138px;
     }
     .docMainWrapper > *:first-child{
         flex: 0 0 360px;

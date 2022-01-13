@@ -40,6 +40,13 @@ window.onload = async () => {
 
 window.onresize = () => {
     addInteractEffect();
+    var pathname = location.pathname;
+    if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {
+        var iframe = document.getElementsByTagName('iframe')[0];
+        let width = window.innerWidth
+        let height = window.innerHeight;
+        iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
+    }
 }
 
 
@@ -65,9 +72,18 @@ function appendMeta(){
     oMeta.name = 'viewport';
     document.getElementsByTagName('head')[0].appendChild(oMeta);
 }
+function appendSEOMeta() {
+    var SEOMeta = document.createElement('meta');
+    SEOMeta.name = 'keywords';
+    SEOMeta.content = '腾讯,PAG,动画工作流,AE,PAGViewer,PAGExporter,Tencent';
+    document.getElementsByTagName('head')[0].appendChild(SEOMeta);
+}
+
 docReady(()=>{
     // 案例展示版块动态交互效果
     addInteractEffect();
+    // SEO
+    appendSEOMeta()
 
     if(isMobile()){
         var html = document.getElementsByTagName("html")[0]; html.style.fontSize =
@@ -128,25 +144,72 @@ docReady(()=>{
             document.body.style.backgroundImage = "url('/img/new_official_website/fill1.png')"
         }
         document.body.classList.add('pc-mode')
+        function appendNavPC() {
+            var nav = document.getElementsByClassName('slidingNav')[0];
+            // arrowPopUp
+            var popup_github = document.createElement('div');
+            popup_github.id = 'navPopUp_github';
+            popup_github.className = 'arrowPopup';
+            nav.children[0].appendChild(popup_github);
+
+            var popup_qqgroup = document.createElement('div');
+            popup_qqgroup.id = 'navPopUp_qqgroup';
+            popup_qqgroup.className = 'arrowPopup';
+            nav.children[0].appendChild(popup_qqgroup);
+
+            var popup_github_wrapper = document.createElement('div');
+            popup_github_wrapper.id = 'popup_github_wrapper';
+            popup_github_wrapper.className = 'shader'
+            popup_github_wrapper.innerText = '开源仓库';
+            popup_github.appendChild(popup_github_wrapper);
+
+            var popup_qqgroup_wrapper = document.createElement('div');
+            popup_qqgroup_wrapper.id = 'popup_qqgroup_wrapper';
+            popup_qqgroup_wrapper.className = 'shader'
+            popup_qqgroup_wrapper.innerText = '加入讨论: 893379574';
+            popup_qqgroup.appendChild(popup_qqgroup_wrapper);
+
+            // hover popup
+            let github_top = document.getElementsByClassName('slidingNav')[0].children[0].children[5];
+            let qqgroup_top = document.getElementsByClassName('slidingNav')[0].children[0].children[6];
+            github_top.onmouseover = () => {
+                popup_github.style.display = 'block';
+            }
+            github_top.onmouseleave = () => {
+                popup_github.style.display = 'none';
+            }
+            qqgroup_top.onmouseover = () => {
+                popup_qqgroup.style.display = 'block';
+            }
+            qqgroup_top.onmouseleave = () => {
+                popup_qqgroup.style.display = 'none';
+            }
+        }
+        appendNavPC();
     }
     //append git/QQ group icon
+    function generateCopyright() {
+        let year = new Date().getFullYear() < 2022? 2022: new Date().getFullYear().toString();
+        let copyright = `Copyright © 2018 - ${year} Tencent. All Rights Reserved.`;
+        return copyright
+    }
     function appendBottomNav(){
         var footer = document.getElementById('footer');
         footer.children[0].innerHTML = '';
         // copyright
         var copyright = document.createElement("div"); 
-        copyright.innerText = 'Copyright © 2020 pag.io'
+        copyright.innerText = generateCopyright();
         footer.children[0].appendChild(copyright)
 
         //qq group
         var qqgroup = document.createElement("div");
-        // qqgroup.id = 'js_qqgroup'
-        // qqgroup.className='qq-group-icon js_qqgroup';
-        qqgroup.innerText = '联系我们： libpag@tencent.com';
+        qqgroup.id = 'js_qqgroup';
+        qqgroup.className='qq-group-icon js_qqgroup';
+        qqgroup.innerText = 'QQ 群：893379574';
         footer.children[0].appendChild(qqgroup)
-        // document.getElementById('js_qqgroup').onclick = function(){
-        //     window.open('https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&jump_from=webapi')
-        // }
+        document.getElementById('js_qqgroup').onclick = function(){
+           window.open('https://qm.qq.com/cgi-bin/qm/qr?k=Wa65DTnEKo2hnPsvY-1EgJOF8tvKQ-ZT&jump_from=webapi')
+        }
         var qgroupbtn = document.getElementsByClassName('js_qqgroup');
         for (var i=0; i < qgroupbtn.length; i++) {
             qgroupbtn[i].onclick = function(){
@@ -154,8 +217,6 @@ docReady(()=>{
             }
         };
         
-        // git
-        /*
         var git = document.createElement("div"); 
         git.id = 'js_git'
         git.className='git-icon';
@@ -163,7 +224,6 @@ docReady(()=>{
         document.getElementById('js_git').onclick = function(){
             location.href = '//github.com/libpag/libpag'
         }
-        */
     }
     appendBottomNav()
     var btns = document.getElementsByClassName('download-btn');
@@ -174,15 +234,37 @@ docReady(()=>{
             pkg.scrollIntoView()
         }
     };
+    const devDocRoutes = [
+        "sdk",
+        "pag-depth-1",
+        "pag-depth-2",
+        "pag-depth-3",
+        "pag-depth-4",
+        "apis-ios",
+        "apis-android",
+        "apis-web",
+        "lottie-migration",
+        "animation-convertor",
+        "SDK-migration"
+    ];
+
+    function isInDevDocs(path) {
+        for (let i = 0; i < devDocRoutes.length; i++) {
+            if (path.indexOf(devDocRoutes[i]) != (-1)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     var pathname = location.pathname
     if( pathname == '/' ){
         document.getElementsByClassName('nav-site')[0].children[0].classList.add('active')
     }
-    else if(pathname.indexOf('/docs') == 0 && (pathname.indexOf('/docs/tech/') != 0 && pathname.indexOf('/docs/faq') != 0)){
+    else if(pathname.indexOf('/docs') == 0 && (!isInDevDocs(pathname) && pathname.indexOf('/docs/faq') != 0)){
         document.getElementsByClassName('nav-site')[0].children[1].classList.add('active')
     }
-    else if(pathname.indexOf('/docs/tech/') == 0){
+    else if(isInDevDocs(pathname)){
         document.getElementsByClassName('nav-site')[0].children[2].classList.add('active')
     }
     else if(pathname.indexOf('/case') == 0){
@@ -190,6 +272,12 @@ docReady(()=>{
     }
     else if(pathname.indexOf('/docs/faq') == 0){
         document.getElementsByClassName('nav-site')[0].children[4].classList.add('active')
+    }
+    if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {
+        var iframe = document.getElementsByTagName('iframe')[0];
+        let width = window.innerWidth
+        let height = window.innerHeight;
+        iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
     }
 })
 
@@ -296,7 +384,7 @@ function updateProgressBar(marks) {
         // trigger attachment
         lastIdx = idx;
         trigger = true;
-        attachCase(idx);
+        // attachCase(idx);
     }
 
     for (let i = 0; i< marks.length; i++) {

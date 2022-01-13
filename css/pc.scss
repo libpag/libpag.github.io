@@ -46,6 +46,7 @@
         margin-top: 114px;
         font-size: 16px;
         height: 476px;
+
         .wrap{
             width: 980px;
             margin: 0 auto;
@@ -501,30 +502,62 @@
             }
         }
         li:nth-child(6),
-        li:nth-child(7){
+        li:nth-child(7),
+        li:nth-child(8){
             position: fixed;
         }
         li:nth-child(6){
-            right: 135px;
+            display: none;
+            right: 263px;
             a{
-                color: $theme-blue !important;
+                height: 40px;
+                color: #333333 100% !important;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: 'PingFangSC-Semibold'!important;
                 float: left;
-                padding-left: 24px;
+                padding: 8px 12px 8px 35px;
                 background-repeat: no-repeat;
-                background-size: 16px;
-                background-position: 0% 50%;
-                background-image: url('/img/new_official_website/qq_blue.png');
+                background-size: 18px;
+                background-position: 12.7% 50%;
+                background-image: url('/img/new_official_website/github_top.png');
+                border: 1px solid #cccccc;
+                border-radius: 8px;
             }
             a:hover{
                 background-color: transparent  !important;
             }
         }
         li:nth-child(7){
+            right: 141px;
+            a{
+                height: 40px;
+                color: #333333 100% !important;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: 'PingFangSC-Semibold'!important;
+                float: left;
+                padding: 8px 12px 8px 32px;
+                background-repeat: no-repeat;
+                background-size: 15px 18px;
+                background-position: 12.7% 50%;
+                background-image: url('/img/new_official_website/qq_group.png');
+                border: 1px solid #cccccc;
+                border-radius: 8px;
+            }
+            a:hover{
+                background-color: transparent  !important;
+            }
+        }
+        li:nth-child(8){
             right: 25px;
             a{
+                font-size: 16px;
+                font-weight: 600;
+                font-family: 'PingFangSC-Semibold'!important;
                 border-radius: 8px;
                 background-color:  $theme-blue;
-                color: #fff !important;
+                color: #ffffff !important;
                 height: 40px;
                 width: 88px;
                 margin-top: 20px !important;
@@ -584,6 +617,89 @@
             }
         }
     }
+    
+    .arrowPopup{
+        position: fixed;
+        display: none;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0,0,0,.16);
+    }
+    #navPopUp_github{
+        right: 265px;
+        top: 84px;
+        padding: 16px;
+        width: 96px;
+        height: 56px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .shader{
+        width: inherit;
+        background-color: #ffffff;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 9;
+        color: #005ad9ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        overflow: hidden;
+        font-family: "PingFangSC-Medium"!important;
+        font-size: 16px;
+    }
+    #popup_github_wrapper{
+        width: 96px;
+        height: 56px;
+    }
+    #navPopUp_github::after{
+        content: '';
+        top: 78px;
+        right: 297px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0,0,0,.16);
+        height: 30px;
+        width: 30px;
+        position: fixed;
+        margin-left: -30px;
+        z-index: 9;
+        transform: rotate(45deg);
+        z-index: 1;
+    }
+
+    #navPopUp_qqgroup{
+        right: 80px;
+        top: 84px;
+        padding: 16px;
+        width: 222px;
+        height: 56px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    #navPopUp_qqgroup::after{
+        content: '';
+        top: 78px;
+        right: 171px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0,0,0,.16);
+        height: 30px;
+        width: 30px;
+        position: fixed;
+        margin-left: -30px;
+        z-index: 9;
+        transform: rotate(45deg);
+        z-index: 1;
+    }
+    #popup_qqgroup_wrapper{
+        height: 56px;
+        padding: 16px 16px 16px 42px;
+        background-repeat: no-repeat;
+        background-size: 16px 15px;
+        background-position: 7.4% 50%;
+        background-image: url('/img/new_official_website/chat.png');
+    }
+
     .nav-footer{
         display: flex;
         padding: 48px 0 48px 0;
@@ -595,6 +711,7 @@
             margin: 0 auto;
             text-align: left !important;
             justify-content: space-between;
+            color: #cccccc;
         }
         .git-icon{
             width: 24px;
@@ -612,14 +729,13 @@
             display: flex;
             justify-content: flex-end;
             cursor: pointer;
-            padding-left: 33px;
             height: 24px;
             line-height: 24px;
             background-repeat: no-repeat;
             background-size: 24px;
             background-image: url('/img/new_official_website/qq.png');
-            background-position: 85% 50%;
-            color: #ccc;
+            background-position: 79.5% 50%;
+            color: #cccccc;
         }
         div:nth-child(3){
             float: right;

@@ -525,8 +525,7 @@
                 background-size: calc(100vw), calc(100vw);
                 background-repeat: no-repeat;
                 background-image: url('/img/new_official_website/bgLogo.png');
-                transition-duration: 0.9s;
-                transition-timing-function: ease-out;
+                transition: all 1.6s cubic-bezier(.645,.045,.355,1);
                 transform-origin: center;
                 z-index: -1;
             }
@@ -574,6 +573,32 @@
                 }
             }
         }
+    }
+    #faq{
+        blockquote{
+            color: #605600!important;
+        }
+    } 
+    #faqLogo{
+        width: calc(100vw);
+        height: calc(100vw);
+        left: 0;
+        top: 0;
+        position: fixed;
+        background-size: calc(100vw), calc(100vw);
+        background-repeat: no-repeat;
+        background-image: url('/img/new_official_website/bgLogo.png');
+        transform-origin: center;
+        z-index: -1;
+    }
+    #faqLogo::after{
+        content: '';
+        display: block;
+        width: calc(100vw);
+        height: calc(100vw);
+        -webkit-backdrop-filter: saturate(180%) blur(6px);
+        backdrop-filter: saturate(180%) blur(6px);
+        z-index: 9;
     }
 }
 

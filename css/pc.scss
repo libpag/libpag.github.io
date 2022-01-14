@@ -1158,4 +1158,28 @@
             100% {transform: scale(1)}
         }
     }
+    #faq{
+        blockquote{
+            color: #605600!important;
+        }
+    }
+    #faqLogo{
+        width: 640px;
+        height: 640px;
+        margin-left: -40px;
+        margin-top: -40px;
+        position: fixed;
+        background-size: 640px, 640px;
+        background-repeat: no-repeat;
+        background-image: url('/img/new_official_website/bgLogo.png');
+    }
+    #faqLogo::after{
+        content: '';
+        display: block;
+        width: 640px;
+        height: 640px;
+        -webkit-backdrop-filter: saturate(180%) blur(6px);
+        backdrop-filter: saturate(180%) blur(6px);
+        z-index: 9;
+    }
 }

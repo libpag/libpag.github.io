@@ -145,54 +145,27 @@ docReady(()=>{
             var nav = document.getElementsByClassName('slidingNav')[0];
             nav.children[0].children[6].children[0].target = '_blank';
             nav.children[0].children[5].children[0].target = '_blank';
-            // arrowPopUp
-            var popup_github = document.createElement('div');
-            popup_github.id = 'navPopUp_github';
-            popup_github.className = 'arrowPopup';
-            nav.children[0].appendChild(popup_github);
-
-            var popup_qqgroup = document.createElement('div');
-            popup_qqgroup.id = 'navPopUp_qqgroup';
-            popup_qqgroup.className = 'arrowPopup';
-            nav.children[0].appendChild(popup_qqgroup);
-
-            var popup_github_wrapper = document.createElement('div');
-            popup_github_wrapper.id = 'popup_github_wrapper';
-            popup_github_wrapper.className = 'shader'
-            popup_github_wrapper.innerText = '开源仓库';
-            popup_github.appendChild(popup_github_wrapper);
-
-            var popup_qqgroup_wrapper = document.createElement('div');
-            popup_qqgroup_wrapper.id = 'popup_qqgroup_wrapper';
-            popup_qqgroup_wrapper.className = 'shader'
-            popup_qqgroup_wrapper.innerText = '加入讨论: 893379574';
-            popup_qqgroup.appendChild(popup_qqgroup_wrapper);
-
-            // hover popup
-            let github_top = nav.children[0].children[5];
-            let qqgroup_top = nav.children[0].children[6];
-            github_top.onmouseover = () => {
-                popup_github.style.display = 'block';
-            }
-            github_top.onmouseleave = () => {
-                popup_github.style.display = 'none';
-            }
-            qqgroup_top.onmouseover = () => {
-                popup_qqgroup.style.display = 'block';
-            }
-            qqgroup_top.onmouseleave = () => {
-                popup_qqgroup.style.display = 'none';
-            }
         }
         appendNavPC();
+        navEntryEffect();
         handlePageNav();
     }
-    //append git/QQ group icon
+    function navEntryEffect() {
+        var nav = document.getElementsByClassName('slidingNav')[0];
+        nav.children[0].children[5].children[0].onmouseover = () => {
+            nav.children[0].children[5].children[0].classList.add('hover');
+        }
+        nav.children[0].children[6].children[0].onmouseover = () => {
+            nav.children[0].children[6].children[0].classList.add('hover');
+        }
+    }
+
     function generateCopyright() {
         let year = new Date().getFullYear() < 2022? 2022: new Date().getFullYear().toString();
         let copyright = `Copyright © 2018 - ${year} Tencent. All Rights Reserved.`;
         return copyright
     }
+    //append git/QQ group icon
     function appendBottomNav(){
         var footer = document.getElementById('footer');
         footer.children[0].innerHTML = '';

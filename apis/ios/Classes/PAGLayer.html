@@ -58,8 +58,6 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/addFilter:">- addFilter:</option>
-		
 		<option value="//api/name/currentTime">- currentTime</option>
 		
 		<option value="//api/name/duration">- duration</option>
@@ -88,11 +86,7 @@
 		
 		<option value="//api/name/matrix">- matrix</option>
 		
-		<option value="//api/name/numFilters">- numFilters</option>
-		
 		<option value="//api/name/parent">- parent</option>
-		
-		<option value="//api/name/removeAllFilters">- removeAllFilters</option>
 		
 		<option value="//api/name/resetMatrix">- resetMatrix</option>
 		
@@ -250,8 +244,8 @@
 			
 			<div class="method-subsection brief-description">
 				<p>A matrix object containing values that alter the scaling, rotation, and translation of the layer.
-Altering it does not change the animation matrix, and it will be concatenated to current animation matrix for
-displaying.</p>
+Altering it does not change the animation matrix, and it will be concatenated to current
+animation matrix for displaying.</p>
 			</div>
 			
 		    
@@ -349,7 +343,8 @@ displaying.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The final <a href="#//api/name/matrix">matrix</a> for displaying, it is the combination of the <a href="#//api/name/matrix">matrix</a> property and current <a href="#//api/name/matrix">matrix</a> from animation.</p>
+				<p>The final <a href="#//api/name/matrix">matrix</a> for displaying, it is the combination of the <a href="#//api/name/matrix">matrix</a> property and current <a href="#//api/name/matrix">matrix</a>
+from animation.</p>
 			</div>
 			
 		    
@@ -447,8 +442,8 @@ displaying.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Ranges from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numTexts - 1 if the layer type is text, or from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numImages -1 if the
-layer type is image, otherwise returns -1.</p>
+				<p>Ranges from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numTexts - 1 if the layer type is text, or from 0 to <a href="../Classes/PAGFile.html">PAGFile</a>.numImages
+-1 if the layer type is image, otherwise returns -1.</p>
 			</div>
 			
 		    
@@ -571,8 +566,8 @@ layer type is image, otherwise returns -1.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Converts the time from the PAGLayer&rsquo;s (local) timeline to the <a href="../Classes/PAGSurface.html">PAGSurface</a> (global) timeline. The time is in
-microseconds.</p>
+				<p>Converts the time from the PAGLayer&rsquo;s (local) timeline to the <a href="../Classes/PAGSurface.html">PAGSurface</a> (global) timeline. The
+time is in microseconds.</p>
 			</div>
 			
 		    
@@ -613,8 +608,8 @@ microseconds.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Converts the time from the <a href="../Classes/PAGSurface.html">PAGSurface</a> (global) to the PAGLayer&rsquo;s (local) timeline timeline. The time is in
-microseconds.</p>
+				<p>Converts the time from the <a href="../Classes/PAGSurface.html">PAGSurface</a> (global) to the PAGLayer&rsquo;s (local) timeline timeline. The
+time is in microseconds.</p>
 			</div>
 			
 		    
@@ -737,7 +732,8 @@ microseconds.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The start time of the layer in microseconds, indicates the start position of the <a href="#//api/name/visible">visible</a> range. It could be a negative value.</p>
+				<p>The start time of the layer in microseconds, indicates the start position of the <a href="#//api/name/visible">visible</a> range.
+It could be a negative value.</p>
 			</div>
 			
 		    
@@ -819,8 +815,8 @@ microseconds.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The current time of the layer in microseconds, the layer is in<a href="#//api/name/visible">visible</a> if currentTime is not in the <a href="#//api/name/visible">visible</a> range
-(<a href="#//api/name/startTime">startTime</a> &lt;= currentTime &lt; <a href="#//api/name/startTime">startTime</a> + <a href="#//api/name/duration">duration</a>).</p>
+				<p>The current time of the layer in microseconds, the layer is in<a href="#//api/name/visible">visible</a> if currentTime is not in
+the <a href="#//api/name/visible">visible</a> range (<a href="#//api/name/startTime">startTime</a> &lt;= currentTime &lt; <a href="#//api/name/startTime">startTime</a> + <a href="#//api/name/duration">duration</a>).</p>
 			</div>
 			
 		    
@@ -943,8 +939,8 @@ microseconds.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Set the progress of play position, the value ranges from 0.0 to 1.0. A value of 0.0 represents the
-frame at <a href="#//api/name/startTime">startTime</a>. A value of 1.0 represents the frame at the end of <a href="#//api/name/duration">duration</a>.</p>
+				<p>Set the progress of play position, the value ranges from 0.0 to 1.0. A value of 0.0 represents
+the frame at <a href="#//api/name/startTime">startTime</a>. A value of 1.0 represents the frame at the end of <a href="#//api/name/duration">duration</a>.</p>
 			</div>
 			
 		    
@@ -1026,136 +1022,13 @@ frame at <a href="#//api/name/startTime">startTime</a>. A value of 1.0 represent
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a rectangle that defines the original area of the layer, which is not transformed by the <a href="#//api/name/matrix">matrix</a>.</p>
+				<p>Returns a rectangle that defines the original area of the layer, which is not transformed by the
+<a href="#//api/name/matrix">matrix</a>.</p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>- (CGRect)getBounds</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGLayer.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/numFilters" title="numFilters"></a>
-	<h3 class="method-title"><code><a href="#//api/name/numFilters">&ndash;&nbsp;numFilters</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the number of filter nodes of this PAGLayer.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSInteger)numFilters</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGLayer.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/addFilter:" title="addFilter:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/addFilter:">&ndash;&nbsp;addFilter:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Add a <a href="../Classes/PAGFilter.html">PAGFilter</a> object to current PAGLayer as it&rsquo;s last filter node. If the <a href="../Classes/PAGFilter.html">PAGFilter</a> object has a PAGLayer
-object as a owner, the object is removed from it&rsquo;s owner.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)addFilter:(PAGFilter *)<em>pagFilter</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGLayer.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/removeAllFilters" title="removeAllFilters"></a>
-	<h3 class="method-title"><code><a href="#//api/name/removeAllFilters">&ndash;&nbsp;removeAllFilters</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Remove all filter nodes from current PAGLayer.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)removeAllFilters</code></div>
 
 		    
 			
@@ -1191,8 +1064,8 @@ object as a owner, the object is removed from it&rsquo;s owner.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Indicate whether this layer is excluded from parent&rsquo;s timeline. If set to true, this layer&rsquo;s current time
-will not change when parent&rsquo;s current time changes.</p>
+				<p>Indicate whether this layer is excluded from parent&rsquo;s timeline. If set to true, this layer&rsquo;s
+current time will not change when parent&rsquo;s current time changes.</p>
 			</div>
 			
 		    
@@ -1277,7 +1150,7 @@ will not change when parent&rsquo;s current time changes.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2021 Tencent. All rights reserved. Updated: 2021-03-12</p>
+						<p class="copyright">Copyright &copy; 2022 Tencent. All rights reserved. Updated: 2022-01-14</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

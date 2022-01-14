@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>PAGVideoDecoder Class Reference</title>
+	<title>PAG Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -56,9 +56,7 @@
 	
 	<optgroup label="Class Methods">
 		
-		<option value="//api/name/RegisterSoftwareDecoderFactory:">+ RegisterSoftwareDecoderFactory:</option>
-		
-		<option value="//api/name/SetMaxHardwareDecoderCount:">+ SetMaxHardwareDecoderCount:</option>
+		<option value="//api/name/SDKVersion">+ SDKVersion</option>
 		
 	</optgroup>
 	
@@ -77,7 +75,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">PAGVideoDecoder Class Reference</h1>
+					<h1 class="title">PAG Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -86,7 +84,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>PAGVideoDecoder.h</td>
+	<td>PAG.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -104,8 +102,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/RegisterSoftwareDecoderFactory:" title="RegisterSoftwareDecoderFactory:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/RegisterSoftwareDecoderFactory:">+&nbsp;RegisterSoftwareDecoderFactory:</a></code>
+	<a name="//api/name/SDKVersion" title="SDKVersion"></a>
+	<h3 class="method-title"><code><a href="#//api/name/SDKVersion">+&nbsp;SDKVersion</a></code>
 </h3>
 
 	<div class="method-info">
@@ -115,12 +113,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Register a software decoder factory to implement the decoder fallback mechanism.</p>
+				<p>Get SDK version information.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (void)RegisterSoftwareDecoderFactory:(void *)<em>decoderFactory</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (NSString *)SDKVersion</code></div>
 
 		    
 			
@@ -138,48 +136,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoDecoder.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/SetMaxHardwareDecoderCount:" title="SetMaxHardwareDecoderCount:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/SetMaxHardwareDecoderCount:">+&nbsp;SetMaxHardwareDecoderCount:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set the maximum number of hardware video decoders that can be create.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (void)SetMaxHardwareDecoderCount:(int)<em>maxCount</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGVideoDecoder.h</code></p>
+				<p><code class="declared-in-ref">PAG.h</code></p>
 			</div>
 			
 			

@@ -56,6 +56,10 @@
 	
 	<optgroup label="Class Methods">
 		
+		<option value="//api/name/FromCVPixelBuffer:">+ FromCVPixelBuffer:</option>
+		
+		<option value="//api/name/FromCVPixelBuffer:context:">+ FromCVPixelBuffer:context:</option>
+		
 		<option value="//api/name/FromLayer:">+ FromLayer:</option>
 		
 		<option value="//api/name/MakeFromGPU:">+ MakeFromGPU:</option>
@@ -73,8 +77,6 @@
 		<option value="//api/name/getCVPixelBuffer">- getCVPixelBuffer</option>
 		
 		<option value="//api/name/height">- height</option>
-		
-		<option value="//api/name/present">- present</option>
 		
 		<option value="//api/name/updateSize">- updateSize</option>
 		
@@ -131,10 +133,121 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new PAGSurface from specified CAEAGLLayer. The GPU context will be created internally
+by PAGSurface.</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>+ (PAGSurface *)FromLayer:(CAEAGLLayer *)<em>layer</em></code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/FromCVPixelBuffer:" title="FromCVPixelBuffer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromCVPixelBuffer:">+&nbsp;FromCVPixelBuffer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new PAGSurface from specified CVPixelBuffer. The GPU context will be created internally
+by PAGSurface.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (PAGSurface *)FromCVPixelBuffer:(CVPixelBufferRef)<em>pixelBuffer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/FromCVPixelBuffer:context:" title="FromCVPixelBuffer:context:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/FromCVPixelBuffer:context:">+&nbsp;FromCVPixelBuffer:context:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new PAGSurface from specified CVPixelBuffer and EAGLContext. Multiple PAGSurfaces with
+the same context share the same GPU caches. The caches are not destroyed when resetting a
+PAGPlayer&rsquo;s surface to another PAGSurface with the same context.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (PAGSurface *)FromCVPixelBuffer:(CVPixelBufferRef)<em>pixelBuffer</em> context:(EAGLContext *)<em>eaglContext</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -147,10 +260,36 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a offscreen PAGSurface of specified size. PAGSurface internally creates a CVPixelBuffer
+which can be accessed by <a href="#//api/name/getCVPixelBuffer">[PAGSurface getCVPixelBuffer]</a> after the first [PAGPLayer flush].</p>
+			</div>
+			
+		    
 
 			<div class="method-subsection method-declaration"><code>+ (PAGSurface *)MakeFromGPU:(CGSize)<em>size</em></code></div>
 
 		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">PAGSurface.h</code></p>
+			</div>
+			
+			
 		</div>
 	</div>
 </div><div class="section-method">
@@ -277,48 +416,6 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/present" title="present"></a>
-	<h3 class="method-title"><code><a href="#//api/name/present">&ndash;&nbsp;present</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p><a href="Please%20use%20'[[PAGPlayer%20flush]](../Classes/PAGPlayer.html#//api/name/flush">Deprecated</a>&lsquo; instead)
-Apply all changes to the surface. Returns true if the content has changed.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (BOOL)present</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">PAGSurface.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/clearAll" title="clearAll"></a>
 	<h3 class="method-title"><code><a href="#//api/name/clearAll">&ndash;&nbsp;clearAll</a></code>
 </h3>
@@ -330,7 +427,8 @@ Apply all changes to the surface. Returns true if the content has changed.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Erases all pixels of this surface with transparent color. Returns true if the content has changed.</p>
+				<p>Erases all pixels of this surface with transparent color. Returns true if the content has
+changed.</p>
 			</div>
 			
 		    
@@ -456,7 +554,7 @@ Apply all changes to the surface. Returns true if the content has changed.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2021 Tencent. All rights reserved. Updated: 2021-03-12</p>
+						<p class="copyright">Copyright &copy; 2022 Tencent. All rights reserved. Updated: 2022-01-14</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

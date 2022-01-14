@@ -1032,7 +1032,7 @@
             background-size: 640px, 640px;
             background-repeat: no-repeat;
             background-image: url('/img/new_official_website/bgLogo.png');
-            transition: all 1.6s cubic-bezier(.645,.045,.355,1);
+            
         }
         .caseWrapper{
             width: 460px;
@@ -1178,8 +1178,8 @@
         display: block;
         width: 640px;
         height: 640px;
-        -webkit-backdrop-filter: saturate(180%) blur(6px);
-        backdrop-filter: saturate(180%) blur(6px);
+        -webkit-backdrop-filter: saturate(180%) blur(8px);
+        backdrop-filter: saturate(180%) blur(8px);
         z-index: 9;
     }
 }

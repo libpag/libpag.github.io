@@ -254,7 +254,6 @@ docReady(()=>{
             document.getElementById('faq').style= `width: inherit; margin: 0`;
             document.getElementsByClassName('docMainWrapper')[0].style.width = `${window.innerWidth}px`;
             document.getElementsByClassName('mobile-mode')[0].appendChild(logo);
-
         } else {
             document.getElementsByClassName('docMainWrapper')[0].style = 'position: relative; top: 20px; left: 50%; margin-left: -350px; padding-bottom: 360px;'
             document.getElementsByClassName('pc-mode')[0].appendChild(logo);
@@ -332,10 +331,10 @@ function updateBg(fixBg) {
     if (!fixBg && !isMobile()) {
         let offsetX = window.innerWidth * 0.35;
         let offsetY = window.innerHeight * 0.25;
-        document.getElementById('wallpaper').style = `transform: scale(1.62) translate(${offsetX}px, ${offsetY}px)`;
+        document.getElementById('wallpaper').style = `transform: scale(1.62) translate(${offsetX}px, ${offsetY}px); transition: all 1.6s cubic-bezier(.645,.045,.355,1);`;
     } else if (!fixBg && isMobile()) {
         let scale = 616 / window.innerWidth;
-        document.getElementById('wallpaper').style = `transform: scale(${scale}) translateY(0.8rem)`;
+        document.getElementById('wallpaper').style = `transform: scale(${scale}) translateY(1.2rem)`;
     }
     fixBg = true;
 }

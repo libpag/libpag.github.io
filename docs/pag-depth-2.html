@@ -65,26 +65,26 @@
 <h2><a class="anchor" aria-hidden="true" id="二bmp预合成"></a><a href="#二bmp预合成" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>二、BMP预合成</h2>
 <p>我们在PAG 2.0版本里引入了「BMP预合成」的概念，设计师只需要对指定的预合成名字加上 _bmp后缀就可以实现局部图层的截图导出。在确定了要引入序列帧导出模式后，剩下的挑战就是使用什么格式来存储导出的序列帧。相比传统的图片序列帧，「BMP预合成」使用了视频序列帧的格式存储，可以充分利用起极限的帧间压缩能力，轻松压缩到图片序列帧百分之一点几的大小。</p>
 <p><img 
-  src='/img/docs/tech/bmp_data.jpeg' 
+  src='https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/img/docs/tech/bmp_data.jpeg' 
   style='width: 600px; margin: 32px 0 48px 0' 
 /></p>
 <hr>
 <p>上表是各种序列帧方案文件大小的对比。APNG由于在PNG基础上做了简单的帧间压缩，只记录前一帧变化的区域，可以压缩到72.2%的大小。而这里的位图序列帧是我们在过渡时期的一种序列帧格式，它是在APNG的帧间压缩能力上结合了WebP改造出来的，压缩率也比较不错，平均可以做到5.53%。它主要的问题是分辨率大时CPU占用率较高，目前已经不怎么使用。而视频序列帧最小，平均可以压缩到1.24%左右，比位图序列帧还小78%。另外视频的格式还可以在运行时利用硬件加速的解码，可以几乎不占CPU，从而获得更高的渲染性能。但视频格式也有一个明显的缺点，就是不支持透明通道。目前业内在扩展视频透明通道上已经有了成熟的解决方案。</p>
 <p><img 
-  src='/img/docs/tech/bmp_realize.jpeg' 
+  src='https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/img/docs/tech/bmp_realize.jpeg' 
   style='width: 600px; margin: 32px 0 48px 0' 
 /></p>
 <hr>
 <p>就是将一张RGBA的图片扩展成两倍大小的不透明图片，左边放置RGB的内容，右边放置表示Alpha的灰度图。然后再将这张不透明图片拿去编码，最后渲染时再合并回RGBA的图片。这里我们在业内方案的基础上还加了一些兼容性改进：PAG导出的视频画面并不总是左右排列的，还有可能上下排列。因为实际解码环境中，部分设备不支持解码画面比例过长的视频。我们的导出插件会尽可能让它接近一个方形。而在渲染的过程中，由于启用了硬件加速解码，可以直接得到一个YUV的纹理。我们在这里的优化点主要是不使用常见的FFmpeg来执行YUV到RGB转换，从而避免纹理在CPU和GPU之间来回拷贝。而是自定义了一个Shader脚本，利用硬件加速在一次绘制过程中，同时完成YUV转换和Alpha通道合并。这里平均就能够提高10%的渲染性能。</p>
 <h2><a class="anchor" aria-hidden="true" id="三数据容器封装realize"></a><a href="#三数据容器封装realize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>三、数据容器封装realize</h2>
 <p><img 
-  src='/img/docs/tech/bmp_struct.jpeg' 
+  src='https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/img/docs/tech/bmp_struct.jpeg' 
   style='width: 600px; margin: 32px 0 48px 0' 
 /></p>
 <hr>
 <p>解决了单个视频帧的导出和渲染后，我们还要考虑上层的数据封装格式，也就是如何存储这些视频帧。PAG并没有使用标准的MP4容器作为视频帧的封装，而是设计了一个简化的数据结构。比较直接的原因是使用MP4容器，会增加我们导出的文件大小，额外还要依赖外部的库来解封装，也会增加我们的包大小。</p>
 <p>另外定制的数据结构也可以优化渲染性能。第一个方面在动画场景下，可以理解为每次刷新都是随机Seek。例如外部使用的帧率跟我们不一致时，就会以固定间隔跳跃式的播放。要解决这个随机Seek的性能问题，核心点就需要数据结构能一次返回所有的关键帧列表，而不需要额外的查询操作。然后执行一个非常高效的算法，每次刷新都向前查找第一个遇到的关键帧，或者上次解码过的帧号，从那个位置开始解码到当前位置即可。另外一方面，视频序列帧虽然是视频，但是它本质上还是代表了一个动画。因此就存在前面提到过的静态区间。PAG的导出插件会自动在静态区间交接处设置关键帧，并且把静态区间信息存储到我们设计的数据结构内。而这些处于静态区间的视频帧，虽然不影响导出的文件大小，但是提交给硬件解码器还是会存在固定的等待延迟。这里我们可以利用静态区间信息直接返回上次解码的内容，而跳过这部分等待。</p>
-<video id="video" controls="" preload="none" width="400" style='margin: 24px 0; border-radius: 8px' poster="/img/docs/tech/bmp.png">
+<video id="video" controls="" preload="none" width="400" style='margin: 24px 0; border-radius: 8px' poster="https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/img/docs/tech/bmp.png">
    <source id="mp4" src="/video/bmp.mp4" type="video/mp4">
 </video>
 <p>极限情况下，例如上面这个俄罗斯方块的视频模板，每个方块虽然都是一个静态图层，但是使用了矢量不支持的效果，因此就会导出一个全时长都是静态区间的视频序列帧，这种情况也是比较常见的。而通过刚刚的优化，能够将渲染耗时从1088.4ms优化到7.5ms，提升99.3%的性能。</p>

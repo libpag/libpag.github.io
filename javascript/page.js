@@ -88,7 +88,7 @@ docReady(()=>{
         document.body.classList.add('mobile-mode')
         appendMeta();
         if(isIndexPage()){
-            document.body.style.backgroundImage = "url('/img/new_official_website/bg_m.png')"
+            document.body.style.backgroundImage = "url('https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/img/new_official_website/bg_m.png')"
         }
         function appendNav(){
             var header = document.getElementsByClassName('fixedHeaderContainer')[0]
@@ -138,7 +138,7 @@ docReady(()=>{
     }
     else{
         if(isIndexPage()){
-            document.body.style.backgroundImage = "url('/img/new_official_website/fill1.png')"
+            document.body.style.backgroundImage = "url('https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/img/new_official_website/fill1.png')"
         }
         document.body.classList.add('pc-mode')
         function appendNavPC() {

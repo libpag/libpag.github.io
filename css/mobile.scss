@@ -570,11 +570,33 @@
                         .video{
                             width: calc(100vw - 1.28rem);
                             margin: 0 0.32rem;
+                            border-radius: 8px;
+                            overflow: hidden;
                             box-shadow: 0 0 rem(10) rgba(0,0,0,.16);
+                        }
+                        .video.wechat{
+                            opacity: 0;
+                            box-shadow: none;
                         }
                     }
                 }
             }
+        }
+        #arrowTip{
+            display: none;
+        }
+        #arrowTip::after{
+            content: '<';
+            width: rem(64);
+            font-size: rem(64);
+            transform: rotate(90deg) scale(0.5, 1);
+            position: fixed;
+            left: 50%;
+            bottom: rem(32);
+            margin-left: rem(-32);
+            opacity: 0.8;
+            color: #686666;
+            animation: tipArrow 1.4s cubic-bezier(.645,.045,.355,1) infinite;
         }
     }
     #faq{
@@ -606,5 +628,7 @@
     .hljs{
         padding-left: 0.24rem;
     }
+    @keyframes tipArrow {
+        100% {opacity: 0; bottom: rem(84)};
+    }
 }
-

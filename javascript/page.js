@@ -14,6 +14,7 @@ var fixBg = false;
 var lastIdx = 0;
 var trigger = false;
 var skipping = false;
+var isWeChat = false;
 
 window.onload = async () => {
     // PAG -> Canvas
@@ -28,9 +29,7 @@ window.onload = async () => {
         canvases[i].height = canvases[i].height * canvases[i].clientWidth / canvases[i].width;
         const mp4Data = await PAG.PAGFile.loadFile(`https://pagio-1251316161.file.myqcloud.com/website/static/pag/${i+1}.pag`);
         const pagView = await PAG.PAGView.create(mp4Data, canvases[i], options);
-        await pagView.play();
-        setTimeout(() => {canvases[i].style.visibility = 'visible'}, 50);
-        
+        pagView.play();
     }
 }
 
@@ -77,6 +76,7 @@ function appendSEOMeta() {
 }
 
 docReady(()=>{
+    isWeChat = isWeChatContext()? true: false;
     // 案例展示版块动态交互效果
     addInteractEffect();
     // SEO
@@ -269,7 +269,16 @@ function addInteractEffect() {
     if (location.pathname.indexOf('/case') !== 0) {
         return;
     }
-    
+    if (isWeChat) {
+        changeStyle('add');
+    }
+    document.addEventListener(
+        'touchstart',
+        function() {
+            playVideo();
+        },
+        false
+    );
     let titles = document.getElementsByClassName('titleBox');
     let marks = document.getElementsByClassName('mark');
     let progressBar = document.getElementById('progressBox');
@@ -284,13 +293,16 @@ function addInteractEffect() {
     
     
     window.addEventListener('scroll', function(e) {
-        // console.log("document.documentElement.scrollTop: " + document.documentElement.scrollTop)
         // 进度条更新
         updateProgressBar(marks);
         // 背景更新
         updateBg(fixBg);
         // 标题渐隐
         updateText(titles);  
+        // 视频可见
+        if (isWeChat) {
+            changeStyle('remove');
+        }
     },{passive: false});
 
     document.getElementById('progressUl').addEventListener('click', (e) => {
@@ -401,4 +413,70 @@ function handlePageNav() {
     let leftBounding = mainContainer.getBoundingClientRect().left + mainContainer.clientWidth + 140;
     let right = window.innerWidth - leftBounding - pgnav.clientWidth;
     pgnav.style.right = `${right}px`;
+}
+
+function processVideo() {
+    //监听 WeixinJSBridge 是否存在
+    if (
+        typeof WeixinJSBridge == "object" &&
+        typeof WeixinJSBridge.invoke == "function"
+    ) {
+        playVideo();
+    } else {
+        //监听客户端抛出事件"WeixinJSBridgeReady"
+        if (document.addEventListener) {
+            document.addEventListener(
+                "WeixinJSBridgeReady",
+                function() {
+                    playVideo();
+                },
+                false
+            );
+        } else if (document.attachEvent) {
+            document.attachEvent("WeixinJSBridgeReady", function() {
+                playVideo();
+            });
+            document.attachEvent("onWeixinJSBridgeReady", function() {
+                playVideo();
+            });
+        }
+    }
+}
+
+function playVideo() {
+    videos = document.getElementsByTagName("video");
+    for (let i = 0; i < videos.length; i++) {
+        videos[i].play();
+    }
+    console.log("WeixinJSBridgeReady.");
+}
+
+function changeStyle(action) {
+    let videos = document.getElementsByClassName('video');
+    for (let i = 0; i < videos.length; i++) {
+        switch (action) {
+            case 'add':
+                let caseWrappers = document.getElementsByClassName('caseWrapper');
+                for (let j = 0; j < caseWrappers.length; j++) {
+                    caseWrappers[j].style.margin = 'calc(50vh - 250px) auto 0 auto';
+                }
+                document.getElementById('arrowTip').style.display = 'block';
+                videos[i].classList.add('wechat');
+                break;
+            case 'remove':
+                videos[i].classList.remove('wechat');
+                videos[i].style = 'transition: all 2.8s cubic-bezier(.645,.045,.355,1)';
+                setTimeout(()=>{document.getElementById('arrowTip').style.display = 'none'}, 500);
+                break;
+        }
+        
+    }
+}
+
+function isWeChatContext() {
+    let ua = window.navigator.userAgent.toLowerCase();
+    if (ua.indexOf('micromessenger') != (-1)) {
+        return true;
+    }
+    return false;
 }

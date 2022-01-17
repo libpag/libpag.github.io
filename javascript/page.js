@@ -27,7 +27,7 @@ window.onload = async () => {
     for (let i = 0; i< canvases.length; i++) {
         canvases[i].width = canvases[i].clientWidth;
         canvases[i].height = canvases[i].height * canvases[i].clientWidth / canvases[i].width;
-        const mp4Data = await PAG.PAGFile.loadFile(`https://pagio-1251316161.file.myqcloud.com/website/static/pag/${i+1}.pag`);
+        const mp4Data = await PAG.PAGFile.loadFile(`../pag/${i+1}.pag`);
         const pagView = await PAG.PAGView.create(mp4Data, canvases[i], options);
         pagView.play();
     }

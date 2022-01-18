@@ -30,6 +30,7 @@ window.onload = async () => {
         const mp4Data = await PAG.PAGFile.loadFile(`../pag/${i+1}.pag`);
         const pagView = await PAG.PAGView.create(mp4Data, canvases[i], options);
         pagView.play();
+        setTimeout(() => {canvases[i].style.visibility = 'visible'}, 50);
     }
 }
 

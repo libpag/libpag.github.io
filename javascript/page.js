@@ -152,11 +152,12 @@ docReady(()=>{
     }
     function navEntryEffect() {
         var nav = document.getElementsByClassName('slidingNav')[0];
-        nav.children[0].children[5].children[0].onmouseover = () => {
-            nav.children[0].children[5].children[0].classList.add('hover');
+        nav.children[0].children[5].onmouseover = () => {
+            nav.children[0].children[5].children[0].innerText = 'Star!';
+            
         }
-        nav.children[0].children[6].children[0].onmouseover = () => {
-            nav.children[0].children[6].children[0].classList.add('hover');
+        nav.children[0].children[5].onmouseleave = () => {
+            nav.children[0].children[5].children[0].innerText = 'GitHub';
         }
     }
 

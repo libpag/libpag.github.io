@@ -509,6 +509,7 @@
         li:nth-child(6){
             right: 263px;
             a{
+                width: 102px;
                 height: 40px;
                 color: #333333 !important;
                 font-size: 16px;
@@ -531,6 +532,9 @@
                             0 0 4px #3495fc3e;
                 border-color: #005ad975;
                 background-color: transparent !important;
+                background-position: 12.7% 46%;
+                background-image: url('../img/new_official_website/star.png');
+                animation: star 0.5s cubic-bezier(.645,.045,.355,1);
             }
         }
         li:nth-child(7){
@@ -1181,5 +1185,22 @@
         -webkit-backdrop-filter: saturate(180%) blur(8px);
         backdrop-filter: saturate(180%) blur(8px);
         z-index: 9;
+    }
+    @keyframes star {
+        0% {
+            background-size: 18px;
+            background-position: 12.7% 46%;
+            font-size: 16px;
+        }
+        75% {
+            background-size: 30px;
+            background-position: 6.7% 40%;
+            font-size: 18px;
+        }
+        100% {
+            background-size: 18px;
+            background-position: 12.7% 46%;
+            font-size: 16px;
+        }
     }
 }

@@ -119,9 +119,8 @@
         .wrap {
             display: flex;
             flex-direction: column-reverse;
-            >img{ //main pic
-                width: rem(274);
-                margin: 0 auto rem(34) auto;
+            .pagApng{ //main pic
+                margin-bottom: rem(48);
             }
             >div{
                 .num{

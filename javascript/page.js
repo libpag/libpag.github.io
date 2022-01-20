@@ -16,24 +16,6 @@ var trigger = false;
 var skipping = false;
 var isWeChat = false;
 
-window.onload = async () => {
-    // PAG -> Canvas
-    const options = {
-        repeatCount: 0,
-        renderingMode: 'WebGL',
-        scaleMode: 'LetterBox',
-    }
-    const canvases = document.getElementsByClassName('pagView');
-    for (let i = 0; i< canvases.length; i++) {
-        canvases[i].width = canvases[i].clientWidth;
-        canvases[i].height = canvases[i].height * canvases[i].clientWidth / canvases[i].width;
-        const mp4Data = await PAG.PAGFile.loadFile(`../pag/${i+1}.pag`);
-        const pagView = await PAG.PAGView.create(mp4Data, canvases[i], options);
-        pagView.play();
-        setTimeout(() => {canvases[i].style.visibility = 'visible'}, 50);
-    }
-}
-
 window.onresize = () => {
     addInteractEffect();
     handlePageNav();

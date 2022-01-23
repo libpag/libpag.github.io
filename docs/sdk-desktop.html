@@ -131,16 +131,22 @@ ws2_32<span class="hljs-class">.<span class="hljs-keyword">lib</span></span>
 <h2><a class="anchor" aria-hidden="true" id="linux端接入"></a><a href="#linux端接入" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Linux端接入</h2>
 <h3><a class="anchor" aria-hidden="true" id="基本要求-1"></a><a href="#基本要求-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基本要求</h3>
 <ul>
-<li><strong>gcc版本不低于4.9</strong></li>
+<li><strong>gcc版本不低于7.0</strong></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="编译构建-1"></a><a href="#编译构建-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译构建</h3>
 <ol>
 <li><p>开发者参照源码根目录下的Linux_build.md完成依赖环境的安装</p></li>
 <li><p>通过根目录下的build_linux.sh完成pag库文件的构建</p></li>
-<li><p>编译生成的头文件和库文件位于vendor/pag 目录下</p></li>
+<li><p>编译生成的头文件和库文件位于linux/vendor 目录下</p></li>
 </ol>
 <h3><a class="anchor" aria-hidden="true" id="demo工程"></a><a href="#demo工程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demo工程</h3>
-<ul>
-<li>预计本周内完善提供</li>
-</ul>
+<p>Demo工程通过CMake来组织，依赖的库文件来自于上一步的构建</p>
+<p>在linux目录下</p>
+<pre><code class="hljs"> <span class="hljs-attr">mkdir</span> <span class="hljs-string">build</span>
+ <span class="hljs-attr">cd</span> <span class="hljs-string">build</span>
+ <span class="hljs-attr">cmake</span> <span class="hljs-string">../</span>
+ <span class="hljs-attr">make</span> <span class="hljs-string">-j8</span>
+ <span class="hljs-attr">./pag-linux</span>
+</code></pre>
+<p>Demo工程仅仅提供了库文件的编译和简单的使用范例，如果需要占位图填充视频或者导出视频，需要使用者自行开发</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/sdk-web.html"><span class="arrow-prev">← </span><span>Web端接入指南</span></a><a class="docs-next button" href="/docs/pag-depth-1.html"><span>PAG深度解读（一）：编辑架构演进</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#接入方式">接入方式</a><ul class="toc-headings"><li><a href="#api接口使用">API接口使用</a></li></ul></li><li><a href="#macos端接入">macOS端接入</a><ul class="toc-headings"><li><a href="#基本要求">基本要求</a></li><li><a href="#编译构建">编译构建</a></li></ul></li><li><a href="#windows接入指南">Windows接入指南</a><ul class="toc-headings"><li><a href="#编译工具">编译工具</a></li><li><a href="#环境准备">环境准备</a></li><li><a href="#运行demo">运行Demo</a></li><li><a href="#使用pagangle-backend">使用PAG【Angle backend】</a></li></ul></li><li><a href="#linux端接入">Linux端接入</a><ul class="toc-headings"><li><a href="#基本要求-1">基本要求</a></li><li><a href="#编译构建-1">编译构建</a></li><li><a href="#demo工程">Demo工程</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>

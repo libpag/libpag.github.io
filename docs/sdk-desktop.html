@@ -100,7 +100,7 @@
 <pre><code class="hljs"><span class="hljs-attribute">depsync</span>
 </code></pre></li>
 <li><p>在根目录执行cmake-build生成PAG，会同时生成32位和64位的pag.lib</p>
-<pre><code class="hljs"><span class="hljs-keyword">node</span> <span class="hljs-title">.\vendor_tools</span>\cmake-build -p win -o .\win\paglib -v -i -<span class="hljs-attr">DPAG_BUILD_SHARED=</span>OFF
+<pre><code class="hljs"><span class="hljs-keyword">node</span> <span class="hljs-title">.\vendor_tools</span>\cmake-build pag -p win -o .\win\paglib -v -i -<span class="hljs-attr">DPAG_BUILD_SHARED=</span>OFF
 </code></pre>
 <ul>
 <li><code>-p</code> platform，在Windows下选择<code>win</code></li>

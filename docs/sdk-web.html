@@ -71,8 +71,8 @@
 <tr><td>Chrome &gt;= 69</td><td>Safari &gt;= 11.3</td><td>Android &gt;= 7.0</td><td>iOS &gt;= 11.3</td></tr>
 </tbody>
 </table>
-<p>Chrome 69+ 与移动端浏览器兼容工作正在进行中</p>
-<p><strong>因受到微信浏览器“用户与页面交互之后才可以使用 Video 标签进行视频播放”规则的限制，PAG Web SDK 无法在微信浏览器下自动播放带有视频序列帧的 PAG 动画，建议设计师使用矢量导出。计划后续版本中提供一个解码器注入的接口，以及对应的 h264 解码器插件去解决这个问题。</strong></p>
+<p>更多版本的兼容工作正在进行中</p>
+<p><strong>因受到微信浏览器“用户与页面交互之后才可以使用 Video 标签进行视频播放”规则的限制，PAG Web SDK无法在微信浏览器下自动播放带有视频序列帧的PAG动画，建议设计师使用矢量导出。计划后续版本中提供一个解码器注入的接口，以及对应的h264解码器插件去解决这个问题。</strong></p>
 <h2><a class="anchor" aria-hidden="true" id="快速开始"></a><a href="#快速开始" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>快速开始</h2>
 <p>可以用 <code>locateFile</code> 函数返回 <code>.wasm</code> 文件的路径，默认为 libpag.js 文件同目录下。</p>
 <h3><a class="anchor" aria-hidden="true" id="browser推荐"></a><a href="#browser推荐" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Browser（推荐）</h3>
@@ -87,14 +87,11 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/libpag@latest/lib/libpag.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   <span class="hljs-built_in">window</span>.libpag.PAGInit().then(<span class="hljs-function">(<span class="hljs-params">PAG</span>) =&gt;</span> {
-    <span class="hljs-keyword">const</span> url = <span class="hljs-string">"https://pag.io/file/like.pag"</span>;
+    <span class="hljs-keyword">const</span> url = <span class="hljs-string">'https://pag.io/file/like.pag'</span>;
     fetch(url)
       .then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> response.blob())
       .then(<span class="hljs-keyword">async</span> (blob) =&gt; {
-        <span class="hljs-keyword">const</span> file = <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>.File(
-          [blob],
-          url.replace(<span class="hljs-regexp">/(.*\/)*([^.]+)/i</span>, <span class="hljs-string">"$2"</span>)
-        );
+        <span class="hljs-keyword">const</span> file = <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>.File([blob], url.replace(<span class="hljs-regexp">/(.*\/)*([^.]+)/i</span>, <span class="hljs-string">'$2'</span>));
         <span class="hljs-comment">// Do Something.</span>
       });
   });
@@ -105,29 +102,27 @@
 <pre><code class="hljs css language-bash">$ npm i libpag
 </code></pre>
 <p>PAG Initialize</p>
-<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { PAGInit } <span class="hljs-keyword">from</span> <span class="hljs-string">"libpag"</span>;
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">import</span> { PAGInit } <span class="hljs-keyword">from</span> <span class="hljs-string">'libpag'</span>;
 
 PAGInit({
-  <span class="hljs-attr">locateFile</span>: <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> <span class="hljs-string">"./node_modules/libpag/lib/"</span> + file,
+  <span class="hljs-attr">locateFile</span>: <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> <span class="hljs-string">'./node_modules/libpag/lib/'</span> + file,
 }).then(<span class="hljs-function">(<span class="hljs-params">PAG</span>) =&gt;</span> {
-  <span class="hljs-keyword">const</span> url = <span class="hljs-string">"https://pag.io/file/like.pag"</span>;
+  <span class="hljs-keyword">const</span> url = <span class="hljs-string">'https://pag.io/file/like.pag'</span>;
   fetch(url)
     .then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> response.blob())
     .then(<span class="hljs-keyword">async</span> (blob) =&gt; {
-      <span class="hljs-keyword">const</span> file = <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>.File(
-        [blob],
-        url.replace(<span class="hljs-regexp">/(.*\/)*([^.]+)/i</span>, <span class="hljs-string">"$2"</span>)
-      );
+      <span class="hljs-keyword">const</span> file = <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>.File([blob], url.replace(<span class="hljs-regexp">/(.*\/)*([^.]+)/i</span>, <span class="hljs-string">'$2'</span>));
       <span class="hljs-comment">// Do Something.</span>
     });
 });
 </code></pre>
+<p>ESModule 引入的方式需要打包构建的时候，需要把 node_modules 下的 libpag/lib 中的 libpag.wasm 文件打包到最终产物中。并使用 <code>locateFile</code> 函数指向 libpag.wasm 文件</p>
 <h3><a class="anchor" aria-hidden="true" id="pag-simple-demo"></a><a href="#pag-simple-demo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PAG simple demo</h3>
 <pre><code class="hljs css language-javascript"><span class="hljs-comment">// &lt;canvas class="canvas" id="pag"&gt;&lt;/canvas&gt;</span>
 <span class="hljs-keyword">const</span> pagFile = <span class="hljs-keyword">await</span> PAG.PAGFile.load(file);
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"pag"</span>).width = <span class="hljs-keyword">await</span> pagFile.width();
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"pag"</span>).height = <span class="hljs-keyword">await</span> pagFile.height();
-<span class="hljs-keyword">const</span> pagView = <span class="hljs-keyword">await</span> PAG.PAGView.init(pagFile, <span class="hljs-string">"#pag"</span>);
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pag'</span>).width = pagFile.width();
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pag'</span>).height = pagFile.height();
+<span class="hljs-keyword">const</span> pagView = <span class="hljs-keyword">await</span> PAG.PAGView.init(pagFile, <span class="hljs-string">'#pag'</span>);
 pagView.setRepeatCount(<span class="hljs-number">0</span>);
 <span class="hljs-keyword">await</span> pagView.play();
 </code></pre>

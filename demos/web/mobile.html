@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script>
+      const vConsole = new VConsole();
+    </script>
+    <style>
+      .canvas {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+      }
+      .btn {
+        margin: 12px auto 0;
+        width: 240px;
+        height: 48px;
+        background: #0252d9;
+        border-radius: 24px;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .input {
+        display: block;
+        margin: 12px auto 0;
+        width: 240px;
+        height: 32px;
+        text-align: center;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="canvas" id="pag" width="300" height="300"></canvas>
+    <input class="input" type="text" name="url" id="pag-url" />
+    <div class="btn" id="load-pag">加载PAG</div>
+    <input class="input" type="number" name="url" id="input-width" placeholder="300" />
+    <div class="btn" id="btn-width">设置宽度</div>
+    <input class="input" type="number" name="url" id="input-height" placeholder="300" />
+    <div class="btn" id="btn-height">设置高度</div>
+    <script src="https://unpkg.com/libpag@latest/lib/libpag.min.js"></script>
+    <script>
+      window.onload = async () => {
+        const PAG = await window.libpag.PAGInit();
+        document.getElementById('btn-width').addEventListener('click', () => {
+          document.getElementById('pag').width = +document.getElementById('input-width').value;
+        });
+        document.getElementById('btn-height').addEventListener('click', () => {
+          document.getElementById('pag').height = +document.getElementById('input-height').value;
+        });
+        document.getElementById('load-pag').addEventListener('click', async () => {
+          const url = document.getElementById('pag-url').value;
+          const blob = await fetch(url).then((response) => response.blob());
+          const file = new window.File([blob], url.replace(/(.*\/)*([^.]+)/i, '$2'));
+          const pagFile = await PAG.PAGFile.load(file);
+          const canvas = document.getElementById('pag');
+          const pagView = await PAG.PAGView.init(pagFile, canvas);
+          await pagView.play();
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -139,4 +139,9 @@
 <p>如果需要显示特定字体，无论那个平台就需要进行字体注册。字体注册相关接口参考PAGFone的相关方法。
 RegisterFont方法用来注册字体，SetFallbackFontPaths用来设置字体回退列表。当输入文本在注册字体文件中查找不到时，会使用回退列表中的字体。</p>
 <hr>
+<blockquote>
+<h3><a class="anchor" aria-hidden="true" id="问pag-的-ae-导出插件闭源的原因是什么呢未来会开源么"></a><a href="#问pag-的-ae-导出插件闭源的原因是什么呢未来会开源么" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>问：PAG 的 AE 导出插件闭源的原因是什么呢？未来会开源么？</h3>
+</blockquote>
+<p>答案是不会。举个大家比较熟悉的例子可能更好理解：谷歌的 Chrome 浏览器也不是开源的，开源的是核心的 Chromium 项目。目前开源的 libpag 项目不只是一个渲染库，PAG 文件的核心编解码模块也在其中是完全开源的。所以从原理上如果你希望从头实现一个 AE 导出插件，现在并不存在什么技术上的阻碍，只需要调用 AE SDK 和 PAG 的编码 SDK 即可，剩下的都是一些 UI 业务代码的工作，这部分并没有多少技术含量。那为什么我们不开源这部分 UI 业务的代码呢？实际上你如果只是正常使用 PAG 方案，不是为了快速创造一种不兼容的 PAG 分裂格式，是不会涉及到任何 AE 导出插件代码的内容。但如果开源这部分代码，会显著降低创造一种新的分裂格式的门槛。PAG 的格式跟其他各种图片格式不太一样，它并不是制定完标准后就固化的格式，而是一种动态演进的格式，会随着 AE 功能的支持变多而不断增量变化。如果采用去中心化的管理方式，我们很难保证 PAG 的通用一致性。一旦产生很多分裂版本的格式后，会沦为某些特定业务的私有格式，各种优化无法回馈到社区。设计师也要面对同一个资源可能要导出多种格式的额外工作量，并且需要重复生产大量相似的动效素材，而不能直接复用存量已经导出的资源。这对动效素材社区的发展不利，也是我们非常不愿意看到的。</p>
+<hr>
 </div></span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>

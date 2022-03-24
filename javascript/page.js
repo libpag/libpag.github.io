@@ -266,12 +266,13 @@ docReady(()=>{
             document.getElementsByClassName('pc-mode')[0].appendChild(logo);
         }
     }
-    else if(pathname.indexOf('/docs/fpdf') == 0){
+    if(pathname.indexOf('/docs/pdf') == 0){
+        console.log("---- pdf")
         document.getElementById('pdfDownload').onclick = function(){
             axios({
               method: 'get',
               url:
-                'https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/website/static/file/pag_codec.pdf',
+                '../file/pag_codec.pdf',
               responseType: 'blob',
             }).then(function (response) {
               const link = document.createElement('a')

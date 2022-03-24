@@ -630,4 +630,24 @@
     @keyframes tipArrow {
         100% {opacity: 0; bottom: rem(84)};
     }
+    #pdfViewer {
+        display: none;
+    }
+    #pdfDownload {
+        font-size: 14px;
+        font-family: 'PingFangSC-Semibold'!important;
+        border-radius: 8px;
+        background-color:  $theme-blue;
+        color: #ffffff !important;
+        height: 40px;
+        width: 88px;
+        margin-bottom: 20px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer
+    }
+    #pdfViewer {
+        display: none;
+    }
 }

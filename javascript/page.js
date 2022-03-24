@@ -15,8 +15,27 @@ var lastIdx = 0;
 var trigger = false;
 var skipping = false;
 var isWeChat = false;
-
+/*
+window.onload = async () => {
+    // PAG -> Canvas
+    const options = {
+        repeatCount: 0,
+        renderingMode: 'WebGL',
+        scaleMode: 'LetterBox',
+    }
+    const canvases = document.getElementsByClassName('pagView');
+    for (let i = 0; i< canvases.length; i++) {
+        canvases[i].width = canvases[i].clientWidth;
+        canvases[i].height = canvases[i].height * canvases[i].clientWidth / canvases[i].width;
+        const mp4Data = await PAG.PAGFile.loadFile(`../pag/${i+1}.pag`);
+        const pagView = await PAG.PAGView.create(mp4Data, canvases[i], options);
+        pagView.play();
+        setTimeout(() => {canvases[i].style.visibility = 'visible'}, 50);
+    }
+}
+*/
 window.onresize = () => {
+    console.log("1234567890");
     addInteractEffect();
     handlePageNav();
     var pathname = location.pathname;
@@ -191,7 +210,7 @@ docReady(()=>{
             pkg.scrollIntoView()
         }
     };
-
+    // 请将属"开发者文档"的文件名添加进该数组
     const devDocRoutes = [
         "sdk",
         "pag-depth-1",
@@ -206,14 +225,18 @@ docReady(()=>{
         "SDK-migration",
         "sdk-web",
         "sdk-windows",
+        "qa",
+        "pdf",
     ];
 
     function isDevDoc(path) {
         for (let i = 0; i < devDocRoutes.length; i++) {
             if (path.indexOf(devDocRoutes[i]) != (-1)) {
+                console.log("is DevDoc");
                 return true;
             }
         }
+        console.log("is not DevDoc");
         return false;
     }
 
@@ -241,6 +264,23 @@ docReady(()=>{
         } else {
             document.getElementsByClassName('docMainWrapper')[0].style = 'position: relative; top: 20px; left: 50%; margin-left: -350px; padding-bottom: 360px;'
             document.getElementsByClassName('pc-mode')[0].appendChild(logo);
+        }
+    }
+    else if(pathname.indexOf('/docs/fpdf') == 0){
+        document.getElementById('pdfDownload').onclick = function(){
+            axios({
+              method: 'get',
+              url:
+                'https://pagio-1251316161.cos.ap-nanjing.myqcloud.com/website/static/file/pag_codec.pdf',
+              responseType: 'blob',
+            }).then(function (response) {
+              const link = document.createElement('a')
+              let blob = new Blob([response.data], { type: response.data.type })
+              let url = URL.createObjectURL(blob)
+              link.href = url
+              link.download = 'pag文件格式规范.pdf'
+              link.click()
+            })
         }
     }
     if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {

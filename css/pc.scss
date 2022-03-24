@@ -1170,4 +1170,23 @@
             font-size: 16px;
         }
     }
+    #pdfViewer {
+        width: 980px;
+        height: 750px;
+        border-bottom: 6px solid rgb(122,122,122);
+    }
+    #pdfDownload {
+        font-size: 14px;
+        font-family: 'PingFangSC-Semibold'!important;
+        border-radius: 8px;
+        background-color:  $theme-blue;
+        color: #ffffff !important;
+        height: 40px;
+        width: 88px;
+        margin-bottom: 20px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer
+    }
 }

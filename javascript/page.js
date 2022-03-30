@@ -177,6 +177,16 @@ docReady(()=>{
         copyright.innerText = generateCopyright();
         footer.children[0].appendChild(copyright)
 
+        // privacy policy
+        var privacy = document.createElement('div');
+        privacy.id = 'privacy-policy';
+        privacy.className = 'privacy-policy';
+        privacy.innerText = '隐私政策';
+        footer.children[0].appendChild(privacy);
+        document.getElementById('privacy-policy').onclick = function(){
+            window.open('https://privacy.qq.com/document/preview/01e79d0cc7a2427ba774b88c6beff0fd');
+        }
+
         //qq group
         var qqgroup = document.createElement("div");
         qqgroup.id = 'js_qqgroup';
@@ -267,7 +277,6 @@ docReady(()=>{
         }
     }
     if(pathname.indexOf('/docs/pdf') == 0){
-        console.log("---- pdf")
         document.getElementById('pdfDownload').onclick = function(){
             axios({
               method: 'get',

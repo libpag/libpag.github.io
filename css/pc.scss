@@ -695,7 +695,6 @@
             background-image: url('https://pagio-1251316161.file.myqcloud.com/website/static/img/new_official_website/github.png');
             background-repeat: no-repeat;
             background-size: 24px;
-            margin-right: 20px;
             margin-left: 20px;
             cursor: pointer;
             float: right;
@@ -710,12 +709,19 @@
             background-repeat: no-repeat;
             background-size: 24px;
             background-image: url('https://pagio-1251316161.file.myqcloud.com/website/static/img/new_official_website/qq.png');
-            background-position: 79.5% 50%;
+            background-position: 75% 50%;
             color: #cccccc;
         }
         div:nth-child(3){
             float: right;
             margin: 0 0 0 32px;
+        }
+        .privacy-policy {
+            cursor: pointer;
+            margin-left: 24px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #dadada;
         }
     }
     // 文档页箭头

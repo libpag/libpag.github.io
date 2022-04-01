@@ -79,7 +79,7 @@ function appendSEOMeta() {
 function appendAegis() {
     var aegis = document.createElement('script');
     aegis.src = "https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js";
-    aegis.innerHTML = "const aegis = new Aegis({id: 'EPVyefrqJmY58XXeXl',uin: 'xxx', reportApiSpeed: true, reportAssetSpeed: true, spa: true});"
+    aegis.innerHTML = "const aegis = new Aegis({ id: 'DvVmPUEQywon6Zw4dp', uin: 'xxx', reportApiSpeed: true, reportAssetSpeed: true, spa: true});"
     document.getElementsByTagName('head')[0].appendChild(aegis);
 }
 

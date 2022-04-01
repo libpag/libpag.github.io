@@ -30,7 +30,7 @@
         color: #fff;
     }
     .fixedHeaderContainer{
-        background-color: transparent;
+        background-color: #ffffff !important;
         min-width: 1200px;
         padding: 0;
         .wrapper{
@@ -380,7 +380,7 @@
         }
     }
     .navigationSlider .slidingNav ul{
-        background-color: transparent !important;
+        background-color: #ffffff !important;
     }
     .nav-site.nav-site-internal{
         width: 448px !important;
@@ -409,7 +409,7 @@
 
             }
             a:hover{
-                background-color: transparent  !important;
+                background-color: #ffffff  !important;
                 color: $theme-blue !important;
             }
         }
@@ -547,7 +547,7 @@
                 color: #000 !important;
                 text-align: center;
                 position: relative;
-                background-color: transparent  !important;
+                background-color: #ffffff  !important;
                 color: $theme-blue !important;
             }
             a:after{

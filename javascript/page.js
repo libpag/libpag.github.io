@@ -46,6 +46,10 @@ window.onresize = () => {
         iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
     }
 }
+window.onload = () => {
+    // Aegis
+    appendAegis();
+}
 
 
 let isAndroid = () => {
@@ -89,8 +93,6 @@ docReady(()=>{
     addInteractEffect();
     // SEO
     appendSEOMeta();
-    // Aegis
-    appendAegis();
 
     if(isMobile()){
         var html = document.getElementsByTagName("html")[0]; html.style.fontSize =
@@ -98,7 +100,7 @@ docReady(()=>{
         document.body.classList.add('mobile-mode')
         appendMeta();
         if(isIndexPage()){
-            document.body.style.backgroundImage = "url('https://pagio-1251316161.file.myqcloud.com/website/static/img/new_official_website/bg_m.png')"
+            document.body.style.backgroundImage = "url('https://pag.qq.com/website/static/img/new_official_website/bg_m.png')";
         }
         function appendNav(){
             var header = document.getElementsByClassName('fixedHeaderContainer')[0]
@@ -148,7 +150,7 @@ docReady(()=>{
     }
     else{
         if(isIndexPage()){
-            document.body.style.backgroundImage = "url('https://pagio-1251316161.file.myqcloud.com/website/static/img/new_official_website/fill1.png')"
+            document.body.style.backgroundImage = "url('https://pag.qq.com/website/static/img/new_official_website/fill1.png')"
         }
         document.body.classList.add('pc-mode')
         function appendNavPC() {
@@ -285,6 +287,11 @@ docReady(()=>{
         }
     }
     if(pathname.indexOf('/docs/pdf') == 0){
+        let script = document.createElement('script');
+        script.src = 'https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js';
+        script.defer= 'defer';
+        document.getElementsByTagName('head')[0].appendChild(script);
+
         document.getElementById('pdfDownload').onclick = function(){
             axios({
               method: 'get',

@@ -378,6 +378,9 @@
             margin: 0 auto !important;
         }
     }
+    .navigationSlider .slidingNav ul {
+        background: transparent !important;
+    }
     .navigationSlider .slidingNav ul li > a:focus, .navigationSlider .slidingNav ul li > a:hover, .navigationSlider .slidingNav ul li.siteNavItemActive > a, .navigationSlider .slidingNav ul li.siteNavGroupActive > a:focus {
         background-color: transparent !important;
     }

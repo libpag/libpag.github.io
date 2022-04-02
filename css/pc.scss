@@ -30,7 +30,6 @@
         color: #fff;
     }
     .fixedHeaderContainer{
-        background-color: #ffffff !important;
         min-width: 1200px;
         padding: 0;
         .wrapper{
@@ -364,7 +363,7 @@
     .fixedHeaderContainer{
         height: 80px;
         backdrop-filter: saturate(180%) blur(20px);
-        background-color: hsla(0,0%,100%,.8);
+        background-color: hsla(0,0%,100%,.8) !important;
         header{
             display: block;
         }
@@ -379,8 +378,8 @@
             margin: 0 auto !important;
         }
     }
-    .navigationSlider .slidingNav ul{
-        background-color: #ffffff !important;
+    .navigationSlider .slidingNav ul li > a:focus, .navigationSlider .slidingNav ul li > a:hover, .navigationSlider .slidingNav ul li.siteNavItemActive > a, .navigationSlider .slidingNav ul li.siteNavGroupActive > a:focus {
+        background-color: transparent !important;
     }
     .nav-site.nav-site-internal{
         width: 448px !important;
@@ -409,7 +408,7 @@
 
             }
             a:hover{
-                background-color: #ffffff  !important;
+                background-color: transparent  !important;
                 color: $theme-blue !important;
             }
         }
@@ -547,7 +546,7 @@
                 color: #000 !important;
                 text-align: center;
                 position: relative;
-                background-color: #ffffff  !important;
+                background-color: transparent !important;
                 color: $theme-blue !important;
             }
             a:after{
@@ -845,12 +844,6 @@
         .docs-prev:hover:after,
         .docs-next:hover:after{
             color: $theme-blue;
-        }
-        .docs-prev{
-            
-        }
-        .docs-next{
-    
         }
     }
     // 文档菜单栏

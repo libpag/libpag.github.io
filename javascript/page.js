@@ -15,27 +15,8 @@ var lastIdx = 0;
 var trigger = false;
 var skipping = false;
 var isWeChat = false;
-/*
-window.onload = async () => {
-    // PAG -> Canvas
-    const options = {
-        repeatCount: 0,
-        renderingMode: 'WebGL',
-        scaleMode: 'LetterBox',
-    }
-    const canvases = document.getElementsByClassName('pagView');
-    for (let i = 0; i< canvases.length; i++) {
-        canvases[i].width = canvases[i].clientWidth;
-        canvases[i].height = canvases[i].height * canvases[i].clientWidth / canvases[i].width;
-        const mp4Data = await PAG.PAGFile.loadFile(`../pag/${i+1}.pag`);
-        const pagView = await PAG.PAGView.create(mp4Data, canvases[i], options);
-        pagView.play();
-        setTimeout(() => {canvases[i].style.visibility = 'visible'}, 50);
-    }
-}
-*/
+
 window.onresize = () => {
-    console.log("1234567890");
     addInteractEffect();
     handlePageNav();
     var pathname = location.pathname;
@@ -46,11 +27,6 @@ window.onresize = () => {
         iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
     }
 }
-window.onload = () => {
-    // Aegis
-    appendAegis();
-}
-
 
 let isAndroid = () => {
     return /(Android).*?([\d.]+)/i.test(navigator.userAgent) || /(Adr)\s+([\d.]+)/i.test(navigator.userAgent);
@@ -81,13 +57,15 @@ function appendSEOMeta() {
     document.getElementsByTagName('head')[0].appendChild(SEOMeta);
 }
 function appendAegis() {
-    var aegis = document.createElement('script');
-    aegis.src = "https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js";
-    aegis.innerHTML = "const aegis = new Aegis({ id: 'DvVmPUEQywon6Zw4dp', uin: 'xxx', reportApiSpeed: true, reportAssetSpeed: true, spa: true});"
-    document.getElementsByTagName('head')[0].appendChild(aegis);
+    let init = document.createElement('script');
+    init.innerHTML = "const aegis = new Aegis({ id: 'DvVmPUEQywon6Zw4dp', uin: 'xxx', reportApiSpeed: true, reportAssetSpeed: true, spa: true});";
+    document.getElementsByTagName('head')[0].appendChild(init);
 }
 
 docReady(()=>{
+    // Aegis
+    appendAegis();
+    // is Wechat?
     isWeChat = isWeChatContext()? true: false;
     // 案例展示版块动态交互效果
     addInteractEffect();

@@ -116,7 +116,7 @@
     
 </code></pre>
 <p><strong>注意：</strong> 需要在混淆列表里面，添加libpag的keep规则：</p>
-<pre><code class="hljs">    -<span class="ruby">keep <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">org</span>.<span class="hljs-title">libpag</span>.* {*;</span>}
+<pre><code class="hljs">    -<span class="ruby">keep <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">org</span>.<span class="hljs-title">libpag</span>.** {*;</span>}
 </span></code></pre>
 <p>配置完以后，sync一下，再编译。<br/><br/></p>
 <hr>

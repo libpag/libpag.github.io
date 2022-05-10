@@ -28,3 +28,19 @@ function updateTabs(type)
         }
     }
 }
+
+// 移动端适配
+let isAndroid = () => {
+    return /(Android).*?([\d.]+)/i.test(navigator.userAgent) || /(Adr)\s+([\d.]+)/i.test(navigator.userAgent);
+};
+let isIOS = () => {
+    return /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)
+    // return /(iPhone\sOS)\s([\d_]+)/i.test(navigator.userAgent);
+};
+let isMobile = () => isAndroid() || isIOS();
+if (isMobile()) {
+    console.log('------ isMobile')
+    var frameSet = window.parent.frameSet;
+    frameSet.setAttribute('style', 'margin-top: 50px')
+    frameSet.cols = '0%, 100%';
+}

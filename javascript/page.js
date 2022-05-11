@@ -17,8 +17,6 @@ var skipping = false;
 var isWeChat = false;
 
 window.onload = () => {
-    console.log(window);
-    console.log(document);
     fitFrame();
 }
 
@@ -515,7 +513,7 @@ function fitFrame() {
         let width = window.innerWidth
         let height = window.innerHeight;
         if(isMobile()) {
-            iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 0; position: fixed; top: 0; left: 0; z-index: 9`;
+            iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 0; position: fixed; top: 0; left: 0; margin-top: 50px; z-index: 9`;
             return;
         }
         iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;

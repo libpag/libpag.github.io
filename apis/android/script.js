@@ -41,6 +41,5 @@ let isMobile = () => isAndroid() || isIOS();
 if (isMobile()) {
     console.log('------ isMobile')
     var frameSet = window.parent.frameSet;
-    frameSet.setAttribute('style', 'margin-top: 50px')
     frameSet.cols = '0%, 100%';
 }

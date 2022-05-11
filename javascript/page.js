@@ -16,16 +16,16 @@ var trigger = false;
 var skipping = false;
 var isWeChat = false;
 
+window.onload = () => {
+    console.log(window);
+    console.log(document);
+    fitFrame();
+}
+
 window.onresize = () => {
     addInteractEffect();
     handlePageNav();
-    var pathname = location.pathname;
-    if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {
-        var iframe = document.getElementsByTagName('iframe')[0];
-        let width = window.innerWidth
-        let height = window.innerHeight;
-        iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
-    }
+    fitFrame();
 }
 
 let isAndroid = () => {
@@ -506,4 +506,18 @@ function isWeChatContext() {
         return true;
     }
     return false;
+}
+
+function fitFrame() {
+    let pathname = location.pathname;
+    if(pathname.indexOf('/docs/apis-android') == 0 || pathname.indexOf('/docs/apis-ios') == 0 ||pathname.indexOf('/docs/apis-web') == 0) {
+        var iframe = document.getElementsByTagName('iframe')[0];
+        let width = window.innerWidth
+        let height = window.innerHeight;
+        if(isMobile()) {
+            iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 0; position: fixed; top: 0; left: 0; z-index: 9`;
+            return;
+        }
+        iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9`;
+    }
 }

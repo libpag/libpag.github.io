@@ -52,6 +52,12 @@
 <p>PAG 文件支持集成音频数据，导出方法具体方法参照 <a href="https://pag.io/docs/pag-music-mark.html"><font color=blue>如何在AE中导出音频</font></a>。但 PAG SDK 仍然还是一个动画渲染库，目前只渲染画面的部分，播放或者合成到视频需要业务方使用音视频框架自行处理。研发侧可以从 PAGFile.audioBytes 接口上读取 PAG 内置的音频数据，将它存储为本地文件使用或者直接在内存中解码都可以。audioBytes 字节流的编码格式为 AAC，容器格式为 MPEG-4。</p>
 <hr>
 <blockquote>
+<h3><a class="anchor" aria-hidden="true" id="问pag-是否支持网络加载pag文件"></a><a href="#问pag-是否支持网络加载pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>问：PAG 是否支持网络加载pag文件？</h3>
+</blockquote>
+<p>PAG SDK专注于动画渲染，没有内置网络模块，因此是不支持的。
+对于大部分APP而言，一般都包含网络模块和缓存模块，直接使用APP中内置的基础模块即可。</p>
+<hr>
+<blockquote>
 <h3><a class="anchor" aria-hidden="true" id="问pag-windows-版本是否可以直接和-directx-11-的现有游戏结合"></a><a href="#问pag-windows-版本是否可以直接和-directx-11-的现有游戏结合" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>问：PAG Windows 版本是否可以直接和 DirectX 11 的现有游戏结合？</h3>
 </blockquote>
 <p>目前没有计划要去直接支持 DX 的渲染后端，但是通过 Google 的 ANGLE 项目把 DX 包装成 OpenGL 让 PAG 进行渲染。目前 Chrome 在 Windows 上也是采用的这种实现方案。</p>

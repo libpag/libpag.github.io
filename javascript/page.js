@@ -251,15 +251,9 @@ docReady(()=>{
     }
     else if(pathname.indexOf('/docs/faq') == 0){
         document.getElementsByClassName('nav-site')[0].children[4].classList.add('active');
-        let logo = document.createElement('div');
-        logo.id = 'faqLogo'
         if (isMobile()) {
             document.getElementById('faq').style= `width: inherit; margin: 0`;
             document.getElementsByClassName('docMainWrapper')[0].style.width = `${window.innerWidth}px`;
-            document.getElementsByClassName('mobile-mode')[0].appendChild(logo);
-        } else {
-            document.getElementsByClassName('docMainWrapper')[0].style = 'position: relative; top: 20px; left: 50%; margin-left: -350px; padding-bottom: 360px;'
-            document.getElementsByClassName('pc-mode')[0].appendChild(logo);
         }
     }
     if(pathname.indexOf('/docs/pdf') == 0){

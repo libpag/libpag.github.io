@@ -857,7 +857,7 @@
                 .navGroupCategoryTitle{
                     font-size: 24px;
                     line-height: 32px;
-                    height: 40px;
+                    min-height: 40px;
                     padding-left:33px;
                     font-weight: 700;
                 }
@@ -872,7 +872,7 @@
                         font-weight: 400;
                         color: #333;
                         padding:0;
-                        height: 40px;
+                        min-height: 40px;
                     }
                 }
                 li:last-child{
@@ -906,7 +906,7 @@
         top: 90px;
     }
     .docMainWrapper > *:first-child{
-        flex: 0 0 360px;
+        flex: 0 0 380px;
     }
     &.separateOnPageNav .toc{
         width: 360px;

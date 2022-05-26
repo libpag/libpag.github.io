@@ -16,8 +16,11 @@ var trigger = false;
 var skipping = false;
 var isWeChat = false;
 
-window.onload = () => {
+window.onload = async () => {
     fitFrame();
+    if(location.pathname.indexOf('/player') == 0){
+        initPlayer();
+    }
 }
 
 window.onresize = () => {
@@ -254,6 +257,9 @@ docReady(()=>{
         if (isMobile()) {
             document.getElementById('faq').style= `width: inherit; margin: 0`;
             document.getElementsByClassName('docMainWrapper')[0].style.width = `${window.innerWidth}px`;
+        } else {
+            // FAQ更换为侧边栏模式后，需要去除该行
+            document.getElementsByClassName('docMainWrapper')[0].style = 'position: relative; top: 20px; left: 50%; margin-left: -350px; padding-bottom: 360px;'
         }
     }
     if(pathname.indexOf('/docs/pdf') == 0){
@@ -511,5 +517,59 @@ function fitFrame() {
             return;
         }
         iframe.style = `width: ${width}px; height: ${height}px; background-color: white; padding: 80px 160px 0 160px; position: fixed; top: 0; left: 0; z-index: 9999`;
+    }
+}
+
+async function initPlayer() {
+    // 实例化 PAG
+    let PAG = await window.libpag.PAGInit();
+    let pagView, pagFile;
+    let input = document.getElementById('fileInput');
+    let canvas = document.getElementById('pag');
+    let slider = document.getElementById('playerSlider');
+    let progress = 1;
+    let totalFrames = 0;
+    let currentFrame = 1;
+
+    input.onchange = async () => {
+        await load(input.files[0]);
+        pagView.play();
+    }
+
+    async function load(file) {
+        if (pagView) pagView.destroy();
+        pagFile = await PAG.PAGFile.load(file);
+        pagView = await PAG.PAGView.init(pagFile, canvas);
+        pagView.setRepeatCount(0);
+
+        totalFrames = Math.floor(
+            (pagFile.duration() / 1000000) * pagFile.frameRate()
+        );
+        slider.min = 0;
+        slider.max = totalFrames
+
+        pagView.addListener('onAnimationFlushed', (e) => {
+            currentFrame = e.currentFrame % totalFrames;
+            slider.value = currentFrame;
+        });
+        slider.oninput = (e) => {
+            pagView.pause();
+            progress = e.target.value;
+            slider.value = progress;
+            updateProgress();
+        }
+        slider.onmouseup = () => {
+            pagView.play();
+        }
+    }
+
+    function updateProgress() {
+        if (pagView && progress !== currentFrame) {
+            (async () => {
+                await pagView.play();
+                pagView.setProgress(progress / totalFrames);
+                pagView.pause();
+            })();
+        }
     }
 }

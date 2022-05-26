@@ -1191,4 +1191,16 @@
         justify-content: center;
         cursor: pointer
     }
+    .playerMain {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 64px;
+    }
+    #playerSlider {
+        width: 450px;
+        height: 64px;
+        transform: scale(1.2);
+    }
 }

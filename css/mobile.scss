@@ -381,8 +381,17 @@
     .docs-prevnext{
         display: flex;
         justify-content: flex-end ;
+        position: fixed;
+        bottom: rem(24);
+        right: rem(24);
+        margin: 0;
         .docs-prev{
             margin-right: rem(22);
+            background: #fff;
+            width: rem(40);
+            height: rem(40);
+            border-radius: rem(40);
+            box-shadow: 2px 2px 6px #d2d2d2;
             >span:nth-child(1){ //箭头
                 color: transparent;
             }
@@ -404,6 +413,11 @@
             }
         }
         .docs-next{
+            background: #fff;
+            width: rem(40);
+            height: rem(40);
+            border-radius: rem(40);
+            box-shadow: 2px 2px 6px #d2d2d2;
             >span:nth-child(1){ //文字
                 display: none;
             }
@@ -438,8 +452,9 @@
         background-size: contain;
         background-image: url('https://pag.qq.com/website/static/img/new_official_website/category_menu.png');
         background-position: rem(2) rem(4);
-        position: absolute;
+        position: fixed;
         left: rem(24);
+        bottom: rem(24);
     }
     //users.html
     .navPusher{
@@ -628,7 +643,7 @@
         z-index: 9;
     }
     .hljs{
-        padding-left: 0.24rem;
+        padding: 0.25rem !important;
     }
     @keyframes tipArrow {
         100% {opacity: 0; bottom: rem(84)};

@@ -58,8 +58,8 @@
 <h3><a class="anchor" aria-hidden="true" id="概述"></a><a href="#概述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>概述</h3>
 <p>PAG同时支持「矢量预合成」直接导出和「BMP预合成」导出两种方式。</p>
 <ul>
-<li><p>「BMP预合成」：在导出时会自动进行截图方式导出，因此可以支持所有的AE特性，但是文件体积较大，也无法运行时编辑内容。BMP预合成通常用于无法矢量导出的场景，例如用了粒子效果或者第三方插件等。</p></li>
 <li><p>「矢量预合成」：导出的方式文件极小，并性能会优于BMP预合成，但仅支持部分AE特性。矢量预合成导出通常用于UI动画等对于文件大小和性能敏感，以及需要贴纸内容可编辑的场合。</p></li>
+<li><p>「BMP预合成」：可以支持所有的AE特性，但是文件体积较大，也无法运行时编辑内容。BMP预合成通常用于无法矢量导出的场景，例如用了粒子效果或者第三方插件等。</p></li>
 </ul>
 <p>为了保持动画的可编辑性，支持矢量和BMP预合成混合导出，BMP预合成可以被矢量预合成嵌套，作为它的一个图层来实现AE特效和可编辑的结合。</p>
 <blockquote>
@@ -79,8 +79,20 @@
 <h3><a class="anchor" aria-hidden="true" id="导出全矢量预合成的pag文件"></a><a href="#导出全矢量预合成的pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>导出全矢量预合成的PAG文件</h3>
 <p>点击选中需要导出的合成(Composition)，然后点击菜单“文件” -&gt; “导出” -&gt; “PAG File...”，选择要保存的路径即可导出。<br/>
 导出成功后双击导出的PAG文件可以直接预览动画。</p>
-<h3><a class="anchor" aria-hidden="true" id="导出含有bmp预合成的pag文件"></a><a href="#导出含有bmp预合成的pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>导出含有BMP预合成的PAG文件</h3>
+<h3><a class="anchor" aria-hidden="true" id="导出全bmp预合成的pag文件"></a><a href="#导出全bmp预合成的pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>导出全BMP预合成的PAG文件</h3>
+<p>点击菜单“文件” -&gt; “导出” -&gt; “PAG File(Panel)...”,选择需要导出的合成，点击设置按钮，在根节点勾选BMP，导出全BMP预合成的PAG文件</p>
+<p><img
+src='https://pag.qq.com/website/static/img/docs/bmpGuide/bmp_guide_5.png'
+style='width: 620px; margin: 32px 0 48px 0'
+/></p>
+<h3><a class="anchor" aria-hidden="true" id="导出矢量和bmp预合成混合的pag文件"></a><a href="#导出矢量和bmp预合成混合的pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>导出矢量和BMP预合成混合的PAG文件</h3>
+<p>点击菜单“文件” -&gt; “导出” -&gt; “PAG File(Panel)...”,选择需要导出的合成，点击设置按钮，在子节点勾选BMP，导出矢量和BMP预合成混合的PAG文件</p>
+<p><strong>注意</strong>：如果图层需要替换文本或占位图，该图层不能包含在勾选的合成或预合成中</p>
+<p><img
+src='https://pag.qq.com/website/static/img/docs/bmpGuide/bmp_guide_5_1.png'
+style='width: 620px; margin: 32px 0 48px 0'
+/></p>
 <blockquote>
-<p>具体参考<a href="/docs/ae-bmp-guide.html"><font color=blue>BMP预合成导出</font></a></p>
+<p>关于BMP预合成导出的更多详细信息，参考<a href="/docs/ae-bmp-guide.html"><font color=blue>BMP预合成导出</font></a></p>
 </blockquote>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/install-PAGExporter.html"><span class="arrow-prev">← </span><span>安装 AE 导出插件</span></a><a class="docs-next button" href="/docs/ae-support.html"><span>AE功能支持列表</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright">Copyright © 2022 pag.io</section></footer></div></body></html>

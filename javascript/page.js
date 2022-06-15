@@ -18,9 +18,10 @@ var isWeChat = false;
 
 window.onload = async () => {
     fitFrame();
-    if(location.pathname.indexOf('/player') == 0){
+    if(location.pathname.indexOf('/player.html') == 0){
         initPlayer();
     }
+    dragFile();
 }
 
 window.onresize = () => {
@@ -520,56 +521,68 @@ function fitFrame() {
     }
 }
 
-async function initPlayer() {
+const initPlayer =async () => {
     // 实例化 PAG
     let PAG = await window.libpag.PAGInit();
-    let pagView, pagFile;
-    let input = document.getElementById('fileInput');
-    let canvas = document.getElementById('pag');
-    let slider = document.getElementById('playerSlider');
-    let progress = 1;
-    let totalFrames = 0;
-    let currentFrame = 1;
+    let pagView;
+    let pagFile;
+    let hadPAGView = false;
+    
+    const canvas = document.getElementById('player-canvas');
 
-    input.onchange = async () => {
-        await load(input.files[0]);
-        pagView.play();
+    if(isMobile()) {
+        canvas.width = 300;
+        canvas.height = 300;
     }
 
-    async function load(file) {
+    document.getElementById('player-btn-load').addEventListener('click', () =>{
+        document.getElementById('player-input-load').click();
+    })
+
+    document.getElementById('player-input-load').addEventListener('change', (event) =>{
+        if(event.target) {
+            createPAGView(event.target.files[0]);
+        }
+    })
+    canvas.addEventListener('drop', (ev) => {
+        ev.preventDefault();
+        if (ev.dataTransfer.files.length>0) {
+            if(/\.(pag)$/.test(ev.dataTransfer.files[0].name)) {
+                createPAGView(ev.dataTransfer.files[0]);
+                return;
+            }
+        } 
+        alert('请放入PAG文件进行预览！');
+    })
+    canvas.addEventListener('dragover', (ev) => {
+        ev.preventDefault();
+    })
+
+    const createPAGView = async (file) => {
+        // 清除提示
+        if (!hadPAGView) {
+            hadPAGView = true;
+            document.getElementById('player-tip').style.display = 'none'
+        }
+        // 清除上一个 PAG 相关的资源
+        if (pagFile) pagFile.destroy();
         if (pagView) pagView.destroy();
+
         pagFile = await PAG.PAGFile.load(file);
         pagView = await PAG.PAGView.init(pagFile, canvas);
         pagView.setRepeatCount(0);
-
-        totalFrames = Math.floor(
-            (pagFile.duration() / 1000000) * pagFile.frameRate()
-        );
-        slider.min = 0;
-        slider.max = totalFrames
-
-        pagView.addListener('onAnimationFlushed', (e) => {
-            currentFrame = e.currentFrame % totalFrames;
-            slider.value = currentFrame;
-        });
-        slider.oninput = (e) => {
-            pagView.pause();
-            progress = e.target.value;
-            slider.value = progress;
-            updateProgress();
-        }
-        slider.onmouseup = () => {
-            pagView.play();
-        }
-    }
-
-    function updateProgress() {
-        if (pagView && progress !== currentFrame) {
-            (async () => {
-                await pagView.play();
-                pagView.setProgress(progress / totalFrames);
-                pagView.pause();
-            })();
-        }
+        await pagView.play();
     }
 }
+
+const dragFile = () => {
+    document.addEventListener('dragenter', (ev) => {
+        if (location.pathname.indexOf('/player.html') == 0) return;
+        if (ev.dataTransfer.items.length> 0) {
+            if (ev.dataTransfer.items[0].kind === 'file') {
+                location.replace(`${location.origin}/player.html`); 
+            }
+        }
+    })
+}
+

@@ -1191,16 +1191,46 @@
         justify-content: center;
         cursor: pointer
     }
-    .playerMain {
+    .pag-player {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 64px;
-    }
-    #playerSlider {
-        width: 450px;
-        height: 64px;
-        transform: scale(1.2);
+        padding-top: 48px;
+        .box {
+            position: relative;
+            width: 720px;
+            margin: 16px auto 0;
+            border: 1px #dae1e7 solid;
+            border-radius: 8px;
+            -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .06);
+            box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .06);
+        }
+        .tip {
+            position: absolute;
+            top: 172px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            text-align: center;
+            pointer-events: none;
+            .text {
+                margin-top: 24px;
+            }
+        }
+        .canvas {
+            display: block;
+            margin: 24px auto 0;
+            border: 1px #dae1e7 dashed;
+        }
+        .btn-load {
+            display: block;
+            margin: 16px auto 16px;
+            font-size: 14px;
+            border: 0;
+            background: transparent;
+            color: #005AD9;
+            cursor: pointer;
+        }
+        .input-load {
+            display: none;
+        }
     }
 }

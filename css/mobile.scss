@@ -671,4 +671,46 @@
     #iframe {
         padding: 0 !important;
     }
+    .pag-player {
+        width: 100%;
+        height: calc(100vh - 170px - 100px);
+        .box {
+            position: relative;
+            width: 360px;
+            margin: 0 auto 70px;
+            border: 1px #dae1e7 solid;
+            border-radius: 8px;
+            -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .06);
+            box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .06);
+        }
+        .tip {
+            position: absolute;
+            top: 88px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            text-align: center;
+            pointer-events: none;
+            .text {
+                margin-top: 24px;
+            }
+        }
+        .canvas {
+            display: block;
+            margin: 24px auto 0;
+            border: 1px #dae1e7 dashed;
+        }
+        .btn-load {
+            display: block;
+            margin: 16px auto 16px;
+            font-size: 14px;
+            border: 0;
+            background: transparent;
+            color: #005AD9;
+            cursor: pointer;
+        }
+        .input-load {
+            display: none;
+        }
+    }
 }

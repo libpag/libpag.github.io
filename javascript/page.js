@@ -59,7 +59,7 @@ function appendMeta(){
 function appendSEOMeta() {
     var SEOMeta = document.createElement('meta');
     SEOMeta.name = 'keywords';
-    SEOMeta.content = '腾讯,PAG,动画工作流,AE,PAGViewer,PAGExporter,Tencent';
+    SEOMeta.content = '腾讯,PAG,动效工作流,AE,PAGViewer,PAGExporter,Tencent';
     document.getElementsByTagName('head')[0].appendChild(SEOMeta);
 }
 function appendAegis() {

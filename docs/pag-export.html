@@ -58,10 +58,10 @@
 <h3><a class="anchor" aria-hidden="true" id="概述"></a><a href="#概述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>概述</h3>
 <p>PAG同时支持「矢量预合成」直接导出和「BMP预合成」导出两种方式。</p>
 <ul>
-<li><p>「矢量预合成」：导出的方式文件极小，并性能会优于BMP预合成，但仅支持部分AE特性。矢量预合成导出通常用于UI动画等对于文件大小和性能敏感，以及需要贴纸内容可编辑的场合。</p></li>
+<li><p>「矢量预合成」：导出的方式文件极小，并性能会优于BMP预合成，但仅支持部分AE特性。矢量预合成导出通常用于UI动效等对于文件大小和性能敏感，以及需要贴纸内容可编辑的场合。</p></li>
 <li><p>「BMP预合成」：可以支持所有的AE特性，但是文件体积较大，也无法运行时编辑内容。BMP预合成通常用于无法矢量导出的场景，例如用了粒子效果或者第三方插件等。</p></li>
 </ul>
-<p>为了保持动画的可编辑性，支持矢量和BMP预合成混合导出，BMP预合成可以被矢量预合成嵌套，作为它的一个图层来实现AE特效和可编辑的结合。</p>
+<p>为了保持动效的可编辑性，支持矢量和BMP预合成混合导出，BMP预合成可以被矢量预合成嵌套，作为它的一个图层来实现AE特效和可编辑的结合。</p>
 <blockquote>
 <p>矢量预合成支持的具体特性列表可以参考：<a href="/docs/ae-support.html"><font color=blue>AE功能支持列表</font></a> </br></p>
 </blockquote>
@@ -78,7 +78,7 @@
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="导出全矢量预合成的pag文件"></a><a href="#导出全矢量预合成的pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>导出全矢量预合成的PAG文件</h3>
 <p>点击选中需要导出的合成(Composition)，然后点击菜单“文件” -&gt; “导出” -&gt; “PAG File...”，选择要保存的路径即可导出。<br/>
-导出成功后双击导出的PAG文件可以直接预览动画。</p>
+导出成功后双击导出的PAG文件可以直接预览动效。</p>
 <h3><a class="anchor" aria-hidden="true" id="导出全bmp预合成的pag文件"></a><a href="#导出全bmp预合成的pag文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>导出全BMP预合成的PAG文件</h3>
 <p>点击菜单“文件” -&gt; “导出” -&gt; “PAG File(Panel)...”,选择需要导出的合成，点击设置按钮，在根节点勾选BMP，导出全BMP预合成的PAG文件</p>
 <p><img

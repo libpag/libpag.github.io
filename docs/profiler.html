@@ -56,8 +56,8 @@
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">使用性能监测面板</h1></header><article><div><span><hr>
 <h2><a class="anchor" aria-hidden="true" id="概述"></a><a href="#概述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>概述</h2>
-<p>PAG贴纸现在支持两类导出方式，BMP预合成导出和矢量导出。BMP预合成导出方式能支持所有的AE特性，但是文件较大，通常应用在视频编辑中或对动画特效有特别要求的场合。矢量导出方式仅能支持部分AE特性，但是文件极小，通常应用在UI上或者需要内容可编辑的场合。<br/></p>
-<p>在性能方面，BMP预合成导出方式产生的PAG贴纸，渲染性能上增加了额外的图片或视频解码耗时，整体耗时相比矢量导出会更高一些，并且只跟BMP预合成导出的尺寸有关系。 矢量导出方式可以做到文件大小和性能都到非常优化的极限状态，但是跟设计师具体制作一个动画的方式有很大联系，需要设计师花费额外的工作量去调优。<br/></p>
+<p>PAG贴纸现在支持两类导出方式，BMP预合成导出和矢量导出。BMP预合成导出方式能支持所有的AE特性，但是文件较大，通常应用在视频编辑中或对动效特效有特别要求的场合。矢量导出方式仅能支持部分AE特性，但是文件极小，通常应用在UI上或者需要内容可编辑的场合。<br/></p>
+<p>在性能方面，BMP预合成导出方式产生的PAG贴纸，渲染性能上增加了额外的图片或视频解码耗时，整体耗时相比矢量导出会更高一些，并且只跟BMP预合成导出的尺寸有关系。 矢量导出方式可以做到文件大小和性能都到非常优化的极限状态，但是跟设计师具体制作一个动效的方式有很大联系，需要设计师花费额外的工作量去调优。<br/></p>
 <p>PAGViewer上的Profiler性能检测面板可以很直观地帮助设计师进行性能调优。预览贴纸时按下键盘上的P键即可呼出该面板，再次按下关闭面板。<br/><br/></p>
 <p><img 
   src='https://pag.qq.com/website/static/img/docs/profiler.jpg' 
@@ -67,7 +67,7 @@
 <p><br/></p>
 <h2><a class="anchor" aria-hidden="true" id="面板上各种信息的含义"></a><a href="#面板上各种信息的含义" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>面板上各种信息的含义</h2>
 <pre><code class="hljs">FrameRate : 播放帧率，每秒刷新画面的次数。
-Duration : 动画时长， 单位为 s(秒)、m(分钟)、h(小时) 。
+Duration : 动效时长， 单位为 s(秒)、m(分钟)、h(小时) 。
 Graphics : 贴纸播放时占用的显存大小，单位同上。
 Videos : 贴纸内采用视频格式的「BMP预合成」的数量。
 TagLevel : 贴纸内包含的最高的Tag等级。

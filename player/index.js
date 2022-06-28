@@ -52,6 +52,7 @@ window.onload = async () => {
     if (!hadPAGView) {
       hadPAGView = true;
       document.getElementById("player-tip").style.display = "none";
+      document.getElementById("player").classList.add("zebra");
     }
     // 清除上一个 PAG 相关的资源
     if (pagFile) pagFile.destroy();

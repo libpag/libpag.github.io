@@ -18,11 +18,7 @@ var isWeChat = false;
 
 window.onload = async () => {
     fitFrame();
-    if(location.pathname.indexOf('/player.html') == 0){
-        await initPlayer();
-    }
     addDragListener();
-    addDropListener();
 }
 
 window.onresize = () => {
@@ -39,8 +35,6 @@ let isIOS = () => {
     // return /(iPhone\sOS)\s([\d_]+)/i.test(navigator.userAgent);
 };
 let isMobile = () => isAndroid() || isIOS();
-let isFirefox = () => /Firefox/i.test(navigator.userAgent)
-
 
 let isIndexPage = () => location.pathname === '/' || location.pathname === '/index' || location.pathname === ''
 function docReady(fn) {
@@ -525,93 +519,12 @@ function fitFrame() {
     }
 }
 
-let PAG;
-let pagView;
-let pagFile;
-let hadPAGView = false;
-let playerCanvas;
-
-const initPlayer =async () => {
-    // 实例化 PAG
-    PAG = await window.libpag.PAGInit();
-    if (isFirefox) {
-        if (await loadJS("https://cdn.jsdelivr.net/npm/ffavc@latest/lib/ffavc.min.js")) {
-            const FFAVC = await window.ffavc.FFAVCInit();
-            const ffavcDecoderFactory = new FFAVC.FFAVCDecoderFactory();
-            PAG.registerSoftwareDecoderFactory(ffavcDecoderFactory);
-        } else {
-            console.error('Load ffavc fail!');
-        }
-    }
-
-    playerCanvas = document.getElementById('player-canvas');
-    if(isMobile()) {
-        playerCanvas.width = 300;
-        playerCanvas.height = 300;
-    }
-    document.getElementById('player-btn-load').addEventListener('click', () =>{
-        document.getElementById('player-input-load').click();
-    })
-    document.getElementById('player-input-load').addEventListener('change', (event) =>{
-        if(event.target) {
-            createPAGView(event.target.files[0]);
-        }
-    })
-}
-
-const createPAGView = async (file) => {
-    // 清除提示
-    if (!hadPAGView) {
-        hadPAGView = true;
-        document.getElementById('player-tip').style.display = 'none'
-    }
-    // 清除上一个 PAG 相关的资源
-    if (pagFile) pagFile.destroy();
-    if (pagView) pagView.destroy();
-    pagFile = await PAG.PAGFile.load(file);
-    pagView = await PAG.PAGView.init(pagFile, playerCanvas);
-    pagView.setRepeatCount(0);
-    await pagView.play();
-}
-
 const addDragListener = () => {
     document.addEventListener('dragenter', (ev) => {
-        if (location.pathname.indexOf('/player.html') == 0) return;
         if (ev.dataTransfer.items.length> 0) {
             if (ev.dataTransfer.items[0].kind === 'file') {
-                location.replace(`${location.origin}/player.html`); 
+                location.replace(`${location.origin}/player/index.html`); 
             }
         }
     })
 }
-
-const addDropListener = () => {
-    document.addEventListener('dragover', (ev) => {
-        ev.preventDefault();
-    })
-    document.addEventListener('drop', (ev) => {
-        ev.preventDefault();
-        if (ev.dataTransfer.files.length>0) {
-            if(/\.(pag)$/.test(ev.dataTransfer.files[0].name)) {
-                createPAGView(ev.dataTransfer.files[0]);
-                return;
-            }
-        } 
-        alert('请放入PAG文件进行预览！');
-    })
-}
-
-const loadJS = (url) => {
-    return new Promise((resolve) => {
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.onload = function () {
-          resolve(true);
-        };
-        script.onerror = function () {
-          resolve(true);
-        };
-        script.src = url;
-        document.getElementsByTagName("head")[0].appendChild(script);
-    });
-};

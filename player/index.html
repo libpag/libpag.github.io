@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+      }
+
+      .player {
+        position: relative;
+        width: calc(100vw - 48px);
+        height: calc(100vh - 48px);
+        border: 1px #bac0c6 dashed;
+      }
+
+      .tip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #757575;
+        pointer-events: none;
+      }
+
+      .tip .text {
+        margin-top: 24px;
+      }
+
+      .canvas {
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .upload {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="player" id="player">
+      <div class="tip" id="player-tip">
+        <img
+          src="https://pag.qq.com/website/static/img/new_official_website/logo_l.png"
+          alt="icon"
+          width="64"
+          height="64"
+        />
+        <p class="text">
+          拖动PAG文件到这里<br />
+          或者<br />
+          点击上传
+        </p>
+      </div>
+      <canvas class="canvas" id="player-canvas"></canvas>
+    </div>
+    <input type="file" class="upload" id="upload" accept=".pag" />
+    <script src="https://cdn.jsdelivr.net/npm/libpag@latest/lib/libpag.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

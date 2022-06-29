@@ -523,7 +523,7 @@ const addDragListener = () => {
     document.addEventListener('dragenter', (ev) => {
         if (ev.dataTransfer.items.length> 0) {
             if (ev.dataTransfer.items[0].kind === 'file') {
-                location.replace(`${location.origin}/player/index.html`); 
+                location.replace(`${location.origin}/player.html`); 
             }
         }
     })

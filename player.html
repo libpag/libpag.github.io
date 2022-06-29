@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>在线预览</title>
+    <link rel="icon" href="https://pag.qq.com/website/static/img/favicon/favicon.ico" type="image/x-icon"/>
     <style>
       body {
         margin: 0;
-        padding: 24px;
+        overflow: hidden;
       }
 
       .player {
         position: relative;
-        width: calc(100vw - 48px);
-        height: calc(100vh - 48px);
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .box {
+        position: absolute;
+        width: 960px;
+        height: 540px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         border: 1px #bac0c6 dashed;
+        pointer-events: none;
       }
 
       .zebra {
@@ -35,6 +46,7 @@
         transform: translate(-50%, -50%);
         text-align: center;
         color: #757575;
+        font-size: 24px;
         pointer-events: none;
       }
 
@@ -55,23 +67,23 @@
   </head>
   <body>
     <div class="player" id="player">
-      <div class="tip" id="player-tip">
-        <img
-          src="https://pag.qq.com/website/static/img/new_official_website/logo_l.png"
-          alt="icon"
-          width="64"
-          height="64"
-        />
-        <p class="text">
-          拖动PAG文件到这里<br />
-          或者<br />
-          点击上传
-        </p>
+      <div class="box" id="box">
+        <div class="tip" id="tip">
+          <img
+            src="https://pag.qq.com/website/static/img/pagfile.png"
+            alt="icon"
+            width="128"
+            height="128"
+          />
+          <p class="text">
+            点击或拖拽一个PAG文件到此处预览
+          </p>
+        </div>
       </div>
-      <canvas class="canvas" id="player-canvas"></canvas>
+      <canvas class="canvas" id="canvas"></canvas>
+      <input type="file" class="upload" id="upload" accept=".pag" />
     </div>
-    <input type="file" class="upload" id="upload" accept=".pag" />
     <script src="https://cdn.jsdelivr.net/npm/libpag@latest/lib/libpag.min.js"></script>
-    <script src="./index.js"></script>
+    <script src="./player.js"></script>
   </body>
 </html>

@@ -271,7 +271,7 @@ docReady(()=>{
             axios({
               method: 'get',
               url:
-                '../file/pag_codec.pdf',
+                '../file/pag_codec_V1.1.2.pdf',
               responseType: 'blob',
             }).then(function (response) {
               const link = document.createElement('a')

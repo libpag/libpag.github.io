@@ -72,23 +72,28 @@
 </tbody>
 </table>
 <p>更多版本的兼容工作正在进行中</p>
-<p><strong>因受到微信浏览器“用户与页面交互之后才可以使用 Video 标签进行视频播放”规则的限制，PAG Web SDK 无法在微信浏览器下自动播放带有视频序列帧的 PAG 动效，建议设计师使用矢量导出。如果有在微信浏览器中自动播放带视频序列帧的需求可以注册软件解码器来解决，可在下文中得到答案。</strong></p>
+<p><strong>以上的兼容表仅代表可以运行的兼容性。对于有移动端接入需要的用户，需要阅读一下这篇<a href="https://github.com/Tencent/libpag/blob/main/web/doc/compatibility.md">兼容性情况</a>的文章</strong></p>
 <h2><a class="anchor" aria-hidden="true" id="快速开始"></a><a href="#快速开始" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>快速开始</h2>
+<p>PAG Web 端，由 libpag.js + libpag.wasm 文件组成。</p>
 <h3><a class="anchor" aria-hidden="true" id="browser推荐"></a><a href="#browser推荐" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Browser（推荐）</h3>
+<p>直接使用 <code>&lt;script&gt;</code> 引入，<code>libpag</code> 会被注册为一个全局变量</p>
+<p>对于生产环境我们推荐使用一个明确的版本号，以避免新版本带来不可预期的影响</p>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/libpag@4.0.5-release.18/lib/libpag.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>你可以在公共 CDN <a href="https://cdn.jsdelivr.net/npm/libpag/">cdn.jsdelivr.net/npm/libpag/</a> 浏览 NPM 包内的内容，同时你也可以使用 <code>@latest</code> 将版本指定为最新的稳定版。</p>
+<p>也可以使用其他同步 NPM 的公共 CDN 如 <a href="https://unpkg.com/libpag@latest/lib/libpag.min.js">unpkg</a></p>
 <pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"canvas"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"pag"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/libpag@latest/lib/libpag.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/libpag@latest/lib/libpag.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   <span class="hljs-built_in">window</span>.onload = <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-comment">// 实例化 PAG</span>
     <span class="hljs-keyword">const</span> PAG = <span class="hljs-keyword">await</span> <span class="hljs-built_in">window</span>.libpag.PAGInit();
     <span class="hljs-comment">// 获取 PAG 素材数据</span>
-    <span class="hljs-keyword">const</span> buffer = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">"https://pag.io/file/like.pag"</span>).then(
-      <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> response.arrayBuffer()
-    );
+    <span class="hljs-keyword">const</span> buffer = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">'https://pag.io/file/like.pag'</span>).then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> response.arrayBuffer());
     <span class="hljs-comment">// 加载 PAG 素材为 PAGFile 对象</span>
     <span class="hljs-keyword">const</span> pagFile = <span class="hljs-keyword">await</span> PAG.PAGFile.load(buffer);
     <span class="hljs-comment">// 将画布尺寸设置为 PAGFile的尺寸</span>
-    <span class="hljs-keyword">const</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"pag"</span>);
+    <span class="hljs-keyword">const</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'pag'</span>);
     canvas.width = pagFile.width();
     canvas.height = pagFile.height();
     <span class="hljs-comment">// 实例化 PAGView 对象</span>
@@ -99,9 +104,7 @@
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 <p>调用 libpag.js 上的 <code>PAGInit()</code> 方法时，默认会加载 libpag.js 同一目录下的 libpag.wasm 文件。如果你希望把 libpag.wasm 放在其他目录下，则可以使用 <code>locateFile</code> 将 libpag.wasm 的路径返回给 <code>PAGInit()</code> 方法。如下</p>
-<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> PAG = <span class="hljs-keyword">await</span> <span class="hljs-built_in">window</span>.libpag.PAGInit({
-  <span class="hljs-attr">locateFile</span>: <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> <span class="hljs-string">"https://pag.io/file/"</span> + file,
-});
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> PAG = <span class="hljs-keyword">await</span> <span class="hljs-built_in">window</span>.libpag.PAGInit({ <span class="hljs-attr">locateFile</span>: <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> <span class="hljs-string">'https://pag.io/file/'</span> + file });
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="es-module"></a><a href="#es-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES Module</h3>
 <pre><code class="hljs css language-bash">$ npm i libpag

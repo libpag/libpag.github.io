@@ -11,7 +11,7 @@ window.onload = async () => {
   if (/Firefox/i.test(navigator.userAgent)) {
     console.log("Firefox 浏览器加载 ffavc 软件解码器");
     if (
-      await loadJS("https://cdn.jsdelivr.net/npm/ffavc@latest/lib/ffavc.min.js")
+      await loadJS("https://unpkg.com/ffavc@latest/lib/ffavc.min.js")
     ) {
       const FFAVC = await window.ffavc.FFAVCInit();
       const ffavcDecoderFactory = new FFAVC.FFAVCDecoderFactory();
